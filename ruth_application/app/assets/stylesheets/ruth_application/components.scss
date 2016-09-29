@@ -1,0 +1,77 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Components                                                                */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Avatar list                                                               */
+/*****************************************************************************/
+
+.avatar-list {
+	list-style: none;
+	padding: 0;
+
+	.avatar-list-item {
+		display: inline-block;
+		width: 32px;
+		margin-right: 5px;
+		vertical-align: top;
+
+		img {
+			width: 100%;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Panel link list                                                           */
+/*****************************************************************************/
+
+.panel-link-list {
+	a {
+		margin-left: 5px;
+	}
+}
+
+/*****************************************************************************/
+/* Panel profile                                                             */
+/*****************************************************************************/
+
+.panel-profile {
+
+	.panel-heading {
+		height: 150px;
+		background-size: cover;
+	}
+
+	.panel-profile-img {
+		max-width: 100px;
+		margin-top: -70px;
+		margin-bottom: 5px;
+		border: 3px solid #fff;
+		border-radius: 100%;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	}
+
+	.panel-title {
+		margin-top: 0;
+		margin-bottom: 5px;
+		font-size: 16px;
+		color: inherit;
+
+		& > a,
+		& > small,
+		& > .small,
+		& > small > a,
+		& > .small > a {
+			color: inherit;
+		}
+	}
+
+}
