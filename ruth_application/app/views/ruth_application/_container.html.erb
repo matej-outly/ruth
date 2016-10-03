@@ -1,0 +1,62 @@
+<% 
+	top_partial = render(partial: "ruth_application/container_column", locals: { id: :top }).trim(" \t\n").html_safe
+	left_partial = render(partial: "ruth_application/container_column", locals: { id: :left }).trim(" \t\n").html_safe
+	right_partial = render(partial: "ruth_application/container_column", locals: { id: :right }).trim(" \t\n").html_safe 
+	main_column_push = 0
+	main_column_pull = 0
+	left_column_pull = RuthApplication.layout_mirror_collapsed ? 9 : 0
+	right_column_push = RuthApplication.layout_mirror_collapsed ? 9 : 0
+	main_column_width = 6
+	if left_partial.blank?
+		main_column_width += 3 
+		main_column_pull += 3 if RuthApplication.layout_mirror_collapsed
+	end
+	if right_partial.blank?
+		main_column_width += 3
+		main_column_push += 3 if RuthApplication.layout_mirror_collapsed
+	end
+%>
+<div class="container-fluid">
+	<div class="row">
+		<% if !top_partial.blank? %>
+			<div class="col-md-12">
+				<%= top_partial %>
+			</div>
+		<% end %>
+
+		<% if RuthApplication.layout_mirror_collapsed %>
+			<% if !right_partial.blank? %>
+				<div class="col-md-3 <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %>">
+					<%= right_partial %>
+				</div>
+			<% end %>
+		<% else %>
+			<% if !left_partial.blank? %>
+				<div class="col-md-3 <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %>">
+					<%= left_partial %>
+				</div>
+			<% end %>
+		<% end %>
+		
+		<div class="p-b col-md-<%= main_column_width %> <%= main_column_push > 0 ? "col-md-push-" + main_column_push.to_s : "" %> <%= main_column_pull > 0 ? "col-md-pull-" + main_column_pull.to_s : "" %>">
+			<%= render layout: "ruth_application/container_column", locals: { id: :main } do %>
+				<%= yield %>
+			<% end %>
+		</div>
+		
+		<% if RuthApplication.layout_mirror_collapsed %>
+			<% if !left_partial.blank? %>
+				<div class="col-md-3 <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %>">
+					<%= left_partial %>
+				</div>
+			<% end %>
+		<% else %>
+			<% if !right_partial.blank? %>
+				<div class="col-md-3 <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %>">
+					<%= right_partial %>
+				</div>
+			<% end %>
+		<% end %>
+
+	</div>
+</div>

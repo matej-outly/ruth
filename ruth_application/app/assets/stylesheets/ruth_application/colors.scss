@@ -1,0 +1,66 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Colors                                                                    */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Variables                                                                 */
+/*****************************************************************************/
+
+$color-yellow: #fff178 !default;
+$color-yellow-pale: #fcf8e3 !default;
+$color-yellow-dark: #e0c900 !default;
+
+$color-red: #ca3838 !default;
+$color-red-pale: #f2dede !default;
+$color-red-dark: #ca3838 !default;
+
+$color-green: #58c026 !default;
+$color-green-pale: #dff0d8 !default;
+$color-green-dark: #58c026 !default;
+
+/*****************************************************************************/
+/* Panels                                                                    */
+/*****************************************************************************/
+
+.panel {
+	&.color-yellow { 
+		border-color: $color-yellow-dark;
+		background-color: $color-yellow-pale;
+		.panel-footer {
+			border-top-color: $color-yellow-dark;
+		}
+	}
+	&.color-red { 
+		border-color: $color-red-dark;
+		background-color: $color-red-pale;
+		.panel-footer {
+			border-top-color: $color-red-dark;
+		}
+	}
+	&.color-green { 
+		border-color: $color-green-dark; 
+		background-color: $color-green-pale;
+		.panel-footer {
+			border-top-color: $color-green-dark;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Labels                                                                    */
+/*****************************************************************************/
+
+.label {
+	&.label-default {
+		&.color-yellow { background: $color-yellow; border-color: $color-yellow-dark; color: inherit; }
+		&.color-red { background: $color-red; border-color: $color-red-dark; color: white; }
+		&.color-green { background: $color-green; border-color: $color-green-dark; color: white; }
+	}
+}

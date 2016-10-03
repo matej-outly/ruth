@@ -1,0 +1,6 @@
+<% if lookup_context.find_all("ruth_application/components/_#{component.to_s}").any? %>
+	<% partial = render(partial: "ruth_application/components/#{component.to_s}", locals: { align: defined?(align) ? align : nil }).trim(" \t\n").html_safe %>
+	<% if !partial.blank? %>
+		<%= partial %>
+	<% end %>
+<% end %>

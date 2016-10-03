@@ -1,0 +1,11 @@
+<% RuthApplication.layout[:navbar][id].each do |component| %>
+	<% 
+		if component.is_a?(Hash) && !component.empty?
+			align = component.values.first
+			component = component.keys.first
+		else
+			align = :left
+		end
+	%>
+	<%= render partial: "ruth_application/component", locals: { component: component, align: align } %>
+<% end %>

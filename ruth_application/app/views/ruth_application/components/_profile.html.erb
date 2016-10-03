@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+	<div class="panel panel-default panel-profile">
+		<div class="panel-heading" style="background-image: url(<%= image_url("profile.jpg") %>);"></div>
+		<div class="panel-body text-center">
+			<img class="panel-profile-img" src="<%= image_url("avatar.png") %>">
+			<h5 class="panel-title"><%= current_user.name_formatted %></h5>
+			<p class="m-b-md"><%= current_user.email %></p>
+			<%= rug_button(rug_icon("user") + t("headers.ric_auth.public_accounts.edit").capitalize, ric_auth_public.edit_account_path, style: "default", size: "sm") %>
+			<%= rug_button(rug_icon("lock") + t("headers.ric_auth.public_passwords.edit").capitalize, ric_auth_public.edit_password_path, style: "default", size: "sm") %>
+		</div>
+	</div>
+<% else %>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h5 class="m-a-0"><%= t("devise.action.sign_in") %> <small>· <%= link_to t("devise.action.reset_password").capitalize, ric_devise.new_user_password_path %></small></h5>
+		</div>
+		<%= rug_form_for(RicUser.user_model.new, url: ric_devise.new_user_session_path) do |f| %>
+			<div class="panel-body">
+				<%= f.text_input_row :email %>
+				<%= f.text_input_row :password, :password_field %>
+				<%= f.checkbox_row :remember_me %>
+			</div>
+			<div class="panel-footer">
+				<%= f.primary_button_row :submit, label: t("devise.action.sign_in") %>
+			</div>
+		<% end %>
+	</div>
+<% end %>

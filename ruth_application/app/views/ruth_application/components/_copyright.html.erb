@@ -1,0 +1,11 @@
+<div class="panel panel-default panel-link-list">
+	<div class="panel-body">
+		&copy; <%= (Date.today.year.to_i == RuthApplication.copyright_year ? RuthApplication.copyright_year.to_s : "#{RuthApplication.copyright_year.to_s}-#{Date.today.year}") %> <%= link_to RuthApplication.copyright_name, RuthApplication.copyright_url %>
+		<% if !RuthApplication.copyright_menu.empty? %>
+			<span class="m-x-sm">·</span>
+			<% RuthApplication.copyright_menu.each do |item| %>
+				<%= link_to item[:label], item[:url] %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

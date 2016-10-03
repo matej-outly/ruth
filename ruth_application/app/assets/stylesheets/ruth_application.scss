@@ -1,16 +1,41 @@
 /*****************************************************************************/
-/* Libraries                                                                 */
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* RuthApplication theme                                                     */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
 /*****************************************************************************/
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/*****************************************************************************/
+/* Vendor libraries                                                          */
+/*****************************************************************************/
+
+@import "clockpicker/clockpicker";
+
+@import "pikaday/pikaday";
+@import "pikaday/pikaday.bootstrap";
+
+@import "tokeninput/tokeninput";
+@import "tokeninput/tokeninput.facebook";
+@import "tokeninput/tokeninput.bootstrap";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+/* Last to override all styles possibly defined in vendor libraries */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*****************************************************************************/
+/* Theme files                                                               */
+/*****************************************************************************/
 
 @import "ruth_application/variables";
-
 @import "ruth_application/utilities";
-
+@import "ruth_application/typography";
+@import "ruth_application/layout";
+@import "ruth_application/colors";
 @import "ruth_application/components";

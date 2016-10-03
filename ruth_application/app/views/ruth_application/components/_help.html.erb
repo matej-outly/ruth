@@ -1,0 +1,14 @@
+<% controller_path = controller.class.name.to_snake[0..-12] %>
+<% if lookup_context.find_all("#{controller_path}/_help").any? %>
+	<% partial = render(partial: "#{controller_path}/help") %>
+	<% if !strip_tags(partial).trim(" \t\n").blank? %>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h5 class="m-a-0"><%= t("headers.ruth_application.help") %></h5>
+			</div>
+			<div class="panel-body">
+				<%= partial %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

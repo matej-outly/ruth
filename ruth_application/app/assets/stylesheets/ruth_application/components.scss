@@ -10,6 +10,31 @@
 /*****************************************************************************/
 
 /*****************************************************************************/
+/* Navbar                                                                    */
+/*****************************************************************************/
+
+.navbar {
+	.navbar-brand {
+		height: 50px;
+		img {
+			margin: -15px 0 -15px 0;
+			height: 50px;
+		}
+	}
+	.navbar-collapse {
+		margin-right: 15px;
+		@media (max-width: $screen-sm) {
+			margin-right: -15px;
+		}
+	}
+	.navbar-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+
+/*****************************************************************************/
 /* Avatar list                                                               */
 /*****************************************************************************/
 
@@ -74,4 +99,201 @@
 		}
 	}
 
+}
+
+/*****************************************************************************/
+/* Actions list                                                              */
+/*****************************************************************************/
+
+.actions-list {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 20px;
+
+	li {
+		position: relative;
+		display: block;
+		margin-bottom: -1px;
+		background-color: #ffffff;
+		border: 1px solid $grid-color;
+
+		&:first-child {
+			border-top-right-radius: 4px;
+			border-top-left-radius: 4px;
+		}
+		&:last-child {
+			border-bottom-right-radius: 4px;
+			border-bottom-left-radius: 4px;
+		}
+
+		a {
+			display: block;
+			padding: 10px 15px;
+			color: inherit;
+
+			&:hover, &:focus {
+				text-decoration: none;
+				background-color: #ebebeb;
+			}
+		}
+	}
+
+}
+
+/*****************************************************************************/
+/* Checkbox / Radiobutton                                                    */
+/*****************************************************************************/
+
+.checkbox-no-bootstrap {
+
+	label {
+		font-weight: normal;
+	}
+
+	label input[type=checkbox] {
+		display: none;
+		& + span {
+			height: 18px;
+			width: 18px;
+			border: 1px solid $grid-color;
+			background: white;
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			top: 1px;
+		}
+		&:checked + span:before {
+			display: block;
+			text-align: center;
+			line-height: 16px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-family: 'Glyphicons Halflings';
+			content: "\e013";
+			font-size: 70%;
+		}
+	}
+}
+
+.radio-no-bootstrap {
+
+	label {
+		font-weight: normal;
+	}
+
+	label input[type=radio] {
+		display: none;
+		& + span {
+			height: 18px;
+			width: 18px;
+			border: 1px solid $grid-color;
+			background: white;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			top: 1px;
+		}
+		&:checked + span:before {
+			display: block;
+			text-align: center;
+			line-height: 18px;
+			position: absolute;
+			top: -3px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-family: 'Glyphicons Halflings';
+			content: "\25cf";
+			font-size: 110%;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Tabs                                                                      */
+/*****************************************************************************/
+
+.nav-tabs {
+	margin-bottom: $spacer;
+	border-bottom: 1px solid $grid-color;
+
+	> li.active {
+		> a, > a:hover, > a:focus {
+			background: $content-color;
+			border: 1px solid $grid-color;
+			border-bottom-color: transparent;
+			color: $text-color;
+		}
+	}
+	> li {
+		> a:hover, > a:focus {
+			border: 1px solid transparent;
+			border-bottom-color: $grid-color;
+			background: transparent;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Table                                                                     */
+/*****************************************************************************/
+
+.table {
+	> thead {
+		> tr {
+			> th {
+				background-color: $content-color;
+				border-bottom: 1px solid $grid-color;
+			}
+		}
+	}
+}
+
+table.show-table {
+	> tbody {
+		> tr {
+			> td:nth-child(1) {
+				width: 20%;
+			}
+			> td:nth-child(2) {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Breadcrumb                                                                */
+/*****************************************************************************/
+
+.breadcrumb {
+	padding: 0;
+	background-color: transparent;
+	border-radius: 0;
+
+	> .active {
+		/*color: $text-color;*/
+	}
+
+	> li + li::before {
+		/*color: $link-color;*/
+		padding-left: 8px;
+	}
+}
+
+/*****************************************************************************/
+/* Page header                                                               */
+/*****************************************************************************/
+
+.page-header {
+	border-bottom: 1px solid $grid-color;
 }
