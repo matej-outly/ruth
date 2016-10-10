@@ -252,13 +252,16 @@
 		> tr {
 			> th {
 				background-color: $content-color;
-				border-bottom: 1px solid $grid-color;
+				border-bottom: 1px solid $dark-grid-color;
 			}
 		}
 	}
 }
 
-table.show-table {
+.table.show-table {
+	border: 1px solid $grid-color;
+	background-color: white;
+
 	> tbody {
 		> tr {
 			> td:nth-child(1) {
@@ -269,6 +272,126 @@ table.show-table {
 			}
 		}
 	}
+}
+
+.table.index-table {
+	tr {
+		
+		td {
+			transition: background-color 0.3s;
+			min-height: 40px;
+			&.action {
+				text-align: right;
+				@media (max-width: $screen-xs-max) {
+					width: auto;
+				}
+				& + .action {
+					padding-left: 0;
+					@media (max-width: $screen-xs-max) {
+						padding-left: 45%;
+					}
+				}
+				&.standard {
+					width: 1px; /* Minimal width */
+				}
+			}
+		}
+
+		&:hover td {
+			background-color: white;
+		}
+
+		&.possibility {
+			color: silver;
+		}
+		
+	}
+}
+
+.show-table-heading,
+.index-table-heading,
+.picture-index-table-heading {
+	border-bottom: 1px solid $grid-color;
+	margin-bottom: $spacer-y;
+	padding-bottom: $spacer-y;
+	@include clearfix;
+
+	&.empty {
+		border-bottom: none;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		width: 50%;
+		float: left;
+		margin-top: 0;
+		margin-bottom: 0;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			margin-bottom: $spacer-y;
+			text-align: center;
+		}
+	}
+
+	.actions {
+		float: right;
+		width: 50%;
+		text-align: right;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
+	}
+}
+
+.show-table-footer,
+.index-table-footer,
+.picture-index-table-footer {
+	border-top: 1px solid $grid-color;
+	margin-top: $spacer-y;
+	padding-top: $spacer-y;
+	padding-bottom: $spacer-y;
+	@include clearfix;
+
+	&.empty {
+		border-top: none;
+		margin-top: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	@media (max-width: $screen-sm) {
+		text-align: center;
+	}
+
+	.pagination {
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+
+	.summary {
+		float: right;
+		width: 20%;
+		text-align: right;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
+	}
+}
+
+.index-table-heading {
+	margin-bottom: ($spacer-y / 2);
+}
+
+.index-table-empty,
+.picture-index-table-empty {
+	color: $pale-text-color;
+	text-align: center;
 }
 
 /*****************************************************************************/
@@ -296,4 +419,31 @@ table.show-table {
 
 .page-header {
 	border-bottom: 1px solid $grid-color;
+}
+
+/*****************************************************************************/
+/* Sortable                                                                  */
+/*****************************************************************************/
+
+.index-table {
+	tr.placeholder {
+		td {
+			background: #337ab7;
+		}
+	}
+}
+
+.picture-index-table {
+
+	.moving-handle {
+		position: absolute;
+		top: 12px;
+		left: 26px;
+	}
+}
+
+.dragged {
+	position: absolute;
+	opacity: 0.5;
+	z-index: 2000;
 }

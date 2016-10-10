@@ -17,3 +17,9 @@
 
 // Tokeninput
 //= require tokeninput/tokeninput
+
+// Dropzone
+//= require dropzone/dropzone
+
+// Sortable
+//= require sortable/sortable
