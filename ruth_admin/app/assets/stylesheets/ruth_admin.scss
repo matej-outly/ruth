@@ -1,0 +1,48 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* RuthAdmin theme                                                           */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Vendor libraries                                                          */
+/*****************************************************************************/
+
+/* ClockPicker */
+@import "clockpicker/clockpicker";
+
+/* Pikaday */
+@import "pikaday/pikaday";
+@import "pikaday/pikaday.bootstrap";
+
+/* Tokeninput */
+@import "tokeninput/tokeninput";
+@import "tokeninput/tokeninput.facebook";
+@import "tokeninput/tokeninput.bootstrap";
+
+/* Dropzone */
+@import "dropzone/dropzone";
+@import "dropzone/dropzone.bootstrap";
+
+/* Font Awesone */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+/* Bootstrap - Last to override all styles possibly defined in vendor libraries */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*****************************************************************************/
+/* Theme files                                                               */
+/*****************************************************************************/
+
+@import "ruth_admin/utilities";
+@import "ruth_admin/typography";
+@import "ruth_admin/layout";
+@import "ruth_admin/colors";
+@import "ruth_admin/components";

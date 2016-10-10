@@ -1,0 +1,353 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Components                                                                */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Page header                                                               */
+/*****************************************************************************/
+
+.page-header {
+	border-bottom: 1px solid #dddddd;
+	margin-top: 20px;
+}
+
+/*****************************************************************************/
+/* Forms                                                                     */
+/*****************************************************************************/
+
+.input-group {
+	margin-bottom: 5px;
+}
+
+.form-inline {
+	label {
+		margin-right: 5px;
+	}
+	.form-group {
+		margin-right: 10px;
+	}
+	.btn-primary {
+		float: right;
+	}
+
+	@media (max-width: $screen-xs-max) {
+		label {
+			margin-right: 0;
+		}
+		.form-group {
+			margin-right: 0;
+		}
+		.btn-primary {
+			float: none;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Checkbox / Radiobutton                                                    */
+/*****************************************************************************/
+
+.checkbox-no-bootstrap {
+
+	label {
+		font-weight: normal;
+	}
+
+	label input[type=checkbox] {
+		display: none;
+		& + span {
+			height: 18px;
+			width: 18px;
+			border: 1px solid #dddddd;
+			background: white;
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			top: 1px;
+		}
+		&:checked + span:before {
+			display: block;
+			text-align: center;
+			line-height: 16px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-family: 'Glyphicons Halflings';
+			content: "\e013";
+			font-size: 70%;
+		}
+	}
+}
+
+.radio-no-bootstrap {
+
+	label {
+		font-weight: normal;
+	}
+
+	label input[type=radio] {
+		display: none;
+		& + span {
+			height: 18px;
+			width: 18px;
+			border: 1px solid #dddddd;
+			background: white;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			top: 1px;
+		}
+		&:checked + span:before {
+			display: block;
+			text-align: center;
+			line-height: 18px;
+			position: absolute;
+			top: -3px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-family: 'Glyphicons Halflings';
+			content: "\25cf";
+			font-size: 110%;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Tables                                                                    */
+/*****************************************************************************/
+
+.table {
+	margin-bottom: 10px;
+
+	> thead {
+		> tr {
+			> th {
+				border-bottom: 2px solid #222222;
+			}
+		}
+	}
+
+	&.timetable {
+		tbody {
+			tr {
+				td {
+					font-size: 90%;
+				}
+			}
+		}
+	}
+
+	&.show-table {
+		border: 1px solid #dddddd;
+		background-color: white;
+
+		tr {
+			td:first-child {
+				width: 30%;
+				font-weight: normal;
+				& + td {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+	
+	&.index-table {
+
+		.sorting {
+			font-weight: normal;
+			&:before {
+				content: "("
+			}
+			&:after {
+				content: ")"
+			}
+		}
+
+		tr {
+			
+			td {
+				transition: background-color 0.3s;
+				min-height: 40px;
+				&.action {
+					text-align: right;
+					@media (max-width: $screen-xs-max) {
+						width: auto;
+					}
+					& + .action {
+						padding-left: 0;
+						@media (max-width: $screen-xs-max) {
+							padding-left: 45%;
+						}
+					}
+					&.standard {
+						width: 1px; /* Minimal width */
+					}
+				}
+			}
+
+			&:hover td {
+				background-color: white;
+			}
+
+			&.possibility {
+				color: silver;
+			}
+			
+		}
+	}
+}
+
+.show-table-heading,
+.index-table-heading,
+.picture-index-table-heading {
+	border-bottom: 1px solid #dddddd;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	@include clearfix;
+
+	&.empty {
+		border-bottom: none;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		width: 50%;
+		float: left;
+		margin-top: 0;
+		margin-bottom: 0;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			margin-bottom: 15px;
+			text-align: center;
+		}
+	}
+
+	.actions {
+		float: right;
+		width: 50%;
+		text-align: right;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
+	}
+}
+
+.show-table-footer,
+.index-table-footer,
+.picture-index-table-footer {
+	border-top: 1px solid #dddddd;
+	margin-top: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	@include clearfix;
+
+	&.empty {
+		border-top: none;
+		margin-top: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	@media (max-width: $screen-sm) {
+		text-align: center;
+	}
+
+	.pagination {
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+
+	.summary {
+		float: right;
+		width: 20%;
+		text-align: right;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
+	}
+}
+
+.index-table-heading {
+	margin-bottom: 7px;
+}
+
+.index-table-empty,
+.picture-index-table-empty {
+	color: silver;
+	text-align: center;
+}
+
+/*****************************************************************************/
+/* Sortable                                                                  */
+/*****************************************************************************/
+
+tr.placeholder {
+	td {
+		background: #337ab7;
+	}
+}
+
+.dragged {
+	position: absolute;
+	opacity: 0.5;
+	z-index: 2000;
+}
+
+/*****************************************************************************/
+/* Maps                                                                      */
+/*****************************************************************************/
+
+.mapbox {
+	width: 100%; 
+	height: 400px; 
+	margin-bottom: 20px;
+	img { max-width: none; }
+}
+
+/*****************************************************************************/
+/* Tabs                                                                      */
+/*****************************************************************************/
+
+.nav-tabs {
+	margin-bottom: 15px;
+
+	> li {
+		margin-bottom: -2px;
+		&.active {
+			> a, a:hover, > a:focus {
+				background-color: #efefef;
+			}
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Breadcrumb                                                                */
+/*****************************************************************************/
+
+.breadcrumb {
+	background-color: white;
+}

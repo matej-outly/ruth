@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= render partial: "ruth_admin/title" %></title>
+	<%= stylesheet_link_tag    RuthAdmin.css_layout, media: 'all' %>
+	<%= javascript_include_tag RuthAdmin.js_layout %>
+	<%= csrf_meta_tags %>
+</head>
+<body class="admin">
+	<%= render partial: "ruth_admin/header" %>
+	<%= render layout: "ruth_admin/content" do %>
+		<%= yield %>
+	<% end %>
+	<%= render partial: "ruth_admin/footer" %>
+</body>
+</html>

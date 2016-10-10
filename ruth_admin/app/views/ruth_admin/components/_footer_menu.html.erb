@@ -1,0 +1,9 @@
+<ul class="menu">
+	<% RuthAdmin.footer_menu.each do |item| %>
+		<%
+			url = item[:url] ? eval("(#{item[:url]}).to_s") : "#"
+			label = I18n.t(item[:label], default: item[:label])
+		%>
+		<li><%= link_to label, url %></li>
+	<% end %>
+</ul>
