@@ -6,6 +6,12 @@ cs:
       filters: Filtry
       actions: Akce
       related: Související
+
+      pages:
+        terms: "Podmínky užití"
+        accessibility: "Prohlášení o přístupnosti"
+        help: "Pomoc při potížích"
+        contact: "Kontakt"
   
   views:
     languages:

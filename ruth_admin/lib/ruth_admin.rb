@@ -84,20 +84,20 @@ module RuthAdmin
 	mattr_accessor :footer_menu
 	@@footer_menu = [
 		{
-			label: "headers.ric_admin.public.terms",
-			url: "ric_admin.public_terms_path"
+			label: "headers.ruth_admin.pages.terms",
+			url: "ruth_admin.pages_terms_path"
 		},
 		{
-			label: "headers.ric_admin.public.accessibility",
-			url: "ric_admin.public_accessibility_path"
+			label: "headers.ruth_admin.pages.accessibility",
+			url: "ruth_admin.pages_accessibility_path"
 		},
 		{
-			label: "headers.ric_admin.public.help",
-			url: "ric_admin.public_help_path"
+			label: "headers.ruth_admin.pages.help",
+			url: "ruth_admin.pages_help_path"
 		},
 		{
-			label: "headers.ric_admin.public.contact",
-			url: "ric_admin.public_contact_path"
+			label: "headers.ruth_admin.pages.contact",
+			url: "ruth_admin.pages_contact_path"
 		}
 	]
 
