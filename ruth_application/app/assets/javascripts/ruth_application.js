@@ -23,3 +23,7 @@
 
 // Sortable
 //= require sortable/sortable
+
+// Fancybox
+//= require fancybox/fancybox
+//= require ruth_admin/fancybox
