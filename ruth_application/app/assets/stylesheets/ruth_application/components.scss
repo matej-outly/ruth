@@ -308,6 +308,16 @@
 	}
 }
 
+.index-table-empty,
+.picture-index-table-empty {
+	color: $pale-text-color;
+	text-align: center;
+}
+
+/*****************************************************************************/
+/* Table heading                                                             */
+/*****************************************************************************/
+
 .show-table-heading,
 .index-table-heading,
 .picture-index-table-heading {
@@ -347,6 +357,14 @@
 	}
 }
 
+.index-table-heading {
+	margin-bottom: ($spacer-y / 2);
+}
+
+/*****************************************************************************/
+/* Table footer                                                              */
+/*****************************************************************************/
+
 .show-table-footer,
 .index-table-footer,
 .picture-index-table-footer {
@@ -385,13 +403,7 @@
 }
 
 .index-table-heading {
-	margin-bottom: ($spacer-y / 2);
-}
-
-.index-table-empty,
-.picture-index-table-empty {
-	color: $pale-text-color;
-	text-align: center;
+	margin-top: -10px;
 }
 
 /*****************************************************************************/
