@@ -158,7 +158,7 @@
 		}
 	}
 	
-	&.index-table {
+	&.index-table, &.hierarchical-index-table {
 
 		.sorting {
 			font-weight: normal;
@@ -171,7 +171,6 @@
 		}
 
 		tr {
-			
 			td {
 				transition: background-color 0.3s;
 				min-height: 40px;
@@ -202,6 +201,45 @@
 			
 		}
 	}
+
+	&.hierarchical-index-table {
+		
+		tr {
+			
+			&.possibility {
+				td.nesting {
+					background-image: none;
+				}
+			}
+
+			td {
+
+				&.nesting { 
+					padding: 0; 
+					width: 40px; 
+					background-repeat: 
+					no-repeat; 
+					background-position: 0 -8px; 
+				}
+				&.nesting:first-child { 
+					padding-left: 20px; 
+					width: 60px; 
+					background-position: 20px -8px; 
+				}
+				&.leaf { 
+					/*padding-left: 20px;*/
+					font-weight: bold;
+				}
+				&.nesting-0-none { background-image: image-url("ruth_admin/nesting_0_none.png"); }
+				&.nesting-0-inner { background-image: image-url("ruth_admin/nesting_0_inner.png"); }
+				&.nesting-1-sibling { background-image: image-url("ruth_admin/nesting_1_sibling.png"); }
+				&.nesting-1-nosibling { background-image: image-url("ruth_admin/nesting_1_nosibling.png"); }
+				&.nesting-2-child { background-image: image-url("ruth_admin/nesting_2_child.png"); }
+				&.nesting-2-nochild { background-image: image-url("ruth_admin/nesting_2_nochild.png"); }
+			}
+		}
+	}
+
 }
 
 table.timetable {
@@ -215,6 +253,7 @@ table.timetable {
 }
 
 .index-table-empty,
+.hierarchical-index-table-empty,
 .picture-index-table-empty {
 	padding: 5px;
 	color: silver;
@@ -227,6 +266,7 @@ table.timetable {
 
 .show-table-heading,
 .index-table-heading,
+.hierarchical-index-table-heading,
 .picture-index-table-heading {
 	border-bottom: 1px solid #dddddd;
 	margin-bottom: 15px;
@@ -264,7 +304,7 @@ table.timetable {
 	}
 }
 
-.index-table-heading {
+.index-table-heading, .hierarchical-index-table-heading {
 	margin-bottom: 7px;
 }
 
@@ -274,6 +314,7 @@ table.timetable {
 
 .show-table-footer,
 .index-table-footer,
+.hierarchical-index-table-footer,
 .picture-index-table-footer {
 	border-top: 1px solid #dddddd;
 	margin-top: 15px;
@@ -309,7 +350,7 @@ table.timetable {
 	}
 }
 
-.index-table-footer {
+.index-table-footer, .hierarchical-index-table-footer {
 	margin-top: -10px;
 }
 
