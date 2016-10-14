@@ -50,6 +50,12 @@
 	}
 }
 
+.form-group {
+	.item {
+		margin-bottom: 5px;
+	}
+}
+
 /*****************************************************************************/
 /* Checkbox / Radiobutton                                                    */
 /*****************************************************************************/
@@ -252,6 +258,7 @@ table.timetable {
 	}
 }
 
+.show-table-empty,
 .index-table-empty,
 .hierarchical-index-table-empty,
 .picture-index-table-empty {

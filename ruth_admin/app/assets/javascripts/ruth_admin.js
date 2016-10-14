@@ -27,3 +27,6 @@
 // Fancybox
 //= require fancybox/fancybox
 //= require ruth_admin/fancybox
+
+// jCrop
+//= require jcrop/jcrop
