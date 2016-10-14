@@ -371,6 +371,14 @@ tr.placeholder {
 	}
 }
 
+.picture-index-table {
+	.moving-handle {
+		position: absolute;
+		top: 12px;
+		left: 26px;
+	}
+}
+
 .dragged {
 	position: absolute;
 	opacity: 0.5;
