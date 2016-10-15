@@ -104,7 +104,7 @@ cs:
       create: "nová položka"
       edit: "upravit"
       update: "upravit"
-      duplicate: "duplicate"
+      duplicate: "duplikovat"
       destroy: "smazat"
       resend: "znovu odeslat"
       hide: "skrýt"
