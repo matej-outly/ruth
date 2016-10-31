@@ -30,3 +30,6 @@
 
 // jCrop
 //= require jcrop/jcrop
+
+// Cycle2
+//= require cycle2/cycle2
