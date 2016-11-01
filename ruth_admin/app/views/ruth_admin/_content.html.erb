@@ -24,7 +24,7 @@
 
 	if lookup_context.find_all("#{controller_path}/_filters").any?
 		filters_partial = render(partial: "#{controller_path}/filters").trim
-		if !strip_tags(filters_partial).blank?
+		if !filters_partial.blank?
 			show_filters = true
 		end
 	end
