@@ -4,6 +4,7 @@
 
 // Bootstrap
 //= require bootstrap-sprockets
+//= require ruth_admin/tooltip
 
 // Moment
 //= require moment

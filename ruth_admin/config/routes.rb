@@ -10,8 +10,4 @@
 # *****************************************************************************
 
 RuthAdmin::Engine.routes.draw do
-	get "pages/terms"
-	get "pages/accessibility"
-	get "pages/help"
-	get "pages/contact"
 end

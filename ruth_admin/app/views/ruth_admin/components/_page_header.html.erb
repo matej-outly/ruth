@@ -1,6 +1,0 @@
-<% controller_path = controller.class.name.to_snake[0..-12] %>
-<% if (defined?(header)) %>
-	<div class="page-header m-t-0"><h1 class="m-t-0"><%= header %></h1></div>
-<% else %>
-	<div class="page-header m-t-0"><h1 class="m-t-0"><%= t("headers.#{controller_path.gsub('/', '.')}.#{action_name}") %></h1></div>
-<% end %>

@@ -1,0 +1,126 @@
+<%
+def is_item_shown?(item)
+	if item[:show_if]
+		return eval("(#{item[:show_if]}) == true")
+	else
+		return true
+	end
+end
+def is_item_active?(item)
+	if item[:active_if]
+		active = eval("(#{item[:active_if]}) == true")
+	elsif item[:dropdown]
+		active = false
+		item[:dropdown].each do |dropdown_item|
+			active ||= eval("(#{dropdown_item[:active_if]}) == true")
+		end
+	else
+		active = false
+	end
+	return active
+end
+def item_url(item)
+	if item[:url]
+		return eval("(#{item[:url]}).to_s")
+	else
+		return "#"
+	end
+end
+def item_label(item)
+	return I18n.t(item[:label], default: item[:label])
+end
+def render_first_level_item(t, item, dropdown = "")
+	result = ""
+	if is_item_shown?(item)
+		if item[:type] == "delimiter"
+			# nothing to render ...
+		else
+			url = item_url(item)
+			label = item_label(item)
+			active = is_item_active?(item)
+			result += "<li class=\"#{(active ? "active" : "")}\">"
+			if !dropdown.blank?
+				result += link_to(url, class: "dropdown-toggle", data: { toggle: "dropdown" }, aria: {haspopup: "true", expanded: "false" }, role: "button") do
+					result = ""
+					result += RugBuilder::IconBuilder.render(item[:icon]) if item[:icon]
+					result += "<small class=\"iconav-nav-label visible-xs-block\">#{label}</small>"
+					result.html_safe
+				end
+			else
+				result += link_to(url, data: { toggle: "tooltip", placement: "right", container: "body" }, title: label) do
+					result = ""
+					result += RugBuilder::IconBuilder.render(item[:icon]) if item[:icon]
+					result += "<small class=\"iconav-nav-label visible-xs-block\">#{label}</small>"
+					result.html_safe
+				end
+			end
+			result += dropdown
+			result += "</li>\n"
+		end
+	end
+	return result.html_safe
+end
+def render_second_level_item(t, item)
+	result = ""
+	if is_item_shown?(item)
+		if item[:type] == "delimiter"
+			result += "<li role=\"separator\" class=\"divider\"></li>\n"
+		else
+			url = item_url(item)
+			label = item_label(item)
+			active = is_item_active?(item)
+			result += "<li class=\"#{(active ? "active" : "")}\">"
+			result += link_to(url) do
+				result = ""
+				result += RugBuilder::IconBuilder.render(item[:icon]) if item[:icon]
+				result += label
+				result.html_safe
+			end
+			result += "</li>\n"
+		end
+	end
+	return result.html_safe
+end
+%>
+
+<nav class="iconav">
+	<a class="iconav-brand" href="<%= eval("(#{RuthAdmin.header_logo_url}).to_s") %>">
+		<% if !RuthAdmin.header_logo_image.nil? %>
+			<%= image_tag(image_url(RuthAdmin.header_logo_image)) %>
+		<% elsif !RuthAdmin.header_logo_icon.nil? %>
+			<%= rug_icon(RuthAdmin.header_logo_icon.to_s, class: "iconav-brand-icon") %>
+		<% end %>
+	</a>
+	<div class="iconav-slider">
+		<ul class="nav iconav-nav">
+			<% RuthAdmin.header_menu.each do |item| %>
+				<% dropdown = "" %>
+				<% if item[:dropdown] %>
+					<% dropdown += "<ul class=\"dropdown-menu\">\n" %>
+					<% item[:dropdown].each do |dropdown_item| %>
+						<% dropdown += render_second_level_item(self, dropdown_item) %>
+					<% end %>
+					<% dropdown += "</ul>\n" %>
+				<% end %>
+				<%= render_first_level_item(self, item, dropdown) %>
+			<% end %>
+
+			<% if user_signed_in? %>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+						<%= rug_icon("cog") %>
+						<small class="iconav-nav-label visible-xs-block"><%= current_user.email %></small>
+					</a>
+					<ul class="dropdown-menu">
+						<%= render partial: "ric_auth/shared/admin/account/menu" %>
+						<li role="separator" class="divider"></li>
+						<%#= render partial: "ric_auth/shared/admin/session/menu_signed" %>
+						<%= render partial: "devise/shared/menu_signed" %>
+					</ul>
+				</li>
+			<% end %>
+
+		</ul>
+	</div>
+</nav>
+

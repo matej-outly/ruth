@@ -1,0 +1,62 @@
+<% controller_path = controller.class.name.to_snake[0..-12] %>
+<%
+	show_actions = false
+	show_filters = false
+	
+	if lookup_context.find_all("#{controller_path}/_actions").any?
+		actions_partial = render(partial: "#{controller_path}/actions", 
+			locals: { 
+				options: { 
+					format: :btn,
+					class: "dashhead-toolbar-item", 
+					btn_style: "primary-outline",
+					labels: false
+				} 
+			}
+		).trim
+		if !actions_partial.blank?
+			show_actions = true
+		end
+	end
+
+	if lookup_context.find_all("#{controller_path}/_filters").any?
+		filters_partial = render(partial: "#{controller_path}/filters").trim
+		if !filters_partial.blank?
+			show_filters = true
+		end
+	end
+
+	title = t("headers.#{controller_path.gsub('/', '.')}.#{action_name}", default: "")
+	subtitle = t("headers.#{controller_path.gsub('/', '.')}.index", default: "")
+	show_subtitle = !subtitle.blank? && (title != subtitle)
+%>
+
+<%= breadcrumbs style: :bootstrap if defined?(breadcrumbs) %>
+
+<div class="dashhead">
+	<div class="dashhead-titles">
+		<h2 class="dashhead-title"><%= title %></h2>
+		<% if show_subtitle %>
+			<h6 class="dashhead-subtitle"><%= subtitle %></h6>
+		<% end %>
+		
+	</div>
+	<% if show_actions %>
+		<div class="dashhead-toolbar">
+			<%= actions_partial.html_safe %>
+		</div>
+	<% end %>
+</div>
+<hr/>
+
+<%= render partial: "ruth_admin/flash" %>
+
+<% if show_filters %>
+	<div class="filters panel panel-default">
+		<div class="panel-body">
+			<%= filters_partial.html_safe %>
+		</div>
+	</div>
+<% end %>
+
+<%= yield %>

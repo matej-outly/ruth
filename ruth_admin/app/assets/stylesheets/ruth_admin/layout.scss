@@ -10,283 +10,46 @@
 /*****************************************************************************/
 
 body {
-	padding-top: 50px;
-	background: #406178;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #cfd2da;
+	background-color: #252830;
 }
 
-/*****************************************************************************/
-/* Navbar                                                                    */
-/*****************************************************************************/
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
 
-.navbar {
-	border: none;
-
-	.navbar-brand {
-		img {
-			margin: -15px;
-			height: 50px;
-		}
-		margin-right: 20px;
+	@media (min-width: $screen-sm-min) {
+		padding-top: 50px;
+		padding-bottom: 50px;
 	}
+}
 
-	.navbar-right {
-		margin-right: -5px;
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	@media (min-width: $screen-sm-min) {
+		width: 750px;
 	}
-
-	.navbar-nav {
-		> li {
-			&.active {
-				> a {
-					background-image: image-url("ruth_admin/header_focus.svg");
-					background-size: 36px 20px;
-					background-repeat: no-repeat;
-					background-position: center bottom -1px;
-
-					@media (max-width: $screen-xs-max) {
-						background-image: none;
-					}
-				}
-			}
-
-			> a {
-				padding-left: 20px;
-				padding-right: 20px;
-			}
-		}
-
-		.glyphicon, .fa {
-			margin-right: 5px;
-		}
+	@media (min-width: $screen-md-min) {
+		width: 970px;
+	}
+	@media (min-width: $screen-lg-min) {
+		width: 1170px;
 	}
 }
 
 /*****************************************************************************/
-/* Side and components in context of side                                    */
+/* Layouts                                                                   */
 /*****************************************************************************/
 
-.side {
-	background: #ffffff;
-	padding: 20px 20px 70px 20px;
-
-	&.pad-header {
-		padding-top: 113px;
-	}
-
-	h2 {
-		padding-bottom: 0.3em;
-	}
-
-	ul.menu {
-		list-style: none;
-		padding: 0;
-		margin-left: -20px;
-		margin-right: -20px;
-
-		[class^="icon-"] a:before, 
-		[class*=" icon-"] a:before {
-			position: static;
-			margin-right: 10px;
-		} 
-		[class^="icon-"] a:after, 
-		[class*=" icon-"] a:after {
-			position: static;
-			margin-left: 10px;
-		}
-
-		li {
-			padding: 0;
-			transition: 0.1s;
-
-			a {
-				position: relative;
-				display: block;
-				min-height: 36px;
-				padding-top: 8px;
-				padding-bottom: 6px;
-				margin-right: 20px;
-				border-bottom: 1px solid #dddddd;
-
-				.glyphicon, .fa {
-					margin-left: 5px;
-					margin-right: 5px;
-				}
-			}
-
-			&.active {
-				background-image: image-url("ruth_admin/side_focus.svg");
-				background-size: 20px 36px;
-				background-repeat: no-repeat;
-				background-position: left top;
-			}
-
-			&:hover {
-				background-color: #626262;
-
-				> a {
-					border-bottom: 1px solid transparent;
-					color: white;
-					text-decoration: none;
-					transition: 0.1s;
-				}
-			}
-			
-		}
-
-		ul {
-			margin: 0;
-			background-color: white;
-		}
-
-		/* Item left margin */
-		a { margin-left: 20px; }
-		ul a { margin-left: 40px; }
-		ul ul a { margin-left: 60px; }
-		ul ul ul a { margin-left: 80px; }
-	}
-
-	@media (max-width: $screen-xs-max) {
-		padding: 30px 45px 50px 45px;
-		
-		.menu {
-			li {
-				&.active {
-					background-image: none;
-					background-repeat: no-repeat;
-					background-position: left top;	
-				}
-			}
+.layout-iconav {
+	@media (min-width: $screen-sm-min) {
+		> .container {
+			padding-left: 85px;
 		}
 	}
 }
-
-/*****************************************************************************/
-/* Content and components in context of content                              */
-/*****************************************************************************/
-
-.content {
-	background: #efefef;
-	padding: 20px 20px 50px 20px;
-}
-
-/*****************************************************************************/
-/* Content layouts                                                           */
-/*****************************************************************************/
-
-.content-layout {
-	@include clearfix();
-	min-height: 700px;
-}
-
-.content-layout.with-right-side {
-	display: table;
-	width: 100%;
-	height: 700px; /* must be set for display:table elements, work as min-height */
-
-	.content {
-		display: table-cell;
-		vertical-align: top;
-	}
-
-	.side {
-		display: table-cell;	
-		vertical-align: top;
-		width: 25%;
-	}
-
-	@media (max-width: $screen-xs-max) {
-		.content {
-			display: block;
-		}
-
-		.side {
-			display: block;
-			width: 100%;
-		}
-	}
-}
-
-.content-layout.full-width {
-	.content {
-		min-height: 700px;
-	}
-}
-
-/*****************************************************************************/
-/* Footer                                                                    */
-/*****************************************************************************/
-
-.footer { 
-	color: #ffffff;
-	background: #406178 image-url("ruth_admin/footer_bg.png") repeat-x left top;
-	font-size: 90%; 
-	padding: 20px 0; 
-
-	a {
-		color: #ffffff;
-		font-weight: 600;
-	}
-
-	.menu {
-		text-align: center;
-		margin: 25px 0;
-
-		li {
-			display: inline-block;
-			vertical-align: top; 
-			margin-right: 10px;
-			a { margin-right: 15px;	}
-			&:after { content: "|";	}
-			&:last-child {
-				margin-right: 0;
-				a { margin-right: 0; }
-				&:after { content: "";}
-			}
-		}
-	}
-
-	.copy {
-		text-align: center;
-		margin: 15px 0;
-		font-size: 80%; 
-		
-		li {
-			display: inline-block;
-			vertical-align: top; 
-			margin-right: 60px;
-			min-width: 80px;
-			line-height: 18px;
-
-			&:last-child {
-				margin-right: 0;
-			}
-
-		}
-	}
-
-	@media (max-width: $screen-xs-max) {
-		
-		ul.menu {
-			padding-left: 45px;
-
-			li {
-				display: block;
-				vertical-align: top;
-				text-align: left; 
-					
-				a { margin-right: 15px;	}
-				&:after { content: none; }
-				&:last-child {
-					margin-right: 0;
-					a { margin-right: 0; }
-					&:after { content: ""; }
-				}
-			}
-		}
-
-		.copy {
-			display: none;
-		}
-	}
-
-}
-
