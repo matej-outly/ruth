@@ -118,6 +118,9 @@
 
 	.iconav-nav-label {
 		font-size: 11px;
+		@media (min-width: $screen-sm-min) {
+			display: none;
+		}
 	}
 
 	.dropdown-menu {
@@ -160,6 +163,10 @@
 					}
 				}
 			}
+		}
+
+		.fa {
+			margin-right: 10px;
 		}
 
 		.divider {
