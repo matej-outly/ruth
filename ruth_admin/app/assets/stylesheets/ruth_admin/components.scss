@@ -26,7 +26,7 @@
 		width: 70px;
 		margin-top: 0;
 		margin-bottom: 0;
-		background-color: #30343e;
+		background-color: $nav-background-color;
 		-webkit-transform: translate3d(0, 0, 0);
 	}
 
@@ -38,13 +38,13 @@
 		padding-right: 10px;
 		font-size: 18px;
 		line-height: 1;
-		color: #6f7890;
+		color: $nav-active-text-color;
 		text-align: center;
 		border-bottom: 0;
-		background-color: #0f1013;
+		background-color: $nav-brand-color;
 		
 		&:hover {
-			color: #cfd2da;
+			color: $global-text-color;
 			text-decoration: none;
 		}
 
@@ -91,7 +91,7 @@
 				@media (min-width: $screen-sm-min) {
 					margin-left: 0;
 					> a {
-						border-top: 1px solid #252830;
+						border-top: 1px solid $global-background-color;
 						border-right: 0;
 					}
 				}
@@ -103,8 +103,8 @@
 			&.active {
 				> a {
 					&, &:focus, &:hover, &:active {
-						color: #6f7890;
-						background-color: #252830;
+						color: $nav-active-text-color;
+						background-color: $global-background-color;
 					}
 				}
 			}
@@ -144,22 +144,22 @@
 		box-shadow: none;
 		border: none;
 		
-		background-color: #434857;
+		background-color: $nav-hover-background-color;
 
 		> li {
 			> a {
 				padding: 10px 20px;
-				color: #cfd2da;
+				color: $global-text-color;
 				&:hover, &:focus {
-					background-color: #30343e;
-					color: #ffffff;
+					background-color: $nav-background-color;
+					color: $nav-hover-text-color;
 				}
 			}
 			&.active {
 				> a {
 					&, &:hover, &:focus {
-						background-color: #30343e;
-						color: #ffffff;
+						background-color: $nav-background-color;
+						color: $nav-hover-text-color;
 					}
 				}
 			}
@@ -170,7 +170,7 @@
 		}
 
 		.divider {
-			background-color: #30343e;
+			background-color: $nav-background-color;
 			margin: 0;
 		}
 	}
@@ -183,25 +183,25 @@
 .nav {
 	> li {
 		> a {
-			color: #cfd2da;
+			color: $global-text-color;
 			&:hover, &:focus {
-				background-color: #434857;
-				color: #ffffff;
+				background-color: $nav-hover-background-color;
+				color: $nav-hover-text-color;
 			}
 		}
 		&.open {
 			> a {
 				&, &:hover, &:focus {
-					background-color: #434857;
-					color: #ffffff;
-					border-color: #252830;
+					background-color: $nav-hover-background-color;
+					color: $nav-hover-text-color;
+					border-color: $global-background-color;
 				}
 			}
 		}
 		&.disabled {
 			> a {
 				&, &:hover, &:focus {
-					color: #cfd2da;
+					color: $global-text-color;
 				}
 			}
 		}
@@ -212,12 +212,12 @@
 	> li {
 		> a {
 			font-weight: 300;
-			color: #cfd2da;
+			color: $global-text-color;
 		}
 		&.active {
 			> a {
 				&, &:hover, &:focus {
-					background-color: #434857;
+					background-color: $global-grid-color;
 				}
 			}
 		}
@@ -229,7 +229,7 @@
 /*****************************************************************************/
 
 hr {
-	border-top: 1px solid #434857;
+	border-top: 1px solid $global-grid-color;
 }
 
 .hr-divider {
@@ -248,7 +248,7 @@ hr {
 		content: "";
 		width: 100%;
 		height: 1px;
-		background-color: #434857;
+		background-color: $global-grid-color;
 	}
 
 	.hr-divider-content {
@@ -257,9 +257,9 @@ hr {
 		display: inline-block;
 		padding-left: 1em;
 		padding-right: 1em;
-		color: #6f7890;
+		color: $divider-text-color;
 		vertical-align: middle;
-		background-color: #252830;
+		background-color: $global-background-color;
 	}
 
 	.hr-divider-heading {
@@ -287,120 +287,120 @@ hr {
 /*****************************************************************************/
 
 .btn-default {
-	color: #ffffff;
-	background-color: #51586a;
-	border-color: #51586a;
+	color: $button-text-color;
+	background-color: $default-color;
+	border-color: $default-color;
 	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
-		color: #ffffff;
-		background-color: darken(#51586a, 10%);
-		border-color: darken(#51586a, 5%);
+		color: $button-text-color;
+		background-color: darken($default-color, 10%);
+		border-color: darken($default-color, 5%);
 	}
 	&.disabled, &[disabled], fieldset[disabled] & {
 		&:focus, &:hover, &:active, &.active {
-			color: #ffffff;
-			background-color: darken(#51586a, 10%);
-			border-color: darken(#51586a, 5%);
+			color: $button-text-color;
+			background-color: darken($default-color, 10%);
+			border-color: darken($default-color, 5%);
 		}
 	}
 }
 
 .btn-primary {
-	color: #ffffff;
-	background-color: #1997c6;
-	border-color: #1997c6;
+	color: $button-text-color;
+	background-color: $primary-color;
+	border-color: $primary-color;
 	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
-		color: #ffffff;
-		background-color: darken(#1997c6, 10%);
-		border-color: darken(#1997c6, 5%);
+		color: $button-text-color;
+		background-color: darken($primary-color, 10%);
+		border-color: darken($primary-color, 5%);
 	}
 	&.disabled, &[disabled], fieldset[disabled] & {
 		&:focus, &:hover, &:active, &.active {
-			color: #ffffff;
-			background-color: darken(#1997c6, 10%);
-			border-color: darken(#1997c6, 5%);
+			color: $button-text-color;
+			background-color: darken($primary-color, 10%);
+			border-color: darken($primary-color, 5%);
 		}
 	}
 }
 
 .btn-success {
-	color: #ffffff;
-	background-color: #18b37e;
-	border-color: #18b37e;
+	color: $button-text-color;
+	background-color: $success-color;
+	border-color: $success-color;
 	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
-		color: #ffffff;
-		background-color: darken(#18b37e, 10%);
-		border-color: darken(#18b37e, 5%);
+		color: $button-text-color;
+		background-color: darken($success-color, 10%);
+		border-color: darken($success-color, 5%);
 	}
 	&.disabled, &[disabled], fieldset[disabled] & {
 		&:focus, &:hover, &:active, &.active {
-			color: #ffffff;
-			background-color: darken(#18b37e, 10%);
-			border-color: darken(#18b37e, 5%);
+			color: $button-text-color;
+			background-color: darken($success-color, 10%);
+			border-color: darken($success-color, 5%);
 		}
 	}
 }
 
 .btn-info {
-	color: #ffffff;
-	background-color: #8b6cff;
-	border-color: #8b6cff;
+	color: $button-text-color;
+	background-color: $info-color;
+	border-color: $info-color;
 	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
-		color: #ffffff;
-		background-color: darken(#8b6cff, 10%);
-		border-color: darken(#8b6cff, 5%);
+		color: $button-text-color;
+		background-color: darken($info-color, 10%);
+		border-color: darken($info-color, 5%);
 	}
 	&.disabled, &[disabled], fieldset[disabled] & {
 		&:focus, &:hover, &:active, &.active {
-			color: #ffffff;
-			background-color: darken(#8b6cff, 10%);
-			border-color: darken(#8b6cff, 5%);
+			color: $button-text-color;
+			background-color: darken($info-color, 10%);
+			border-color: darken($info-color, 5%);
 		}
 	}
 }
 
 .btn-warning {
-	color: #ffffff;
-	background-color: #e1d420;
-	border-color: #e1d420;
+	color: $button-text-color;
+	background-color: $warning-color;
+	border-color: $warning-color;
 	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
-		color: #ffffff;
-		background-color: darken(#e1d420, 10%);
-		border-color: darken(#e1d420, 5%);
+		color: $button-text-color;
+		background-color: darken($warning-color, 10%);
+		border-color: darken($warning-color, 5%);
 	}
 	&.disabled, &[disabled], fieldset[disabled] & {
 		&:focus, &:hover, &:active, &.active {
-			color: #ffffff;
-			background-color: darken(#e1d420, 10%);
-			border-color: darken(#e1d420, 5%);
+			color: $button-text-color;
+			background-color: darken($warning-color, 10%);
+			border-color: darken($warning-color, 5%);
 		}
 	}
 }
 
 .btn-danger {
-	color: #ffffff;
-	background-color: #e33145;
-	border-color: #e33145;
+	color: $button-text-color;
+	background-color: $danger-color;
+	border-color: $danger-color;
 	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
-		color: #ffffff;
-		background-color: darken(#e33145, 10%);
-		border-color: darken(#e33145, 5%);
+		color: $button-text-color;
+		background-color: darken($danger-color, 10%);
+		border-color: darken($danger-color, 5%);
 	}
 	&.disabled, &[disabled], fieldset[disabled] & {
 		&:focus, &:hover, &:active, &.active {
-			color: #ffffff;
-			background-color: darken(#e33145, 10%);
-			border-color: darken(#e33145, 5%);
+			color: $button-text-color;
+			background-color: darken($danger-color, 10%);
+			border-color: darken($danger-color, 5%);
 		}
 	}
 }
 
 .btn-default-outline {
-	color: #51586a;
+	color: $default-color;
 	background-color: transparent;
-	border-color: #51586a;
+	border-color: $default-color;
 	&:focus, &:hover, &:active, &.active {
-		color: #ffffff;
-		background-color: #51586a;
+		color: $button-text-color;
+		background-color: $default-color;
 		box-shadow: none;
 	}
 	&.disabled, &[disabled], fieldset[disabled] &,
@@ -408,17 +408,17 @@ hr {
 	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
 	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
 	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
-		border-color: #51586a;
+		border-color: $default-color;
 	}
 }
 
 .btn-primary-outline {
-	color: #1997c6;
+	color: $primary-color;
 	background-color: transparent;
-	border-color: #1997c6;
+	border-color: $primary-color;
 	&:focus, &:hover, &:active, &.active {
-		color: #ffffff;
-		background-color: #1997c6;
+		color: $button-text-color;
+		background-color: $primary-color;
 		box-shadow: none;
 	}
 	&.disabled, &[disabled], fieldset[disabled] &,
@@ -426,17 +426,17 @@ hr {
 	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
 	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
 	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
-		border-color: #1997c6;
+		border-color: $primary-color;
 	}
 }
 
 .btn-success-outline {
-	color: #18b37e;
+	color: $success-color;
 	background-color: transparent;
-	border-color: #18b37e;
+	border-color: $success-color;
 	&:focus, &:hover, &:active, &.active {
-		color: #ffffff;
-		background-color: #18b37e;
+		color: $button-text-color;
+		background-color: $success-color;
 		box-shadow: none;
 	}
 	&.disabled, &[disabled], fieldset[disabled] &,
@@ -444,17 +444,17 @@ hr {
 	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
 	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
 	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
-		border-color: #18b37e;
+		border-color: $success-color;
 	}
 }
 
 .btn-info-outline {
-	color: #8b6cff;
+	color: $info-color;
 	background-color: transparent;
-	border-color: #8b6cff;
+	border-color: $info-color;
 	&:focus, &:hover, &:active, &.active {
-		color: #ffffff;
-		background-color: #8b6cff;
+		color: $button-text-color;
+		background-color: $info-color;
 		box-shadow: none;
 	}
 	&.disabled, &[disabled], fieldset[disabled] &,
@@ -462,17 +462,17 @@ hr {
 	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
 	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
 	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
-		border-color: #8b6cff;
+		border-color: $info-color;
 	}
 }
 
 .btn-warning-outline {
-	color: #e1d420;
+	color: $warning-color;
 	background-color: transparent;
-	border-color: #e1d420;
+	border-color: $warning-color;
 	&:focus, &:hover, &:active, &.active {
-		color: #ffffff;
-		background-color: #e1d420;
+		color: $button-text-color;
+		background-color: $warning-color;
 		box-shadow: none;
 	}
 	&.disabled, &[disabled], fieldset[disabled] &,
@@ -480,17 +480,17 @@ hr {
 	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
 	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
 	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
-		border-color: #e1d420;
+		border-color: $warning-color;
 	}
 }
 
 .btn-danger-outline {
-	color: #e33145;
+	color: $danger-color;
 	background-color: transparent;
-	border-color: #e33145;
+	border-color: $danger-color;
 	&:focus, &:hover, &:active, &.active {
-		color: #ffffff;
-		background-color: #e33145;
+		color: $button-text-color;
+		background-color: $danger-color;
 		box-shadow: none;
 	}
 	&.disabled, &[disabled], fieldset[disabled] &,
@@ -498,7 +498,40 @@ hr {
 	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
 	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
 	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
-		border-color: #e33145;
+		border-color: $danger-color;
+	}
+}
+
+/*****************************************************************************/
+/* Alerts                                                                    */
+/*****************************************************************************/
+
+.alert {
+	.close {
+		&:hover, &:focus {
+			color: $alert-text-color;
+		}
+	}
+
+	&.alert-success {
+		background-color: $success-color;
+		border-color: $success-color;
+		color: $alert-text-color;
+	}
+	&.alert-info {
+		background-color: $info-color;
+		border-color: $info-color;
+		color: $alert-text-color;
+	}
+	&.alert-warning {
+		background-color: $warning-color;
+		border-color: $warning-color;
+		color: $alert-text-color;
+	}
+	&.alert-danger {
+		background-color: $danger-color;
+		border-color: $danger-color;
+		color: $alert-text-color;
 	}
 }
 
@@ -539,7 +572,7 @@ hr {
 		margin-bottom: 5px;
 		font-weight: normal;
 		font-size: 85%;
-		color: #434857;
+		color: $global-grid-color;
 		letter-spacing: 1px;
 		text-transform: uppercase;
 	}
@@ -571,7 +604,7 @@ hr {
 		height: 34px;
 		margin-left: 10px;
 		margin-right: 10px;
-		background-color: #434857;
+		background-color: $global-grid-color;
 	}
 
 }
@@ -611,7 +644,7 @@ hr {
 /*****************************************************************************/
 
 .page-header {
-	border-bottom: 1px solid #434857;
+	border-bottom: 1px solid $global-grid-color;
 }
 
 /*****************************************************************************/
@@ -622,14 +655,14 @@ hr {
 	thead {
 		tr {
 			th {
-				border-bottom: 2px solid #434857;
+				border-bottom: 2px solid $global-grid-color;
 			}
 		}
 	}
 	tbody {
 		tr {
 			td {
-				border-top: 1px solid #434857;
+				border-top: 1px solid $global-grid-color;
 			}
 		}
 	}
@@ -640,7 +673,7 @@ hr {
 /*****************************************************************************/
 
 .table.show-table {
-	background-color: #30343e;
+	background-color: $table-background-color;
 
 	tr {
 		td:first-child {
@@ -684,7 +717,7 @@ hr {
 		tbody {
 			tr {
 				td {
-					background-color: #30343e;
+					background-color: $table-background-color;
 					transition: background-color 0.3s;
 					min-height: 40px;
 					&.action {
@@ -704,7 +737,7 @@ hr {
 				}
 
 				&:hover td {
-					background-color: lighten(#30343e, 5%);
+					background-color: lighten($table-background-color, 5%);
 				}
 				
 			}
@@ -754,7 +787,7 @@ hr {
 .hierarchical-index-table-empty,
 .picture-index-table-empty {
 	padding: 5px;
-	color: #434857;
+	color: $global-grid-color;
 	text-align: center;
 }
 
@@ -766,7 +799,7 @@ hr {
 .index-table-heading,
 .hierarchical-index-table-heading,
 .picture-index-table-heading {
-	//border-bottom: 1px solid #434857;
+	//border-bottom: 1px solid $global-grid-color;
 	//margin-bottom: 10px;
 	//padding-bottom: 10px;
 	//@include clearfix;
@@ -817,7 +850,7 @@ hr {
 
 	@media (max-width: $screen-sm) {
 		height: auto;
-		border-bottom: 1px solid #434857;
+		border-bottom: 1px solid $global-grid-color;
 		text-align: center;
 		padding-bottom: 10px;
 		.actions {
@@ -835,7 +868,7 @@ hr {
 .index-table-footer,
 .hierarchical-index-table-footer,
 .picture-index-table-footer {
-	border-top: 1px solid #434857;
+	border-top: 1px solid $global-grid-color;
 	margin-top: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -881,7 +914,7 @@ hr {
 	tbody {
 		tr.placeholder {
 			td {
-				background-color: #1997c6;
+				background-color: $global-link-color;
 			}
 		}
 	}
@@ -954,7 +987,7 @@ hr {
 		position: absolute;
 		top: 9px;
 		left: 10px;
-		color: #ccc;
+		color: $form-icon-color;
 	}
 }
 
@@ -973,8 +1006,9 @@ hr {
 		& + span {
 			height: 18px;
 			width: 18px;
-			border: 1px solid #dddddd;
-			background: white;
+			border: 1px solid $form-grid-color;
+			color: $form-icon-color;
+			background: $form-background-color;
 			-moz-border-radius: 2px;
 			-webkit-border-radius: 2px;
 			border-radius: 2px;
@@ -1010,8 +1044,9 @@ hr {
 		& + span {
 			height: 18px;
 			width: 18px;
-			border: 1px solid #dddddd;
-			background: white;
+			border: 1px solid $form-grid-color;
+			color: $form-icon-color;
+			background: $form-background-color;
 			-moz-border-radius: 50%;
 			-webkit-border-radius: 50%;
 			border-radius: 50%;
@@ -1054,4 +1089,57 @@ hr {
 
 .breadcrumb {
 	background-color: transparent;
+	padding: 0;
+
+	> li + li:before {
+		display: inline-block;
+		vertical-align: bottom;
+		content: "\e080";
+		font-family: 'Glyphicons Halflings';
+		padding: 0 7px 0 3px;
+		color: $global-grid-color;
+	}
+
+	.active {
+		color: $global-grid-color;
+	}
+}
+
+/*****************************************************************************/
+/* Pagination                                                                */
+/*****************************************************************************/
+
+.pagination {
+	> li {
+
+		> a,
+		> span {
+			color: $pagination-text-color;
+			background-color: $global-background-color;
+			border: 1px solid $global-grid-color;
+			&:hover, &:focus {
+				color: $pagination-active-text-color;
+				background-color: $global-grid-color;
+				border-color: $global-grid-color;
+			}
+		}
+	}
+
+	> .active {
+		> a, > a:hover, > a:focus,
+		> span, > span:hover, > span:focus {
+			color: $pagination-active-text-color;
+			background-color: $pagination-active-background-color;
+			border-color: $pagination-active-background-color;
+		}
+	}
+
+	> .disabled {
+		> span, > span:hover, > span:focus,
+		> a, > a:hover, > a:focus {
+			color: $pagination-text-color;
+			background-color: transparent;
+			border-color: $global-grid-color;
+		}
+	}
 }

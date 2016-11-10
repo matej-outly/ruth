@@ -1,0 +1,58 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Variables                                                                 */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Theme colors                                                              */
+/*****************************************************************************/
+
+// Colors used in buttons, alerts and other standard components
+$default-color: #51586a;
+$primary-color: #1997c6;
+$success-color: #18b37e;
+$info-color: #8b6cff;
+$warning-color: #e1d420;
+$danger-color: #e33145;
+
+// Global colors
+$global-background-color: #252830;
+$global-text-color: #cfd2da;
+$global-header-color: #ffffff;
+$global-link-color: #1ca8dd;
+$global-grid-color: #434857;
+
+// Tables
+$table-background-color: #30343e;
+
+// Buttons
+$button-text-color: #ffffff;
+
+// Divider
+$divider-text-color: #6f7890;
+
+// Form
+$form-icon-color: #252830;
+$form-grid-color: #434857;
+$form-background-color: #ffffff;
+
+// Nav
+$nav-background-color: #30343e;
+$nav-brand-color: #0f1013;
+$nav-hover-background-color: #434857;
+$nav-hover-text-color: #ffffff;
+$nav-active-text-color: #6f7890;
+
+// Alert
+$alert-text-color: #ffffff;
+
+// Pagination
+$pagination-text-color: #51586a;
+$pagination-active-background-color: #51586a;
+$pagination-active-text-color: #ffffff;

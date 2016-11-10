@@ -26,11 +26,11 @@ h1, h2, h3, h4, h5, h6,
 	font-family: inherit;
 	font-weight: 300;
 	line-height: 1.1;
-	color: #ffffff;
+	color: $global-header-color;
 	small, .small {
 		font-weight: normal;
 		line-height: 1;
-		color: #cfd2da;
+		color: $global-text-color;
 	}
 }
 
@@ -74,10 +74,10 @@ h6, .h6 {
 /*****************************************************************************/
 
 a {
-	color: #1ca8dd;
+	color: $global-link-color;
 	text-decoration: none;
 	&:hover {
-		color: #137499;
+		color: darken($global-link-color, 10%);
 		text-decoration: underline;
 	}
 }
