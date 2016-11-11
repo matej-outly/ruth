@@ -34,3 +34,6 @@
 
 // Cycle2
 //= require cycle2/cycle2
+
+// jqTree
+//= require jqtree/jqtree

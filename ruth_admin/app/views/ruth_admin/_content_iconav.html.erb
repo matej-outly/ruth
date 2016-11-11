@@ -2,6 +2,7 @@
 <%
 	show_actions = false
 	show_filters = false
+	show_side = false
 	
 	if lookup_context.find_all("#{controller_path}/_actions").any?
 		actions_partial = render(partial: "#{controller_path}/actions", 
@@ -26,37 +27,56 @@
 		end
 	end
 
+	if lookup_context.find_all("#{controller_path}/_side").any?
+		side_partial = render(partial: "#{controller_path}/side").trim
+		if !side_partial.blank?
+			show_side = true
+		end
+	end
+
 	title = t("headers.#{controller_path.gsub('/', '.')}.#{action_name}", default: "")
 	subtitle = t("headers.#{controller_path.gsub('/', '.')}.index", default: "")
 	show_subtitle = !subtitle.blank? && (title != subtitle)
 %>
 
-<%= breadcrumbs style: :bootstrap if defined?(breadcrumbs) %>
-
-<div class="dashhead">
-	<div class="dashhead-titles">
-		<h2 class="dashhead-title"><%= title %></h2>
-		<% if show_subtitle %>
-			<h6 class="dashhead-subtitle"><%= subtitle %></h6>
-		<% end %>
-		
-	</div>
-	<% if show_actions %>
-		<div class="dashhead-toolbar">
-			<%= actions_partial.html_safe %>
+<div class="row">
+	<% if show_side %>
+		<div class="col-sm-3">
+			<%= side_partial.html_safe %>
 		</div>
 	<% end %>
-</div>
-<hr/>
 
-<%= render partial: "ruth_admin/flash" %>
+	<div class="col-sm-<%= show_side ? "9" : "12" %>">
 
-<% if show_filters %>
-	<div class="filters panel panel-default">
-		<div class="panel-body">
-			<%= filters_partial.html_safe %>
+		<%= breadcrumbs style: :bootstrap if defined?(breadcrumbs) %>
+
+		<div class="dashhead">
+			<div class="dashhead-titles">
+				<h2 class="dashhead-title"><%= title %></h2>
+				<% if show_subtitle %>
+					<h6 class="dashhead-subtitle"><%= subtitle %></h6>
+				<% end %>
+				
+			</div>
+			<% if show_actions %>
+				<div class="dashhead-toolbar">
+					<%= actions_partial.html_safe %>
+				</div>
+			<% end %>
 		</div>
-	</div>
-<% end %>
+		<hr/>
 
-<%= yield %>
+		<%= render partial: "ruth_admin/flash" %>
+
+		<% if show_filters %>
+			<div class="filters panel panel-default">
+				<div class="panel-body">
+					<%= filters_partial.html_safe %>
+				</div>
+			</div>
+		<% end %>
+
+		<%= yield %>
+
+	</div>
+</div>

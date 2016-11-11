@@ -1,0 +1,26 @@
+ul.jqtree-tree {
+
+	.jqtree-element {
+		padding: 3px 8px;
+	}
+
+	.jqtree-title {
+		color: $global-text-color;
+	}
+
+	.jqtree-toggler {
+		width: 1em;
+		display: inline-block;
+		color: $global-text-color;
+		&:hover {
+			color: darken($global-text-color, 10%);
+			text-decoration: none;
+		}
+	}
+
+	li.jqtree-selected > .jqtree-element,
+	li.jqtree-selected > .jqtree-element:hover {
+		background: lighten($global-background-color, 5%);
+		text-shadow: none;
+	}
+}

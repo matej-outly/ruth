@@ -16,11 +16,20 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,700&subset=latin-ext';
 
 /*****************************************************************************/
+/* Variables                                                                 */
+/*****************************************************************************/
+
+@import "ruth_admin/variables";
+
+/*****************************************************************************/
 /* Vendor libraries                                                          */
 /*****************************************************************************/
 
 /* ClockPicker */
 @import "clockpicker/clockpicker";
+
+/* Datepicker */
+//@import "datepicker/bootstrap-datepicker3"; TODO not implemented in RugBuilder
 
 /* Pikaday */
 @import "pikaday/pikaday";
@@ -41,6 +50,10 @@
 /* jCrop */
 @import "jcrop/jcrop";
 
+/* jqTree */
+@import "jqtree/jqtree";
+@import "jqtree/jqtree.bootstrap";
+
 /* Font Awesone */
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -53,7 +66,6 @@
 /* Theme files                                                               */
 /*****************************************************************************/
 
-@import "ruth_admin/variables";
 @import "ruth_admin/utilities";
 @import "ruth_admin/typography";
 @import "ruth_admin/layout";
