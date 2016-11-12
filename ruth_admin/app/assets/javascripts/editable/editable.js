@@ -3,13 +3,12 @@ $.fn.editable = function(set_options) {
 	var options = $.extend({
 		toggleButtonStyle: "default",
 		toggleButtonIcon: "pencil",
-		toggleButtonSize: null,
+		toggleButtonSize: "xs",
 		okButtonStyle: "primary",
 		okButtonIcon: "check",
-		okButtonSize: null,
 		cancelButtonStyle: "danger",
 		cancelButtonIcon: "times",
-		cancelButtonSize: null
+		formSize: "sm"
 	}, set_options);
 
 	var _this = this;
@@ -25,10 +24,10 @@ $.fn.editable = function(set_options) {
 	var form_el = $(
 		'<form class="editable-form">' +
 		'<div class="input-group">' +
-		'<input class="editable-input form-control" type="text" name="' + model + '[' + column + ']" />' +
+		'<input class="editable-input form-control input-' + options.formSize + '" type="text" name="' + model + '[' + column + ']" />' +
 		'<span class="input-group-btn">' +
-		'<div class="btn btn-' + options.okButtonStyle + ' btn-' + options.okButtonSize + ' editable-ok"><i class="fa fa-' + options.okButtonIcon + '"></i></div>' +
-		'<div class="btn btn-' + options.cancelButtonStyle + ' btn-' + options.cancelButtonSize + ' editable-cancel"><i class="fa fa-' + options.cancelButtonIcon + '"></i></div>' +
+		'<div class="btn btn-' + options.okButtonStyle + ' btn-' + options.formSize + ' editable-ok"><i class="fa fa-' + options.okButtonIcon + '"></i></div>' +
+		'<div class="btn btn-' + options.cancelButtonStyle + ' btn-' + options.formSize + ' editable-cancel"><i class="fa fa-' + options.cancelButtonIcon + '"></i></div>' +
 		'</span>' +
 		'</div>' +
 		'</form>'
