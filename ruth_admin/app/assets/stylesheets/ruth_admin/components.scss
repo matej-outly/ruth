@@ -676,12 +676,22 @@ hr {
 	background-color: $table-background-color;
 
 	tr {
+		td.show-table-label {
+			font-weight: normal;
+		}
+
+		td.show-table-value {
+			font-weight: bold;
+			&:first-child {
+				border-top: none;
+			}
+			> *:last-child {
+				margin-bottom: 0;
+			}
+		}
+
 		td:first-child {
 			width: 30%;
-			font-weight: normal;
-			& + td {
-				font-weight: bold;
-			}
 		}
 
 		&:first-child {

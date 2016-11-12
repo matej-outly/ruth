@@ -69,10 +69,9 @@
 		<%= render partial: "ruth_admin/flash" %>
 
 		<% if show_filters %>
-			<div class="filters panel panel-default">
-				<div class="panel-body">
-					<%= filters_partial.html_safe %>
-				</div>
+			<div class="filters">
+				<%= filters_partial.html_safe %>
+				<hr/>
 			</div>
 		<% end %>
 
