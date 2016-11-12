@@ -37,3 +37,6 @@
 
 // jqTree
 //= require jqtree/jqtree
+
+// Editable
+//= require editable/editable
