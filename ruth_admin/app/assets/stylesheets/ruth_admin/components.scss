@@ -805,14 +805,9 @@ hr {
 /* Table heading                                                             */
 /*****************************************************************************/
 
-/*.show-table-heading,
-.index-table-heading,
-.hierarchical-index-table-heading,
-.picture-index-table-heading {
-	//border-bottom: 1px solid $global-grid-color;
-	//margin-bottom: 10px;
-	//padding-bottom: 10px;
-	//@include clearfix;
+.show-table-heading {
+	padding-bottom: 5px;
+	@include clearfix;
 
 	&.empty {
 		border-bottom: none;
@@ -833,7 +828,7 @@ hr {
 		}
 	}*/
 
-/*	.actions {
+	.actions {
 		float: right;
 		width: 50%;
 		text-align: right;
@@ -843,10 +838,9 @@ hr {
 			text-align: center;
 		}
 	}
-}*/
+}
 
 .index-table-heading, .hierarchical-index-table-heading {
-	//margin-bottom: 7px;
 	height: 0;
 	position: relative;
 	

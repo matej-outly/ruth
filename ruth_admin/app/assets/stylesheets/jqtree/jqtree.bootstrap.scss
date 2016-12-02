@@ -1,20 +1,58 @@
 ul.jqtree-tree {
+	margin-left: 20px;
 
 	.jqtree-element {
 		padding: 3px 8px;
+		position: relative;
 	}
 
 	.jqtree-title {
 		color: $global-text-color;
+		margin-left: 0;
 	}
 
 	.jqtree-toggler {
-		width: 1em;
-		display: inline-block;
+		position: absolute;
+		top: 0;
+		width: 22px;
+		height: 28px;
+		line-height: 28px;
+		text-align: center;
+		display: block;
 		color: $global-text-color;
 		&:hover {
-			color: darken($global-text-color, 10%);
+			color: darken($global-text-color, 20%);
 			text-decoration: none;
+		}
+		&.jqtree-toggler-left {
+			left: -55px;
+			margin-right: 0;
+		}
+	}
+
+	.jqtree-icon {
+		position: absolute;
+		top: 0;
+		left: -20px;
+		width: 22px;
+		height: 28px;
+		line-height: 28px;
+		text-align: center;
+		color: darken($global-text-color, 40%);
+	}
+
+	ul.jqtree_common {
+		margin-left: 16px;
+		position: relative;
+		&:before {
+			content: " ";
+			position: absolute;
+			top: 0;
+			bottom: 12px;
+			left: -62px;
+			width: 8px;
+			border-left: 1px dashed darken($global-text-color, 40%);
+			border-bottom: 1px dashed darken($global-text-color, 40%);
 		}
 	}
 

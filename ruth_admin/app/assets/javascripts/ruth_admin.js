@@ -38,5 +38,8 @@
 // jqTree
 //= require jqtree/jqtree
 
+// Clipboard
+//= require clipboard/clipboard
+
 // Editable
 //= require editable/editable
