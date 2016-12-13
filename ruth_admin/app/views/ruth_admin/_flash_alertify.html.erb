@@ -1,0 +1,14 @@
+<% if !flash[:alert].blank? %>
+	<script>
+		$(document).ready(function () {
+			alertify.error("<%= flash[:alert] %>");
+		});
+	</script>
+<% end %>
+<% if !flash[:notice].blank? %>
+	<script>
+		$(document).ready(function () {
+			alertify.success("<%= flash[:notice] %>");
+		});
+	</script>
+<% end %>

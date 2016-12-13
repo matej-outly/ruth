@@ -41,5 +41,8 @@
 // Clipboard
 //= require clipboard/clipboard
 
+// Alertify
+//= require alertify/alertify
+
 // Editable
 //= require editable/editable
