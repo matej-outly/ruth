@@ -81,6 +81,7 @@ cs:
       order: "Dokončit objednávku"
       send: "Odeslat"
       pay: "Zaplatit"
+      synchronize: "Synchronizovat"
 
   general:
     back: "zpět"

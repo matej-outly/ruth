@@ -283,6 +283,45 @@ hr {
 }
 
 /*****************************************************************************/
+/* VC divider                                                                */
+/*****************************************************************************/
+
+.vc-divider {
+	&.vc-lg-divider-left, &.vc-md-divider-left, &.vc-sm-divider-left, &.vc-xs-divider-left {
+		border-left: 1px solid $global-grid-color;
+	}
+
+	&.vc-lg-divider-right, &.vc-md-divider-right, &.vc-sm-divider-right, &.vc-xs-divider-right {
+		border-right: 1px solid $global-grid-color;
+	}
+
+	@media (max-width: $screen-lg) {
+		&.vc-lg-divider-left, &.vc-lg-divider-right {
+			border-left: none;
+			border-right: none;
+		}
+	}
+	@media (max-width: $screen-md) {
+		&.vc-md-divider-left, &.vc-md-divider-right {
+			border-left: none;
+			border-right: none;
+		}
+	}
+	@media (max-width: $screen-sm) {
+		&.vc-sm-divider-left, &.vc-sm-divider-right {
+			border-left: none;
+			border-right: none;
+		}
+	}
+	@media (max-width: $screen-xs) {
+		&.vc-xs-divider-left, &.vc-xs-divider-right {
+			border-left: none;
+			border-right: none;
+		}
+	}
+}
+
+/*****************************************************************************/
 /* Buttons                                                                   */
 /*****************************************************************************/
 
@@ -1165,6 +1204,45 @@ hr {
 .thumbnail {
 	background-color: $thumbnail-background-color;
 	border: 1px solid $thumbnail-grid-color;
+
+	.caption {
+		color: inherit;
+		h5 {
+			min-height: 50px;
+		}
+
+		.checkbox-no-bootstrap, .radio-no-bootstrap {
+			label {
+				display: block;
+			}
+		}
+	}
+}
+
+span.thumbnail-crop {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+
+	img {
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+	}
+
+	&.thumbnail-crop-horizontal img {
+		width: 100%;
+		height: auto;
+	}
+
+	&.thumbnail-crop-vertical img {
+		width: auto;
+		height: 100%;
+	}
 }
 
 /*****************************************************************************/
