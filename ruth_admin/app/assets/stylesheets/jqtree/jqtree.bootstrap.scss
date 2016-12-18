@@ -9,6 +9,7 @@ ul.jqtree-tree {
 	.jqtree-title {
 		color: $global-text-color;
 		margin-left: 0;
+		padding-right: 20px;
 	}
 
 	.jqtree-toggler {
@@ -39,6 +40,12 @@ ul.jqtree-tree {
 		line-height: 28px;
 		text-align: center;
 		color: darken($global-text-color, 40%);
+	}
+
+	.jqtree-actions {
+		position: absolute;
+		top: 3px;
+		right: 3px;
 	}
 
 	ul.jqtree_common {

@@ -17,10 +17,16 @@ $.fn.editable = function(set_options) {
 	var url = _this.data("url");
 	var model = _this.data("model");
 	var column = _this.data("column");
+	var toggle_selector = _this.data("toggle");
 
 	// Define elements
 	var value_el = $('<span class="editable-value">' + _this.html() + '</span>');
-	var toggle_el = $('<div class="btn btn-' + options.toggleButtonStyle + ' btn-' + options.toggleButtonSize + ' editable-toggle"><i class="fa fa-' + options.toggleButtonIcon + '"></i></div>');
+	var toggle_el = null;
+	if (!toggle_selector) {
+		toggle_el = $('<div class="btn btn-' + options.toggleButtonStyle + ' btn-' + options.toggleButtonSize + ' editable-toggle"><i class="fa fa-' + options.toggleButtonIcon + '"></i></div>');
+	} else {
+		toggle_el = $(toggle_selector);
+	}
 	var form_el = $(
 		'<form class="editable-form">' +
 		'<div class="input-group">' +
@@ -34,6 +40,8 @@ $.fn.editable = function(set_options) {
 	);
 	var input_el = form_el.find(".editable-input");
 	
+	console.log(toggle_el);
+
 	// Value click
 	toggle_el.click(function(e) {
 		e.preventDefault();
@@ -86,7 +94,9 @@ $.fn.editable = function(set_options) {
 	// Modify HTML
 	_this.html("");
 	_this.append(value_el);
-	_this.append(toggle_el);
+	if (!toggle_selector) {
+		_this.append(toggle_el);
+	} // else already added
 	_this.append(form_el);
 
 	return this;
