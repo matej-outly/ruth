@@ -30,16 +30,13 @@
 
 /* Pikaday */
 @import "pikaday/pikaday";
-@import "pikaday/pikaday.bootstrap";
 
 /* Tokeninput */
 @import "tokeninput/tokeninput";
 @import "tokeninput/tokeninput.facebook";
-@import "tokeninput/tokeninput.bootstrap";
 
 /* Dropzone */
 @import "dropzone/dropzone";
-@import "dropzone/dropzone.bootstrap";
 
 /* Fancybox */
 @import "fancybox/fancybox";
@@ -49,7 +46,6 @@
 
 /* jqTree */
 @import "jqtree/jqtree";
-@import "jqtree/jqtree.bootstrap";
 
 /* Alertify */
 @import "alertify/alertify";
@@ -72,3 +68,4 @@
 @import "ruth_admin/layout";
 @import "ruth_admin/colors";
 @import "ruth_admin/components";
+@import "ruth_admin/plugins";
