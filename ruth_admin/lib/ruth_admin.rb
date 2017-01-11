@@ -107,4 +107,10 @@ module RuthAdmin
 	mattr_accessor :header_menu
 	@@header_menu = []
 	
+	#
+	# Include TinyMCE init script generated from tinymce.yml if available
+	#
+	mattr_accessor :include_default_tinymce
+	@@include_default_tinymce = true
+
 end
