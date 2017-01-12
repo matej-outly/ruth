@@ -1,0 +1,40 @@
+// Append FontAwesome icon to the element.
+@mixin append-fa($fa-icon) {
+	@extend .#{$fa-icon};
+
+	&:before {
+		@extend .fa;
+	}
+}
+
+// Add icon before paragraph, useful for example for phone numbers, address etc.
+@mixin paragraph-fa($fa-icon, $icon-padding: 15px) {
+	@include append-fa($fa-icon);
+	padding-left: $icon-padding;
+
+	&:before {
+		margin-left: -$icon-padding;
+		width: $icon-padding;
+	}
+}
+
+// Class version of above. <i...></i> must be first child tag.
+.paragraph-fa {
+	padding-left: 20px;
+
+	.fa {
+		margin-left: -20px;
+		width: 20px;
+	}
+}
+
+// Use on <ul> to have <li> FontAwesome bullet icons.
+@mixin list-image-fa($fa-icon, $list-image-padding: 15px) {
+	list-style: none;
+	padding: 0;
+
+	> li {
+		@include paragraph-fa($fa-icon, $list-image-padding);
+	}
+}
+

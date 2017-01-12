@@ -1,0 +1,43 @@
+// Use .row-grid for vertical space between stacked columns.
+.row.row-grid [class*="col-"] + [class*="col-"] {
+	margin-top: $grid-gutter-width;
+}
+
+@include style-for("lg") {
+	.row.row-grid [class*="col-lg-"] + [class*="col-lg-"] {
+		margin-top: 0;
+	}
+}
+
+@include style-for("md+") {
+	.row.row-grid [class*="col-md-"] + [class*="col-md-"] {
+		margin-top: 0;
+	}
+}
+
+@include style-for("sm+") {
+	.row.row-grid [class*="col-sm-"] + [class*="col-sm-"] {
+		margin-top: 0;
+	}
+}
+
+// Use .multi-row for vertical space between columns, especially in
+// cases where columns are automatically wrapped onto new lines (aka items (tiles) of products etc.)
+// Also can be used instead of .row-grid.
+.row.multi-row {
+	/*
+	Not working, using negative top/bottom margins is not as good idea as it seems to be.
+
+	margin-top: floor($grid-gutter-width/-2);
+	margin-bottom: ceil($grid-gutter-width/-2);
+
+	[class*="col-"] {
+		padding-top: floor($grid-gutter-width/2);
+		padding-bottom: ceil($grid-gutter-width/2);
+	}
+	*/
+
+	[class*="col-"] {
+		padding-bottom: $grid-gutter-width;
+	}
+}
