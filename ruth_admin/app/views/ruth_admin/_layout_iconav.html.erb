@@ -5,7 +5,7 @@
 	<title><%= render partial: "ruth_admin/title" %></title>
 	<%= stylesheet_link_tag    RuthAdmin.css_layout, media: "all" %>
 	<%= javascript_include_tag RuthAdmin.js_layout %>
-	<%= tinymce if defined?(tinymce) %>
+	<%= tinymce if defined?(tinymce) && RuthAdmin.include_default_tinymce %>
 	<%= csrf_meta_tags %>
 </head>
 <body class="layout-iconav">
