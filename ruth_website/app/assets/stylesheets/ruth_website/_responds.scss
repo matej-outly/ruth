@@ -1,0 +1,33 @@
+@function get-media-query($name) {
+	$breakpoints: (
+		"xxs":   "(max-width: 560px)",
+		"xxs+":  "(min-width: 560px)",
+
+		"xs":    "(max-width: #{$screen-xs-max})",
+		"-sm":   "(max-width: #{$screen-sm-max})",
+		"sm":    "(min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})",
+		"sm+":   "(min-width: #{$screen-sm-min})",
+		"sm+md": "(min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-max})",
+		"-md":   "(max-width: #{$screen-md-max})",
+		"md":    "(min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})",
+		"md+":   "(min-width: #{$screen-md-min})",
+		"lg":    "(min-width: #{$screen-lg-min})"
+	);
+
+	// If the key exists in the map
+	@if map-has-key($breakpoints, $name) {
+		@return map-get($breakpoints, $name);
+	}
+	@else {
+		// If the key doesn"t exist in the map
+		@error "Break point `#{$name}` does not exists. Please make sure it is defined in `$breakpoints` map.";
+	}
+}
+
+@mixin style-for($name) {
+	// Prints a media query based on the value
+	$query: get-media-query($name);
+	@media #{$query} {
+		@content;
+	}
+}

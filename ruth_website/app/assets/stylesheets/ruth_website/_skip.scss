@@ -1,0 +1,19 @@
+.vskip-xs { margin-top: $vskip; }
+.lskip-xs { margin-left: $lskip; }
+.llskip-xs { margin-left: 2*$lskip; }
+.lllskip-xs { margin-left: 4*$lskip; }
+
+@include style-for("sm+") {
+	.vskip-sm { margin-top: $vskip; }
+	.lskip-sm { margin-left: $lskip; }
+	.llskip-sm { margin-left: 2*$lskip; }
+	.lllskip-sm { margin-left: 4*$lskip; }
+}
+
+@include style-for("md+") {
+	.vskip-md { margin-top: $vskip; }
+}
+
+@include style-for("lg") {
+	.vskip-lg { margin-top: $vskip; }
+}

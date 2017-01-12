@@ -1,0 +1,19 @@
+// Do not show current <ul><li> as list.
+@mixin not-as-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	& > li {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+// Disable hover decorations (typically on links).
+@mixin not-hover-decoration {
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+}
+
