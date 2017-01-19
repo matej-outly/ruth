@@ -1,9 +1,9 @@
 @each $breakpoint in ("xs", "sm", "md", "lg") {
 	@include style-for($breakpoint) {
-		.clear-#{$breakpoint}-6:nth-child(2n+1),
-		.clear-#{$breakpoint}-4:nth-child(3n+1),
-		.clear-#{$breakpoint}-3:nth-child(4n+1),
-		.clear-#{$breakpoint}-2:nth-child(6n+1) {
+		.col-#{$breakpoint}-clear-6:nth-child(2n+1),
+		.col-#{$breakpoint}-clear-4:nth-child(3n+1),
+		.col-#{$breakpoint}-clear-3:nth-child(4n+1),
+		.col-#{$breakpoint}-clear-2:nth-child(6n+1) {
 			clear: both;
 		}
 	}
