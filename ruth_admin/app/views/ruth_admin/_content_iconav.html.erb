@@ -52,7 +52,7 @@
 
 		<div class="dashhead">
 			<div class="dashhead-titles">
-				<h2 class="dashhead-title"><%= title %></h2>
+				<h2 class="dashhead-title"><%= (content_for?(:title) ? (yield :title) : title) %></h2>
 				<% if show_subtitle %>
 					<h6 class="dashhead-subtitle"><%= subtitle %></h6>
 				<% end %>
