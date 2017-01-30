@@ -119,14 +119,23 @@ end
 			<% end %>
 
 			<% if user_signed_in? %>
-				<% dropdown = %{
-					<ul class="dropdown-menu">
-						#{render partial: "ric_auth/shared/admin/account/menu"}
-						<li role="separator" class="divider"></li>
-						#{ render partial: "devise/shared/menu_signed" }
-					</ul>
-				} %>
-				<%= render_first_level_item(self, { label: current_user.email, icon: :profile }, dropdown) %>
+				<%
+					dropdowns = []
+					if RuthAdmin.show_account_menu_if.nil? || eval("(#{RuthAdmin.show_account_menu_if}) == true")
+						dropdowns << render(partial: "ric_auth/shared/admin/account/menu")
+					end
+					if RuthAdmin.show_auth_menu_if.nil? || eval("(#{RuthAdmin.show_auth_menu_if}) == true")
+						dropdowns << render(partial: "devise/shared/menu_signed")
+					end
+				%>
+				<% if !dropdowns.empty? %>
+					<% dropdown = %{
+						<ul class="dropdown-menu">
+							#{dropdowns.join("<li role=\"separator\" class=\"divider\"></li>")}
+						</ul>
+					} %>
+					<%= render_first_level_item(self, { label: current_user.email, icon: :profile }, dropdown) %>
+				<% end %>
 			<% end %>
 
 		</ul>

@@ -113,4 +113,16 @@ module RuthAdmin
 	mattr_accessor :include_default_tinymce
 	@@include_default_tinymce = true
 
+	#
+	# Condition to show account menu
+	#
+	mattr_accessor :show_account_menu_if
+	@@show_account_menu_if = nil
+
+	#
+	# Condition to show auth menu
+	#
+	mattr_accessor :show_auth_menu_if
+	@@show_auth_menu_if = nil
+
 end
