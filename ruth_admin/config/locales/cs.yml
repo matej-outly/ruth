@@ -90,6 +90,7 @@ cs:
     from: "od"
     to: "do"
     are_you_sure: "Jste si jisti?"
+    are_you_sure_explanation: "Pokud potvrdíte tento dialog, bude položka okamžitě smazána. Tato operace nemůže být vrácena."
     permission_denied: "Na tuto operaci nemáte dostatečná oprávnění."
     free: zdarma
     shown: zobrazeno
@@ -128,6 +129,16 @@ cs:
       cancel: "zrušit"
       add: "přidat"
       remove: "odebrat"
+      messages:
+        create:
+          success: "Položka byla úspěšně vytvořena."
+          error: "Nepodařilo se vytvořit položku."
+        update:
+          success: "Položka byla úspěšně upravena."
+          error: "Nepodařilo se upravit položku."
+        destroy:
+          success: "Položka byla úspěšně smazána."
+          error: "Nepodařilo se smazat položku."
 
     attribute:
       boolean:

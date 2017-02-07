@@ -22,7 +22,7 @@ $.fn.destroyable = function(set_options) {
 		if (!destroy_selector) {
 			destroy_el = $('<div class="btn btn-' + options.destroyButtonStyle + ' btn-' + options.destroyButtonSize + ' editable-toggle"><i class="fa fa-' + options.destroyButtonIcon + '"></i></div>');
 		} else {
-			destroy_el = $(destroy_selector);
+			destroy_el = _this.find(destroy_selector);
 		}
 		
 		// Value click

@@ -27,7 +27,7 @@ $.fn.editable = function(set_options) {
 		if (!toggle_selector) {
 			toggle_el = $('<div class="btn btn-' + options.toggleButtonStyle + ' btn-' + options.toggleButtonSize + ' editable-toggle"><i class="fa fa-' + options.toggleButtonIcon + '"></i></div>');
 		} else {
-			toggle_el = $(toggle_selector);
+			toggle_el = _this.find(toggle_selector);
 		}
 		var form_el = $(
 			'<form class="editable-form">' +
