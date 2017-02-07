@@ -46,3 +46,6 @@
 
 // Editable
 //= require editable/editable
+
+// Destroyable
+//= require destroyable/destroyable

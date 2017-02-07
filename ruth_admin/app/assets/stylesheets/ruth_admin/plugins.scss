@@ -22,6 +22,27 @@
 	border: none;
 }
 
+.alertify {
+	.ajs-header, .ajs-body {
+		font-family: $font;
+	}
+	.ajs-button {
+		border: 1px solid transparent;
+		font-size: 14px;
+		border-radius: 4px;
+		&.ajs-ok {
+			color: $button-text-color;
+			background-color: $primary-color;
+			border-color: $primary-color;
+		}
+		&.ajs-cancel {
+			color: $button-text-color;
+			background-color: $danger-color;
+			border-color: $danger-color;
+		}
+	}
+}
+
 /*****************************************************************************/
 /* Dropzone                                                                  */
 /*****************************************************************************/
