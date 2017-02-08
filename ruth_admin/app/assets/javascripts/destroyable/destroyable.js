@@ -28,7 +28,7 @@ $.fn.destroyable = function(set_options) {
 		// Value click
 		destroy_el.click(function(e) {
 			e.preventDefault();
-			var perform_destroy = () => { 
+			var perform_destroy = function() { 
 				$.ajax({
 					url: url,
 					dataType: 'json',
