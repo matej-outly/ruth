@@ -1,0 +1,205 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Sidebar                                                                   */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Dimensions                                                                */
+/*****************************************************************************/
+
+$sidebar-margin: 70; // px
+$sidebar-inactive-width: 30; // px
+$sidebar-active-width: 350; // px
+
+/*****************************************************************************/
+/* Activation / layout                                                       */
+/*****************************************************************************/
+
+.sidebar-right,
+.sidebar-left,
+.sidebar-container {
+	&.animated {
+		-webkit-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+		-o-transition: all 0.5s;
+		transition: all 0.5s;
+	}
+}
+
+.sidebar-right, .sidebar-left {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index: 90;
+	width: #{$sidebar-active-width + $sidebar-margin}px;
+}
+
+.sidebar-right {
+	right: -#{$sidebar-active-width - $sidebar-inactive-width}px;
+}
+
+.sidebar-left {
+	left: -#{$sidebar-active-width - $sidebar-inactive-width}px;
+}
+
+.sidebar-active {
+	.sidebar-right {
+		transform: translate(-#{$sidebar-active-width - $sidebar-inactive-width}px, 0);
+	}
+	.sidebar-left {
+		transform: translate(#{$sidebar-active-width - $sidebar-inactive-width}px, 0);
+	}
+}
+
+/*****************************************************************************/
+/* Toggled                                                                   */
+/*****************************************************************************/
+
+.sidebar-toggled {
+	> *:nth-child(1) {
+		display: inline-block;
+	}
+	> *:nth-child(2) {
+		display: none;
+	}
+}
+
+.sidebar-active .sidebar-toggled {
+	> *:nth-child(1) {
+		display: none;
+	}
+	> *:nth-child(2) {
+		display: inline-block;
+	}
+}
+
+/*****************************************************************************/
+/* Hidden                                                                    */
+/*****************************************************************************/
+
+.sidebar-content-hidden {
+	display: none;
+}
+
+.sidebar-active .sidebar-content-hidden {
+	display: block;
+}
+
+/*****************************************************************************/
+/* Content                                                                   */
+/*****************************************************************************/
+
+.sidebar-content {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	overflow: auto;
+}
+
+.sidebar-right .sidebar-content { 
+	left: 0;
+	right: #{$sidebar-active-width + $sidebar-margin - $sidebar-inactive-width}px;
+}
+
+.sidebar-left .sidebar-content { 
+	right: 0;
+	left: #{$sidebar-active-width + $sidebar-margin - $sidebar-inactive-width}px;
+}
+
+.sidebar-active {
+
+	.sidebar-right .sidebar-content { 
+		right: #{$sidebar-margin}px;
+	}
+	
+	.sidebar-left .sidebar-content { 
+		left: #{$sidebar-margin}px;
+	}
+}
+
+/*****************************************************************************/
+/* Container                                                                 */
+/*****************************************************************************/
+
+body {
+	> .sidebar-container {
+		position: relative;
+		&.sidebar-container-right {
+			padding-right: #{$sidebar-inactive-width + $sidebar-margin}px;
+		}
+		&.sidebar-container-left {
+			padding-left: #{$sidebar-inactive-width + $sidebar-margin}px;
+		}
+	}
+}
+
+body.sidebar-active {
+	
+	> .sidebar-container-right {
+		padding-right: #{$sidebar-active-width + $sidebar-margin}px;
+	}
+	> .sidebar-container-left {
+		padding-left: #{$sidebar-active-width + $sidebar-margin}px;
+	}
+}
+
+/*****************************************************************************/
+/* Sidebar itself                                                            */
+/*****************************************************************************/
+
+.sidebar {
+	background: $global-background-color;
+	
+	&.sidebar-right {
+		border-left: 1px solid $global-grid-color;
+		.sidebar-toggle {
+			left: -10px;
+		}
+	}
+
+	&.sidebar-left {
+		border-right: 1px solid $global-grid-color;
+		.sidebar-toggle {
+			right: -10px;
+		}
+	}
+
+	.sidebar-toggle {
+		position: absolute;
+		z-index: 95;
+		bottom: 50%;
+		width: 20px;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		border: 1px solid;
+		color: $button-text-color;
+		background-color: $default-color;
+		border-color: $default-color;
+		&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
+			color: $button-text-color;
+			background-color: darken($default-color, 10%);
+			border-color: darken($default-color, 5%);
+		}
+	}
+
+	.sidebar-content { 
+		padding: 5px 20px 5px 40px;
+	}
+
+}
+
+@media (max-width: $screen-sm) {
+	.sidebar {
+		display: none;
+	}
+}

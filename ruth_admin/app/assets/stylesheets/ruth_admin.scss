@@ -51,6 +51,9 @@
 @import "alertify/alertify";
 @import "alertify/alertify.bootstrap";
 
+/* Perfect Scrollbar */
+@import "perfect_scrollbar/perfect_scrollbar";
+
 /* Font Awesone */
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -68,4 +71,5 @@
 @import "ruth_admin/layout";
 @import "ruth_admin/colors";
 @import "ruth_admin/components";
+@import "ruth_admin/sidebar";
 @import "ruth_admin/plugins";

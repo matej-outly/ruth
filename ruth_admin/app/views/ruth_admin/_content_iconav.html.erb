@@ -1,81 +1,39 @@
-<% controller_path = controller.class.name.to_snake[0..-12] %>
+<% actions = ruth_admin_actions %>
+<% filters = ruth_admin_filters %>
+<% sidebar = ruth_admin_sidebar %>
 <%
-	show_actions = false
-	show_filters = false
-	show_side = false
-	
-	if lookup_context.find_all("#{controller_path}/_actions").any?
-		actions_partial = render(partial: "#{controller_path}/actions", 
-			locals: { 
-				options: { 
-					format: :btn,
-					class: "dashhead-toolbar-item", 
-					btn_style: "primary-outline",
-					labels: false
-				} 
-			}
-		).trim
-		if !actions_partial.blank?
-			show_actions = true
-		end
-	end
-
-	if lookup_context.find_all("#{controller_path}/_filters").any?
-		filters_partial = render(partial: "#{controller_path}/filters").trim
-		if !filters_partial.blank?
-			show_filters = true
-		end
-	end
-
-	if lookup_context.find_all("#{controller_path}/_side").any?
-		side_partial = render(partial: "#{controller_path}/side").trim
-		if !side_partial.blank?
-			show_side = true
-		end
-	end
-
-	title = t("headers.#{controller_path.gsub('/', '.')}.#{action_name}", default: "")
-	subtitle = t("headers.#{controller_path.gsub('/', '.')}.index", default: "")
-	show_subtitle = !subtitle.blank? && (title != subtitle)
+	default_title = t("headers.#{controller_path.gsub('/', '.')}.#{action_name}", default: "")
+	default_subtitle = t("headers.#{controller_path.gsub('/', '.')}.index", default: "")
+	default_subtitle = nil if default_title == default_subtitle
 %>
 
-<div class="row">
-	<% if show_side %>
-		<div class="col-sm-4">
-			<%= side_partial.html_safe %>
+<div class="container <%= sidebar ? "sidebar-container sidebar-container-left" : "" %>">
+	<%= breadcrumbs style: :bootstrap if defined?(breadcrumbs) %>
+
+	<div class="dashhead">
+		<div class="dashhead-titles">
+			<h2 class="dashhead-title"><%= (content_for?(:title) ? (yield :title) : default_title) %></h2>
+			<% if default_subtitle %>
+				<h6 class="dashhead-subtitle"><%= default_subtitle %></h6>
+			<% end %>
+			
+		</div>
+		<% if actions %>
+			<div class="dashhead-toolbar">
+				<%= actions.html_safe %>
+			</div>
+		<% end %>
+	</div>
+	<hr/>
+
+	<%= render partial: "ruth_admin/flash_alertify" %>
+
+	<% if filters %>
+		<div class="filters">
+			<%= filters.html_safe %>
+			<hr/>
 		</div>
 	<% end %>
 
-	<div class="col-sm-<%= show_side ? "8" : "12" %>">
-
-		<%= breadcrumbs style: :bootstrap if defined?(breadcrumbs) %>
-
-		<div class="dashhead">
-			<div class="dashhead-titles">
-				<h2 class="dashhead-title"><%= (content_for?(:title) ? (yield :title) : title) %></h2>
-				<% if show_subtitle %>
-					<h6 class="dashhead-subtitle"><%= subtitle %></h6>
-				<% end %>
-				
-			</div>
-			<% if show_actions %>
-				<div class="dashhead-toolbar">
-					<%= actions_partial.html_safe %>
-				</div>
-			<% end %>
-		</div>
-		<hr/>
-
-		<%= render partial: "ruth_admin/flash_alertify" %>
-
-		<% if show_filters %>
-			<div class="filters">
-				<%= filters_partial.html_safe %>
-				<hr/>
-			</div>
-		<% end %>
-
-		<%= yield %>
-
-	</div>
+	<%= yield %>
 </div>

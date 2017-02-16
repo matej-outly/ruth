@@ -9,7 +9,11 @@
 # *
 # *****************************************************************************
 
+# Engie
 require "ruth_admin/engine"
+
+# Railtie
+require "ruth_admin/railtie" if defined?(Rails)
 
 module RuthAdmin
 

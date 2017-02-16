@@ -1,4 +1,4 @@
-$.fn.editable = function(set_options) {
+$.fn.editable = function(setOptions) {
 
 	var options = $.extend({
 		toggleButtonStyle: "default",
@@ -9,7 +9,7 @@ $.fn.editable = function(set_options) {
 		cancelButtonStyle: "danger",
 		cancelButtonIcon: "times",
 		formSize: "sm"
-	}, set_options);
+	}, setOptions);
 
 	this.each(function(index, element) {
 		
@@ -19,17 +19,17 @@ $.fn.editable = function(set_options) {
 		var url = _this.data("updateUrl");
 		var model = _this.data("model");
 		var column = _this.data("column");
-		var toggle_selector = _this.data("toggle");
+		var toggleSelector = _this.data("toggle");
 
 		// Define elements
-		var value_el = $('<span class="editable-value">' + _this.html() + '</span>');
-		var toggle_el = null;
-		if (!toggle_selector) {
-			toggle_el = $('<div class="btn btn-' + options.toggleButtonStyle + ' btn-' + options.toggleButtonSize + ' editable-toggle"><i class="fa fa-' + options.toggleButtonIcon + '"></i></div>');
+		var valueEl = $('<span class="editable-value">' + _this.html() + '</span>');
+		var toggleEl = null;
+		if (!toggleSelector) {
+			toggleEl = $('<div class="btn btn-' + options.toggleButtonStyle + ' btn-' + options.toggleButtonSize + ' editable-toggle"><i class="fa fa-' + options.toggleButtonIcon + '"></i></div>');
 		} else {
-			toggle_el = _this.find(toggle_selector);
+			toggleEl = _this.find(toggleSelector);
 		}
-		var form_el = $(
+		var formEl = $(
 			'<form class="editable-form">' +
 			'<div class="input-group">' +
 			'<input class="editable-input form-control input-' + options.formSize + '" type="text" name="' + model + '[' + column + ']" />' +
@@ -40,40 +40,40 @@ $.fn.editable = function(set_options) {
 			'</div>' +
 			'</form>'
 		);
-		var input_el = form_el.find(".editable-input");
+		var inputEl = formEl.find(".editable-input");
 		
 		// Value click
-		toggle_el.click(function(e) {
+		toggleEl.click(function(e) {
 			e.preventDefault();
-			var value = value_el.html().trim();
-			input_el.val(value);
-			form_el.show();
-			value_el.hide();
-			toggle_el.hide();
+			var value = valueEl.html().trim();
+			inputEl.val(value);
+			formEl.show();
+			valueEl.hide();
+			toggleEl.hide();
 		});
 
 		// Hide form by default
-		form_el.hide();
+		formEl.hide();
 		
 		// OK button click
-		form_el.find(".editable-ok").click(function(e) {
+		formEl.find(".editable-ok").click(function(e) {
 			e.preventDefault();
-			var value = input_el.val();
+			var value = inputEl.val();
 			$.ajax({
 				url: url,
 				dataType: 'json',
 				type: 'PUT',
-				data: form_el.find('input').serialize(),
+				data: formEl.find('input').serialize(),
 				success: function(callback) 
 				{
-					input_el.removeClass("has-error");
+					inputEl.removeClass("has-error");
 					if (callback === id) {
-						value_el.html(value);
-						form_el.hide();
-						value_el.show();
+						valueEl.html(value);
+						formEl.hide();
+						valueEl.show();
 						toggle_el.show();
 					} else {
-						input_el.addClass("has-error");
+						inputEl.addClass("has-error");
 					}
 				},
 				error: function(callback) 
@@ -84,20 +84,20 @@ $.fn.editable = function(set_options) {
 		});
 
 		// Cancel button click
-		form_el.find(".editable-cancel").click(function(e) {
+		formEl.find(".editable-cancel").click(function(e) {
 			e.preventDefault();
-			form_el.hide();
-			value_el.show();
-			toggle_el.show();
+			formEl.hide();
+			valueEl.show();
+			toggleEl.show();
 		});
 
 		// Modify HTML
 		_this.html("");
-		_this.append(value_el);
-		if (!toggle_selector) {
-			_this.append(toggle_el);
+		_this.append(valueEl);
+		if (!toggleSelector) {
+			_this.append(toggleEl);
 		} // else already added
-		_this.append(form_el);
+		_this.append(formEl);
 
 	});
 

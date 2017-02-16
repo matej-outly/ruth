@@ -1,0 +1,12 @@
+<% sidebar = ruth_admin_sidebar %>
+<% if sidebar %>
+	<div class="sidebar sidebar-left">
+		<div class="sidebar-toggled">
+			<a href="#" class="sidebar-toggle"><%= rug_icon("angle-double-right") %></a>
+			<a href="#" class="sidebar-toggle"><%= rug_icon("angle-double-left") %></a>
+		</div>
+		<div class="sidebar-content sidebar-content-hidden sidebar-content-scrolled">
+			<%= sidebar.html_safe %>
+		</div>
+    </div>
+<% end %>

@@ -10,10 +10,9 @@
 </head>
 <body class="layout-iconav">
 	<%= render partial: "ruth_admin/navbar_iconav" %>
-	<div class="container">
-		<%= render layout: "ruth_admin/content_iconav" do %>
-			<%= yield %>
-		<% end %>
-	</div>
+	<%= render partial: "ruth_admin/sidebar_iconav" %>
+	<%= render layout: "ruth_admin/content_iconav" do %>
+		<%= yield %>
+	<% end %>
 </body>
 </html>
