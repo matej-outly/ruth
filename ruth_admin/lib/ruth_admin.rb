@@ -118,15 +118,15 @@ module RuthAdmin
 	@@include_default_tinymce = true
 
 	#
-	# Condition to show account menu
+	# Condition to show profile menu
 	#
-	mattr_accessor :show_account_menu_if
-	@@show_account_menu_if = nil
+	mattr_accessor :show_profile_menu_if
+	@@show_profile_menu_if = nil
 
 	#
-	# Condition to show auth menu
+	# Condition to show session menu
 	#
-	mattr_accessor :show_auth_menu_if
-	@@show_auth_menu_if = nil
+	mattr_accessor :show_session_menu_if
+	@@show_session_menu_if = nil
 
 end
