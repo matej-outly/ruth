@@ -49,3 +49,9 @@
 
 // Destroyable
 //= require destroyable/destroyable
+
+// Sidebar
+//= require ruth_admin/sidebar
+
+// Perfect Scrollbar
+//= require perfect_scrollbar/perfect_scrollbar.jquery

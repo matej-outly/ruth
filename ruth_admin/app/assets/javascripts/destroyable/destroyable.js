@@ -1,4 +1,4 @@
-$.fn.destroyable = function(set_options) {
+$.fn.destroyable = function(setOptions) {
 
 	var options = $.extend({
 		destroyButtonStyle: "danger",
@@ -8,27 +8,27 @@ $.fn.destroyable = function(set_options) {
 		confirmMessage: "If you confirm this dialog, item will be removed immediately. This operation cannot reverted.",
 		successMessage: "Item has been succesfully removed.",
 		errorMessage: "Unable to remove item.",
-	}, set_options);
+	}, setOptions);
 
 	this.each(function(index, element) {
 		
 		var _this = $(element);
 		var id = parseInt(_this.data("id"));
 		var url = _this.data("destroyUrl");
-		var destroy_selector = _this.data("destroy");
+		var destroySelector = _this.data("destroy");
 
 		// Define elements
-		var destroy_el = null;
-		if (!destroy_selector) {
-			destroy_el = $('<div class="btn btn-' + options.destroyButtonStyle + ' btn-' + options.destroyButtonSize + ' editable-toggle"><i class="fa fa-' + options.destroyButtonIcon + '"></i></div>');
+		var destroyEl = null;
+		if (!destroySelector) {
+			destroyEl = $('<div class="btn btn-' + options.destroyButtonStyle + ' btn-' + options.destroyButtonSize + ' editable-toggle"><i class="fa fa-' + options.destroyButtonIcon + '"></i></div>');
 		} else {
-			destroy_el = _this.find(destroy_selector);
+			destroyEl = _this.find(destroySelector);
 		}
 		
 		// Value click
-		destroy_el.click(function(e) {
+		destroyEl.click(function(e) {
 			e.preventDefault();
-			var perform_destroy = function() { 
+			var performDestroy = function() { 
 				$.ajax({
 					url: url,
 					dataType: 'json',
@@ -54,18 +54,18 @@ $.fn.destroyable = function(set_options) {
 			}
 			if (typeof alertify != 'undefined') {
 				alertify.confirm(options.confirmTitle, options.confirmMessage, function() {
-					perform_destroy();
+					performDestroy();
 				}, function() {});
 			} else {
 				if (confirm(options.confirmTitle)) {
-					perform_destroy();
+					performDestroy();
 				}
 			}
 		});
 
 		// Modify HTML
-		if (!destroy_selector) {
-			_this.append(destroy_el);
+		if (!destroySelector) {
+			_this.append(destroyEl);
 		} // else already added
 
 	});

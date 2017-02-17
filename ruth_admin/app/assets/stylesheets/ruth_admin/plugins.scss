@@ -286,4 +286,43 @@ ul.jqtree-tree {
 		background: lighten($global-background-color, 5%);
 		text-shadow: none;
 	}
+
+	.dropdown-menu {
+		left: -300px;
+	}
+}
+
+/*****************************************************************************/
+/* Perfect Scrollbar                                                         */
+/*****************************************************************************/
+
+.ps-container {
+	
+	> .ps-scrollbar-y-rail, > .ps-scrollbar-x-rail {
+		> .ps-scrollbar-y, > .ps-scrollbar-x {
+			background-color: $nav-hover-background-color;
+		}
+	}
+
+	&:hover {
+		> .ps-scrollbar-y-rail, > .ps-scrollbar-x-rail {
+			&:hover {
+				background-color: $nav-background-color;
+				> .ps-scrollbar-y, > .ps-scrollbar-x {
+					background-color: $nav-hover-background-color;
+				}
+			}
+		}
+	}
+
+	&.ps-in-scrolling, &.ps-in-scrolling:hover {
+		&.ps-y, &.ps-x {
+			> .ps-scrollbar-y-rail, > .ps-scrollbar-x-rail {
+				background-color: $nav-background-color;
+				> .ps-scrollbar-y, > .ps-scrollbar-x {
+					background-color: $nav-hover-background-color;
+				}
+			}
+		}
+	}
 }
