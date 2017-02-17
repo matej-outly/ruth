@@ -1,3 +1,5 @@
+$ajax-form-fade-animation-duration: 0.5s !default;
+
 .ajax-form-container {
 	position: relative;
 }
@@ -11,26 +13,26 @@
 
 	visibility: hidden;
 	opacity: 0;
-	transition: visibility 0s 1s, opacity 1s linear;
+	transition: visibility 0s $ajax-form-fade-animation-duration, opacity $ajax-form-fade-animation-duration linear;
 }
 
 .ajax-form-form {
 	visibility: visible;
 	opacity: 1;
-	transition: opacity 1s linear;
+	transition: opacity $ajax-form-fade-animation-duration linear;
 }
 
 .ajax-form-container.ajax-form-success {
 	.ajax-form-success-message {
 		visibility: visible;
 		opacity: 1;
-		transition: opacity 1s linear;
+		transition: opacity $ajax-form-fade-animation-duration linear;
 	}
 
 	.ajax-form-form {
 		visibility: hidden;
 		opacity: 0;
-		transition: visibility 0s 1s, opacity 1s linear;
+		transition: visibility 0s $ajax-form-fade-animation-duration, opacity $ajax-form-fade-animation-duration linear;
 	}
 }
 
