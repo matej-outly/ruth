@@ -286,6 +286,10 @@ ul.jqtree-tree {
 		background: lighten($global-background-color, 5%);
 		text-shadow: none;
 	}
+
+	.dropdown-menu {
+		left: -300px;
+	}
 }
 
 /*****************************************************************************/
