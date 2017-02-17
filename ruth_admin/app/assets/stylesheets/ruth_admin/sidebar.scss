@@ -149,6 +149,19 @@ body.sidebar-active {
 	}
 }
 
+@media (max-width: $screen-sm) {
+	body {
+		> .sidebar-container {
+			&.sidebar-container-right {
+				padding-right: 15px;
+			}
+			&.sidebar-container-left {
+				padding-left: 15px;
+			}
+		}
+	}
+}
+
 /*****************************************************************************/
 /* Sidebar itself                                                            */
 /*****************************************************************************/

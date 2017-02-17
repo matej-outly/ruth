@@ -73,13 +73,13 @@ body.layout-iconav {
 		padding-left: 15px;
 		padding-right: 15px;
 		@media (min-width: $screen-sm-min) {
-			width: 750px;
+			width: $container-sm;
 		}
 		@media (min-width: $screen-md-min) {
-			width: 970px;
+			width: $container-md;
 		}
 		@media (min-width: $screen-lg-min) {
-			width: 1170px;
+			width: $container-lg;
 		}
 	}
 
