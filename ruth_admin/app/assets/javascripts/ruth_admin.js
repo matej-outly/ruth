@@ -44,14 +44,17 @@
 // Alertify
 //= require alertify/alertify
 
+// Perfect Scrollbar
+//= require perfect_scrollbar/perfect_scrollbar.jquery
+
 // Editable
 //= require editable/editable
 
 // Destroyable
 //= require destroyable/destroyable
 
+// Ajax Form
+//= require ajax_form/ajax_form
+
 // Sidebar
 //= require ruth_admin/sidebar
-
-// Perfect Scrollbar
-//= require perfect_scrollbar/perfect_scrollbar.jquery

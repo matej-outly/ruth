@@ -109,12 +109,12 @@ Coresponding options set via data attribute:
 
 			// Hide and (optionaly) show
 			if (this.options.behaviorOnSubmit == "hide") {
-				$formContainer = this.$form.find(".ajax-form-container")
-				$formContainer.addClass("ajax-form-success")
+				$formContainer = this.$form.find(".af-container")
+				$formContainer.addClass("af-hidden")
 				if (this.options.hideTimeout) {
 					setTimeout(function() {
 						self.clearForm();
-						$formContainer.removeClass("ajax-form-success");
+						$formContainer.removeClass("af-hidden");
 					}, this.options.hideTimeout * 1000);
 				}
 
@@ -210,7 +210,7 @@ Coresponding options set via data attribute:
 				// URL
 				var url = self.url();
 
-				self.$form.addClass("ajax-form-sending-request");
+				self.$form.addClass("af-sending-request");
 				$submitButton.prop("disabled", true);
 
 				// Request
@@ -221,10 +221,10 @@ Coresponding options set via data attribute:
 					data: self.$form.serialize(),
 
 					// Success data fetch
-					success: function(callback) { self.$form.removeClass("ajax-form-sending-request"); $submitButton.prop("disabled", false); self.ajaxSuccess(callback); },
+					success: function(callback) { self.$form.removeClass("af-sending-request"); $submitButton.prop("disabled", false); self.ajaxSuccess(callback); },
 
 					// Error data fetch
-					error: function(callback) { self.$form.removeClass("ajax-form-sending-request"); $submitButton.prop("disabled", false); self.ajaxError(callback); },
+					error: function(callback) { self.$form.removeClass("af-sending-request"); $submitButton.prop("disabled", false); self.ajaxError(callback); },
 				});
 			});
 		}

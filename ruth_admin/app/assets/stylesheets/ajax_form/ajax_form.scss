@@ -1,10 +1,10 @@
-$ajax-form-fade-animation-duration: 0.5s !default;
+$af-fade-animation-duration: 0.5s !default;
 
-.ajax-form-container {
+.af-container {
 	position: relative;
 }
 
-.ajax-form-success-message {
+.af-success-message {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -13,26 +13,27 @@ $ajax-form-fade-animation-duration: 0.5s !default;
 
 	visibility: hidden;
 	opacity: 0;
-	transition: visibility 0s $ajax-form-fade-animation-duration, opacity $ajax-form-fade-animation-duration linear;
+	transition: visibility 0s $af-fade-animation-duration, opacity $af-fade-animation-duration linear;
 }
 
-.ajax-form-form {
+.af-form {
 	visibility: visible;
 	opacity: 1;
-	transition: opacity $ajax-form-fade-animation-duration linear;
+	transition: opacity $af-fade-animation-duration linear;
 }
 
-.ajax-form-container.ajax-form-success {
-	.ajax-form-success-message {
+.af-container.af-hidden {
+	
+	.af-success-message {
 		visibility: visible;
 		opacity: 1;
-		transition: opacity $ajax-form-fade-animation-duration linear;
+		transition: opacity $af-fade-animation-duration linear;
 	}
 
-	.ajax-form-form {
+	.af-form {
 		visibility: hidden;
 		opacity: 0;
-		transition: visibility 0s $ajax-form-fade-animation-duration, opacity $ajax-form-fade-animation-duration linear;
+		transition: visibility 0s $af-fade-animation-duration, opacity $af-fade-animation-duration linear;
 	}
 }
 
