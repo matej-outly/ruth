@@ -1,0 +1,38 @@
+$ajax-form-fade-animation-duration: 0.5s !default;
+
+.ajax-form-container {
+	position: relative;
+}
+
+.ajax-form-success-message {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s $ajax-form-fade-animation-duration, opacity $ajax-form-fade-animation-duration linear;
+}
+
+.ajax-form-form {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity $ajax-form-fade-animation-duration linear;
+}
+
+.ajax-form-container.ajax-form-success {
+	.ajax-form-success-message {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity $ajax-form-fade-animation-duration linear;
+	}
+
+	.ajax-form-form {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s $ajax-form-fade-animation-duration, opacity $ajax-form-fade-animation-duration linear;
+	}
+}
+
