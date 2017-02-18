@@ -1,3 +1,14 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Editable - plugin for inline records editation via Ajax request           */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 20. 2. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
 $.fn.editable = function(setOptions) {
 
 	var options = $.extend({

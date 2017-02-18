@@ -1,16 +1,42 @@
-/*
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* AjaxForm - plugin for form handling via Ajax (submit, messages)           */
+/*                                                                           */
+/* Author: Jaroslav Mlejnek                                                  */
+/* Date  : 20. 2. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
 
-Options on form element:
+/******************************************************************************
 
-data-ajax-flash-target
-data-ajax-flash-success
-data-ajax-flash-error
+Options (to be implemented):
 
-data-ajax-form-on-success = "hide"
-data-ajax-form-on-success-timeout = in seconds to give back empty form
+- flashSelector (string) .... Selector for inline flash container, if not 
+                              provided, Alertify plugin 
+- successMessage (string) ... Message displayed at success
+- errorMessage (string) ..... Message displayed at error
+- clearOnSubmit (boolean) ... Clear form values when successfuly submitted?
+- behaviorOnSubmit (none|hide|redirect) ... What to do when form is successfuly
+                                            submitted
+- hideTimeout (integer) ..... How many seconds to wait until hidden form is 
+                              shown again, hide forever if null (only for 'hide' 
+                              behavior)
+- redirectUrl (string) ...... URL where to redirect when form is successfuly 
+                              submitted (only for 'hide' behavior)
 
-*/
+Coresponding options set via data attribute:
 
+- data-af-flash-selector
+- data-af-success-message
+- data-af-error-message
+- data-af-clear-on-submit
+- data-af-behavior-on-submit
+- data-af-hide-timeout
+- data-af-redirect-url
+
+******************************************************************************/
 
 (function ( $ ) {
 

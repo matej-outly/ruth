@@ -1,3 +1,14 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Destoyable - plugin to call destroy action on records via Ajax request    */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 20. 2. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
 $.fn.destroyable = function(setOptions) {
 
 	var options = $.extend({
