@@ -40,59 +40,92 @@ Coresponding options set via data attribute:
 
 (function ( $ ) {
 
-	$.fn.ajaxForm = function(options) {
+	$.fn.ajaxForm = function(setOptions) {
 
-		var settings = $.extend({
-		}, options);
+		// Default options
+		var options = $.extend({
+			flashSelector: null,
+			successMessage: "Record has been successfully saved.",
+			errorMessage: "Record has not been saved, please check form for errors.",
+			clearOnSubmit: true,
+			behaviorOnSubmit: "none",
+			hideTimeout: 5,
+			redirectUrl: null
+		}, setOptions);
 
-
-		function AjaxForm(form) {
+		// Constructor
+		function AjaxForm(form, options) {
 			this.$form = $(form);
+			this.options = (typeof options !== 'undefined' ? options : {});
+
+			// Override options with data attributes if defined
+			var overrideOptions = {
+				flashSelector: this.$form.attr("data-af-flash-selector"),
+				successMessage: this.$form.attr("data-af-success-message"),
+				errorMessage: this.$form.attr("data-af-error-message"),
+				clearOnSubmit: (this.$form.attr("data-af-clear-on-submit") ? (this.$form.attr("data-af-clear-on-submit") == "true") : undefined),
+				behaviorOnSubmit: this.$form.attr("data-af-behavior-on-submit"),
+				hideTimeout: (this.$form.attr("data-af-hide-timeout") ? parseInt(this.$form.attr("data-af-hide-timeout")) : undefined),
+				redirectUrl: this.$form.attr("data-af-redirect-url")
+			};
+			for (var key in this.options) {
+				if (overrideOptions[key]) {
+					this.options[key] = overrideOptions[key];
+				}
+			}
 		}
 
+		// Form URL
 		AjaxForm.prototype.url = function() {
 			return this.$form.attr("action");
 		}
 
+		// Form ID
 		AjaxForm.prototype.id = function() {
 			return this.$form.attr("id");
 		}
 
-		AjaxForm.prototype.dataOnSuccess = function() {
-			return this.$form.attr("data-ajax-form-on-success")
-		}
-
-		AjaxForm.prototype.dataOnSuccessTimeout = function() {
-			if (this.$form.attr("data-ajax-form-on-success-timeout")) {
-				return parseInt(this.$form.attr("data-ajax-form-on-success-timeout"));
-			}
-			else {
-				return null;
-			}
-		}
-
+		// Set flash message on success or error
 		AjaxForm.prototype.setFlashMessage = function(result) {
-			$target = this.$form.attr("data-ajax-flash-target");
-			if ($target) {
-				var message = result ? this.$form.attr("data-ajax-flash-success") : this.$form.attr("data-ajax-flash-error");
-				$target.val(message);
+			
+			// Set message to flash selector
+			if (this.options.flashSelector) {
+				var $flash = $(this.options.flashSelector);
+				var message = result ? this.options.successMessage : this.options.errorMessage;
+				$flash.val(message);
+			
+			// Set message to alertify
+			} else if (typeof alertify != 'undefined') {
+				if (result) {
+					alertify.success(this.options.successMessage);
+				} else {
+					alertify.error(this.options.errorMessage);
+				}
 			}
 		}
 
-		AjaxForm.prototype.setHiddenEffect = function() {
+		AjaxForm.prototype.behaveOnSubmit = function() {
 			var self = this;
 
-			if (this.$form.attr("data-ajax-form-on-success") == "hide") {
+			// Hide and (optionaly) show
+			if (this.options.behaviorOnSubmit == "hide") {
 				$formContainer = this.$form.find(".ajax-form-container")
 				$formContainer.addClass("ajax-form-success")
-
-				if (this.dataOnSuccessTimeout()) {
+				if (this.options.hideTimeout) {
 					setTimeout(function() {
 						self.clearForm();
 						$formContainer.removeClass("ajax-form-success");
-					}, this.dataOnSuccessTimeout() * 1000);
-
+					}, this.options.hideTimeout * 1000);
 				}
+
+			// Redirect
+			} else if (this.options.behaviorOnSubmit == "redirect") {
+				self.clearForm();
+				// TODO
+			
+			// Nothing
+			} else {
+				self.clearForm();
 			}
 		}
 
@@ -106,7 +139,9 @@ Coresponding options set via data attribute:
 		{
 			this.clearErrors();
 			this.clearRecaptcha();
-			this.$form.find(".form-control").val("");
+			if (this.options.clearOnSubmit) {
+				this.$form.find(".form-control").val("");
+			}
 		}
 
 		AjaxForm.prototype.clearRecaptcha = function()
@@ -120,7 +155,7 @@ Coresponding options set via data attribute:
 		{
 			// Everything is OK
 			this.setFlashMessage(true);
-			this.setHiddenEffect(true);
+			this.behaveOnSubmit();
 		}
 
 		AjaxForm.prototype.requestError = function(callback)
@@ -130,16 +165,19 @@ Coresponding options set via data attribute:
 			this.clearErrors();
 			this.clearRecaptcha();
 
-			// Set messages
+			// Set error messages
 			for (var field in callback) {
 				var fieldId = this.id() + "_" + field + "_errors";
 				var $field = $("#" + fieldId);
 
+				// Fill form with error messages
 				var errors = callback[field];
 				for (var i = 0; i < errors.length; ++i) {
 					$field.append("<span class=\"help-block\">" + errors[i] + "</span>");
-					$field.closest(".form-group").addClass("has-error")
 				}
+
+				// Mark field as errorous
+				$field.closest(".form-group").addClass("has-error")
 			}
 		}
 
@@ -147,8 +185,7 @@ Coresponding options set via data attribute:
 		{
 			if (Number.isInteger(callback)) {
 				this.requestSuccess(callback);
-			}
-			else {
+			} else {
 				this.requestError(callback);
 			}
 		}
@@ -192,10 +229,9 @@ Coresponding options set via data attribute:
 			});
 		}
 
-
+		// For each form here activate ajax request
 		return this.each(function() {
-			// For each form here activate ajax request
-			var ajaxForm = new AjaxForm(this);
+			var ajaxForm = new AjaxForm(this, options);
 			ajaxForm.activateAjax();
 		});
 	};

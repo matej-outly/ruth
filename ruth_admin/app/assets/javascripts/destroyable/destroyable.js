@@ -53,7 +53,7 @@ $.fn.destroyable = function(setOptions) {
 							}
 						} else {
 							if (typeof alertify != 'undefined') {
-								alertify.success(options.errorMessage);
+								alertify.error(options.errorMessage);
 							}
 						}
 					},
