@@ -9,13 +9,25 @@
 /*                                                                           */
 /*****************************************************************************/
 
+$font: "Roboto", "Helvetica", sans-serif;
+
 /*****************************************************************************/
 /* Colors                                                                    */
 /*****************************************************************************/
 
+// Colors used in buttons, alerts and other standard components
+$default-color: #51586a !default;
+$primary-color: #1997c6 !default;
+$success-color: #18b37e !default;
+//$info-color: #8b6cff !default;
+$warning-color: #e1d420 !default;
+$danger-color: #e33145 !default;
+
 $grid-color: #dddddd !default;
 $dark-grid-color: #101010 !default;
 $content-color: #f5f5f5 !default;
+$text-color: #000000 !default;
+$inverse-text-color: #ffffff !default;
 $pale-text-color: #dddddd !default;
 
 /*****************************************************************************/

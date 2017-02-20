@@ -1,27 +1,25 @@
 <div class="btn-group navbar-<%= align.to_s %>">
 	<% if user_signed_in? %>
-		<button onclick="window.location='<%= ric_auth_public.edit_account_path %>'" type="button" class="btn btn-default navbar-btn">
+		<button onclick="window.location='<%= ric_auth_public.edit_profile_path %>'" type="button" class="btn btn-default navbar-btn">
 			<%= rug_icon("user") %>
 		</button>
 		<button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<%= rug_icon("caret-down") %>
 		</button>
 		<ul class="dropdown-menu">
-			<%= render partial: "ric_auth/shared/public/account/menu" %>
+			<%= render partial: "ric_auth/shared/public/profile/menu" %>
 			<li role="separator" class="divider"></li>
-			<%#= render partial: "ric_auth/shared/public/session/menu_signed" %>
-			<%= render partial: "devise/shared/menu_signed" %>
+			<%= render partial: "ric_auth/shared/public/session/menu_signed" %>
 		</ul>
 	<% else %>
-		<button onclick="window.location='<%= ric_devise.new_user_session_path %>'" type="button" class="btn btn-default navbar-btn">
+		<button onclick="window.location='<%= ric_auth_public.new_session_path %>'" type="button" class="btn btn-default navbar-btn">
 			<%= rug_icon("sign-in") %>
 		</button>
 		<button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-			<%#= render partial: "ric_auth/shared/admin/session/menu_not_signed" %>
-			<%= render partial: "devise/shared/menu_not_signed" %>
+			<%= render partial: "ric_auth/shared/public/session/menu_not_signed" %>
 		</ul>
 	<% end %>
 </div>

@@ -2,19 +2,21 @@
 	<div class="panel panel-default panel-profile">
 		<div class="panel-heading" style="background-image: url(<%= image_url("profile.jpg") %>);"></div>
 		<div class="panel-body text-center">
-			<img class="panel-profile-img" src="<%= image_url("avatar.png") %>">
+			<% if current_user.respond_to?(:avatar) && current_user.avatar.exists? %>
+				<img class="panel-profile-img" src="<%= current_user.avatar.url(:full) %>">
+			<% end %>
 			<h5 class="panel-title"><%= current_user.name_formatted %></h5>
 			<p class="m-b-md"><%= current_user.email %></p>
-			<%= rug_button(rug_icon("user") + t("headers.ric_auth.public_accounts.edit").capitalize, ric_auth_public.edit_account_path, style: "default", size: "sm") %>
-			<%= rug_button(rug_icon("lock") + t("headers.ric_auth.public_passwords.edit").capitalize, ric_auth_public.edit_password_path, style: "default", size: "sm") %>
+			<%= rug_button(rug_icon("user") + t("headers.ric_auth.public_profiles.edit").capitalize, ric_auth_public.edit_profile_path, style: "default", size: "sm") %>
+			<%= rug_button(rug_icon("lock") + t("headers.ric_auth.public_profile_passwords.edit").capitalize, ric_auth_public.edit_profile_password_path, style: "default", size: "sm") %>
 		</div>
 	</div>
-<% else %>
+<% elsif !["public_sessions", "admin_sessions"].include?(controller_name) %>
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<h5 class="m-a-0"><%= t("devise.action.sign_in") %> <small>· <%= link_to t("devise.action.reset_password").capitalize, ric_devise.new_user_password_path %></small></h5>
+			<h5 class="m-a-0"><%= t("devise.action.sign_in") %> <small>· <%= link_to t("devise.action.reset_password").capitalize, ric_auth_public.new_password_path %></small></h5>
 		</div>
-		<%= rug_form_for(RicUser.user_model.new, url: ric_devise.new_user_session_path) do |f| %>
+		<%= rug_form_for(RicUser.user_model.new, url: ric_auth_public.new_session_path) do |f| %>
 			<div class="panel-body">
 				<%= f.text_input_row :email %>
 				<%= f.text_input_row :password, :password_field %>

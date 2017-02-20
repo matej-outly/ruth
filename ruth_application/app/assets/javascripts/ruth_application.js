@@ -33,3 +33,6 @@
 
 // Cycle2
 //= require cycle2/cycle2
+
+// Alertify
+//= require alertify/alertify
