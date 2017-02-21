@@ -104,6 +104,7 @@ cs:
     action:
       new: "nová položka"
       create: "nová položka"
+      create_child: "nová podřazená položka"
       edit: "upravit"
       update: "upravit"
       duplicate: "duplikovat"
@@ -129,6 +130,7 @@ cs:
       cancel: "zrušit"
       add: "přidat"
       remove: "odebrat"
+      reload: "obnovit"
       messages:
         create:
           success: "Položka byla úspěšně vytvořena."
