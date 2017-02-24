@@ -88,6 +88,18 @@ module RuthApplication
 	@@layout_mirror_collapsed = false
 
 	#
+	# Layout left column width
+	#
+	mattr_accessor :layout_left_column_width
+	@@layout_left_column_width = 3
+
+	#
+	# Layout right column width
+	#
+	mattr_accessor :layout_right_column_width
+	@@layout_right_column_width = 3
+
+	#
 	# Main menu
 	#
 	mattr_accessor :main_menu

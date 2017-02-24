@@ -4,16 +4,18 @@
 	right_partial = render(partial: "ruth_application/container_column", locals: { id: :right }).trim(" \t\n").html_safe 
 	main_column_push = 0
 	main_column_pull = 0
-	left_column_pull = RuthApplication.layout_mirror_collapsed ? 9 : 0
-	right_column_push = RuthApplication.layout_mirror_collapsed ? 9 : 0
-	main_column_width = 6
+	left_column_width = RuthApplication.layout_left_column_width 
+	right_column_width = RuthApplication.layout_right_column_width 
+	left_column_pull = RuthApplication.layout_mirror_collapsed ? (12 - right_column_width) : 0
+	right_column_push = RuthApplication.layout_mirror_collapsed ? (12 - left_column_width) : 0
+	main_column_width = 12 - RuthApplication.layout_left_column_width - RuthApplication.layout_right_column_width
 	if left_partial.blank?
-		main_column_width += 3 
-		main_column_pull += 3 if RuthApplication.layout_mirror_collapsed
+		main_column_width += left_column_width
+		main_column_pull += left_column_width if RuthApplication.layout_mirror_collapsed
 	end
 	if right_partial.blank?
-		main_column_width += 3
-		main_column_push += 3 if RuthApplication.layout_mirror_collapsed
+		main_column_width += right_column_width
+		main_column_push += right_column_width if RuthApplication.layout_mirror_collapsed
 	end
 %>
 <div class="container-fluid">
@@ -26,13 +28,13 @@
 
 		<% if RuthApplication.layout_mirror_collapsed %>
 			<% if !right_partial.blank? %>
-				<div class="col-md-3 <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %>">
+				<div class="col-md-<%= right_column_width %> <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %>">
 					<%= right_partial %>
 				</div>
 			<% end %>
 		<% else %>
 			<% if !left_partial.blank? %>
-				<div class="col-md-3 <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %>">
+				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %>">
 					<%= left_partial %>
 				</div>
 			<% end %>
@@ -46,13 +48,13 @@
 		
 		<% if RuthApplication.layout_mirror_collapsed %>
 			<% if !left_partial.blank? %>
-				<div class="col-md-3 <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %>">
+				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %>">
 					<%= left_partial %>
 				</div>
 			<% end %>
 		<% else %>
 			<% if !right_partial.blank? %>
-				<div class="col-md-3 <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %>">
+				<div class="col-md-<%= right_column_width %> <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %>">
 					<%= right_partial %>
 				</div>
 			<% end %>
