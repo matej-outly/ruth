@@ -1,7 +1,9 @@
-<% RuthApplication.layout[:container][id].each do |component| %>
-	<% if component == :yield %>
-		<%= yield %>
-	<% else %>
-		<%= render partial: "ruth_application/component", locals: { component: component.to_s } %>
+<% if RuthApplication.layout[:container][id] %>
+	<% RuthApplication.layout[:container][id].each do |component| %>
+		<% if component == :yield %>
+			<%= yield %>
+		<% else %>
+			<%= render partial: "ruth_application/component", locals: { component: component.to_s } %>
+		<% end %>
 	<% end %>
 <% end %>
