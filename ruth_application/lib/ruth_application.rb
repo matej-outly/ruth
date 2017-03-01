@@ -100,6 +100,12 @@ module RuthApplication
 	@@layout_right_column_width = 3
 
 	#
+	# Use inverse navbar?
+	#
+	mattr_accessor :navbar_inverse
+	@@navbar_inverse = true
+
+	#
 	# Main menu
 	#
 	mattr_accessor :main_menu
