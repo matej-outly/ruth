@@ -135,6 +135,16 @@
 				text-decoration: none;
 				background-color: #ebebeb;
 			}
+
+			.fa {
+				width: 20px;
+			}
+		}
+
+		&.active {
+			a {
+				background-color: #ebebeb;
+			}
 		}
 	}
 
