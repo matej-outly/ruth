@@ -2,9 +2,11 @@
 <% filters = ruth_admin_filters %>
 <% sidebar = ruth_admin_sidebar %>
 <%
-	default_title = t("headers.#{controller_path.gsub('/', '.')}.#{action_name}", default: "")
-	default_subtitle = t("headers.#{controller_path.gsub('/', '.')}.index", default: "")
-	default_subtitle = nil if default_title == default_subtitle
+	final_header = t("headers.#{controller_path.gsub('/', '.')}.#{action_name}", default: "")
+	final_header = (content_for?(:page_header) ? (yield :page_header) : final_header)
+	final_header = nil if final_header == "false"
+	final_subheader = t("headers.#{controller_path.gsub('/', '.')}.index", default: "")
+	final_subheader = nil if final_header == final_subheader
 %>
 
 <div class="container <%= sidebar ? "sidebar-container sidebar-container-left" : "" %>">
@@ -12,11 +14,10 @@
 
 	<div class="dashhead">
 		<div class="dashhead-titles">
-			<h2 class="dashhead-title"><%= (content_for?(:title) ? (yield :title) : default_title) %></h2>
-			<% if default_subtitle %>
-				<h6 class="dashhead-subtitle"><%= default_subtitle %></h6>
+			<h2 class="dashhead-title"><%= final_header %></h2>
+			<% if final_subheader %>
+				<h6 class="dashhead-subtitle"><%= final_subheader %></h6>
 			<% end %>
-			
 		</div>
 		<% if actions %>
 			<div class="dashhead-toolbar">
