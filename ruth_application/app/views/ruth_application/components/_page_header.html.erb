@@ -1,2 +1,10 @@
 <% controller_path = controller.class.name.to_snake[0..-12] %>
-<div class="page-header m-t-0"><h1 class="m-t-0"><%= defined?(header) ? header : t("headers.#{controller_path.gsub('/', '.')}.#{action_name}") %></h1></div>
+<% 
+	final_header = t("headers.#{controller_path.gsub('/', '.')}.#{action_name}", default: "")
+	final_header = (defined?(header) ? header : final_header) 
+	final_header = (content_for?(:page_header) ? (yield :page_header) : final_header)
+	final_header = nil if final_header == "false"
+%>
+<% if !final_header.blank? %>
+	<div class="page-header m-t-0"><h1 class="m-t-0"><%= final_header %></h1></div>
+<% end %>

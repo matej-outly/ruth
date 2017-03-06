@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= render partial: "ruth_application/title" %></title>
+	<%= stylesheet_link_tag    RuthApplication.css_layout, media: "all" %>
+	<%= javascript_include_tag RuthApplication.js_layout %>
+	<%= csrf_meta_tags %>
+</head>
+<body class="layout-auth">
+	<div class="container">
+		<%= render partial: "ruth_application/components/flash_alertify" %>
+		<%= render partial: "ruth_application/components/page_header" %>
+		<%= yield %>
+	</div>
+</body>
+</html>
