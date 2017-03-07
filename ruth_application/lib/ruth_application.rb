@@ -117,9 +117,9 @@ module RuthApplication
 	mattr_accessor :profile_show_sign_out
 	@@profile_show_sign_out = false
 	mattr_accessor :profile_show_avatar
-	@@pprofile_show_avatar = true
+	@@profile_show_avatar = true
 	mattr_accessor :profile_show_picture
-	@@pprofile_show_picture = true
+	@@profile_show_picture = true
 
 	#
 	# About

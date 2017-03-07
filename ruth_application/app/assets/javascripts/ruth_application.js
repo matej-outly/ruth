@@ -40,3 +40,12 @@
 
 // Perfect Scrollbar
 //= require perfect_scrollbar/perfect_scrollbar.jquery
+
+// Editable
+//= require editable/editable
+
+// Destroyable
+//= require destroyable/destroyable
+
+// Ajax Form
+//= require ajax_form/ajax_form
