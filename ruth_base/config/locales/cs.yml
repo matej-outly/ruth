@@ -298,10 +298,13 @@ cs:
       hour_min_sec: "%k:%M:%S"
 
   number:
-     currency:
+    currency:
         format:
-          unit: 'Kč'
-          delimiter: ' '
-          separator: ','
+          unit: "Kč"
+          delimiter: " "
+          separator: ","
           precision: 2
-          format: '%n %u'
+          format: "%n %u"
+    format:
+      separator: ","
+      delimiter: " "

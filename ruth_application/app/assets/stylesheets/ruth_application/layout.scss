@@ -27,7 +27,8 @@ body.layout-auth {
 		padding-bottom: 50px;
 	}
 
-	.container {
+	> .container {
+		position: relative;
 		background-color: lighten($content-color, 5%);
 		margin-right: auto;
 		margin-left: auto;
@@ -38,6 +39,17 @@ body.layout-auth {
 		-webkit-box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.2);
 		-moz-box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.2);
 		box-shadow: 0px 0px 31px 0px rgba(0,0,0,0.2);
+
+		> .close {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+
+		> .actions-list {
+			margin-top: 20px;
+			margin-bottom: 0;
+		}
 	}
 
 	h1, h2, h3, h4, h5, h6 {

@@ -37,3 +37,6 @@
 
 // Alertify
 //= require alertify/alertify
+
+// Perfect Scrollbar
+//= require perfect_scrollbar/perfect_scrollbar.jquery

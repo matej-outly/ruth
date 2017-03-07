@@ -9,9 +9,11 @@
 </head>
 <body class="layout-auth">
 	<div class="container">
+		<a class="close" href="<%= main_app.root_path %>"><%= rug_icon("close") %></a>
 		<%= render partial: "ruth_application/components/flash_alertify" %>
 		<%= render partial: "ruth_application/components/page_header" %>
 		<%= yield %>
+		<%= render partial: "ruth_application/components/actions" %>
 	</div>
 </body>
 </html>
