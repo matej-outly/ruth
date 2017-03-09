@@ -9,34 +9,39 @@
 /*                                                                           */
 /*****************************************************************************/
 
-/******************************************************************************
-
-Options (to be implemented):
-
-- flashSelector (string) .... Selector for inline flash container, if not 
-                              provided, Alertify plugin 
-- successMessage (string) ... Message displayed at success
-- errorMessage (string) ..... Message displayed at error
-- clearOnSubmit (boolean) ... Clear form values when successfuly submitted?
-- behaviorOnSubmit (none|hide|redirect) ... What to do when form is successfuly
-                                            submitted
-- hideTimeout (integer) ..... How many seconds to wait until hidden form is 
-                              shown again, hide forever if null (only for 'hide' 
-                              behavior)
-- redirectUrl (string) ...... URL where to redirect when form is successfuly 
-                              submitted (only for 'hide' behavior)
-
-Coresponding options set via data attribute:
-
-- data-af-flash-selector
-- data-af-success-message
-- data-af-error-message
-- data-af-clear-on-submit
-- data-af-behavior-on-submit
-- data-af-hide-timeout
-- data-af-redirect-url
-
-******************************************************************************/
+/*****************************************************************************/
+/*
+/* Options:
+/* - flashSelector (string) .... Selector for inline flash container, if not 
+/*                               provided, Alertify plugin used
+/* - successMessage (string) ... Message displayed at success
+/* - errorMessage (string) ..... Message displayed at error
+/* - clearOnSubmit (boolean) ... Clear form values when successfuly submitted?
+/* - behaviorOnSubmit (none|hide|redirect) ... What to do when form is 
+/*                               successfuly submitted
+/* - hideTimeout (integer) ..... How many seconds to wait until hidden form is 
+/*                               shown again, hide forever if null (only for  
+/*                               'hide' behavior)
+/* - copyToObject (string) ..... JS object implementing addItem() and 
+/*                               changeItem()  functions where submitted data 
+/*                               will be copied
+/* - redirectUrl (string) ...... URL where to redirect when form is successfuly 
+/*                               submitted (necessary for 'hide' behavior)
+/* - showUrl (string) .......... URL where edited object can be loaded through 
+/*                               AJAX (necessary if copyToObject defined)
+/*
+/* Coresponding options set via data attribute:
+/* - data-af-flash-selector
+/* - data-af-success-message
+/* - data-af-error-message
+/* - data-af-clear-on-submit
+/* - data-af-behavior-on-submit
+/* - data-af-hide-timeout
+/* - data-af-copy-to-object
+/* - data-af-redirect-url
+/* - data-af-show-url
+/*
+/*****************************************************************************/
 
 (function ( $ ) {
 
@@ -50,11 +55,14 @@ Coresponding options set via data attribute:
 			clearOnSubmit: true,
 			behaviorOnSubmit: "none",
 			hideTimeout: 5,
-			redirectUrl: null
+			copyToObject: null,
+			redirectUrl: null,
+			showUrl: null,
 		}, setOptions);
 
 		// Constructor
-		function AjaxForm(form, options) {
+		function AjaxForm(form, options) 
+		{
 			this.$form = $(form);
 			this.options = (typeof options !== 'undefined' ? options : {});
 
@@ -66,27 +74,32 @@ Coresponding options set via data attribute:
 				clearOnSubmit: (this.$form.attr("data-af-clear-on-submit") ? (this.$form.attr("data-af-clear-on-submit") == "true") : undefined),
 				behaviorOnSubmit: this.$form.attr("data-af-behavior-on-submit"),
 				hideTimeout: (this.$form.attr("data-af-hide-timeout") ? parseInt(this.$form.attr("data-af-hide-timeout")) : undefined),
-				redirectUrl: this.$form.attr("data-af-redirect-url")
+				copyToObject: this.$form.attr("data-af-copy-to-object"),
+				redirectUrl: this.$form.attr("data-af-redirect-url"),
+				showUrl: this.$form.attr("data-af-show-url"),
 			};
 			for (var key in this.options) {
-				if (overrideOptions[key]) {
+				if (typeof overrideOptions[key] !== 'undefined') {
 					this.options[key] = overrideOptions[key];
 				}
 			}
 		}
 
 		// Form URL
-		AjaxForm.prototype.url = function() {
+		AjaxForm.prototype.url = function() 
+		{
 			return this.$form.attr("action");
 		}
 
 		// Form ID
-		AjaxForm.prototype.id = function() {
+		AjaxForm.prototype.id = function() 
+		{
 			return this.$form.attr("id");
 		}
 
 		// Set flash message on success or error
-		AjaxForm.prototype.setFlashMessage = function(result) {
+		AjaxForm.prototype.setFlashMessage = function(result) 
+		{
 			
 			// Set message to flash selector
 			if (this.options.flashSelector) {
@@ -104,12 +117,16 @@ Coresponding options set via data attribute:
 			}
 		}
 
-		AjaxForm.prototype.behaveOnSubmit = function() {
+		AjaxForm.prototype.behaveOnSubmit = function() 
+		{
 			var self = this;
 
 			// Hide and (optionaly) show
 			if (this.options.behaviorOnSubmit == "hide") {
-				$formContainer = this.$form.find(".af-container")
+				$formContainer = this.$form.find(".af-container");
+				if ($formContainer.length == 0) {
+					$formContainer = this.$form;
+				}
 				$formContainer.addClass("af-hidden")
 				if (this.options.hideTimeout) {
 					setTimeout(function() {
@@ -126,6 +143,19 @@ Coresponding options set via data attribute:
 			// Nothing
 			} else {
 				self.clearForm();
+			}
+		}
+
+		AjaxForm.prototype.copyToObject = function(id) 
+		{
+			var self = this;
+
+			if (self.options.copyToObject && self.options.showUrl) {
+				var showUrl = self.options.showUrl.replace(':id', id);
+				$.get(showUrl, function(data) {
+					eval('var copyToObject = ' + self.options.copyToObject + ';');
+					copyToObject.changeItem(id, data);
+				});
 			}
 		}
 
@@ -151,14 +181,15 @@ Coresponding options set via data attribute:
 			}
 		}
 
-		AjaxForm.prototype.requestSuccess = function(callback)
+		AjaxForm.prototype.requestSuccess = function(id)
 		{
 			// Everything is OK
 			this.setFlashMessage(true);
 			this.behaveOnSubmit();
+			this.copyToObject(id);
 		}
 
-		AjaxForm.prototype.requestError = function(callback)
+		AjaxForm.prototype.requestError = function(errors)
 		{
 			// Something is bad
 			this.setFlashMessage(false);

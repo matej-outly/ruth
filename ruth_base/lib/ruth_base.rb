@@ -9,7 +9,7 @@
 # *
 # *****************************************************************************
 
-# Engie
+# Engine
 require "ruth_base/engine"
 
 module RuthBase

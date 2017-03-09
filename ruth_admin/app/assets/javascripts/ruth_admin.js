@@ -1,3 +1,7 @@
+// ****************************************************************************
+// 3rd party libraries
+// ****************************************************************************
+
 // jQuery
 //= require jquery
 //= require jquery_ujs
@@ -47,6 +51,13 @@
 // Perfect Scrollbar
 //= require perfect_scrollbar/perfect_scrollbar.jquery
 
+// Rater
+//= require rater/rater
+
+// ****************************************************************************
+// Custom jQuery plugins
+// ****************************************************************************
+
 // Editable
 //= require editable/editable
 
@@ -55,6 +66,23 @@
 
 // Ajax Form
 //= require ajax_form/ajax_form
+
+// ****************************************************************************
+// Rug
+// ****************************************************************************
+
+//= require rug_builder/rug_form_conditional_section
+//= require rug_builder/rug_form_dropzone
+//= require rug_builder/rug_form_map_location
+//= require rug_builder/rug_form_map_polygon
+//= require rug_builder/rug_form_rater
+//= require rug_builder/rug_list
+//= require rug_builder/rug_table
+//= require rug_builder/rug_tree
+
+// ****************************************************************************
+// Ruth Admin
+// ****************************************************************************
 
 // Sidebar
 //= require ruth_admin/sidebar
