@@ -135,29 +135,35 @@
 			border-bottom-left-radius: 4px;
 		}
 
-		a {
+		> a, > span, > div {
 			display: block;
 			padding: 10px 15px;
 			color: inherit;
 
-			&:hover, &:focus {
-				text-decoration: none;
-				background-color: #ebebeb;
-			}
-
-			.fa {
+			> .fa {
 				width: 20px;
 			}
 		}
 
+		> a {
+			&:hover, &:focus {
+				text-decoration: none;
+				background-color: #ebebeb;
+			}
+		}
+
 		&.active {
-			a {
+			> a {
 				background-color: #ebebeb;
 			}
 		}
 	}
 
 }
+
+/*****************************************************************************/
+/* Partners list                                                             */
+/*****************************************************************************/
 
 .partners-list {
 	/*text-align: center;*/
