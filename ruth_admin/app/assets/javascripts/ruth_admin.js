@@ -73,6 +73,7 @@
 
 //= require rug_builder/rug_form_conditional_section
 //= require rug_builder/rug_form_dropzone
+//= require rug_builder/rug_form_dropzone_many
 //= require rug_builder/rug_form_map_location
 //= require rug_builder/rug_form_map_polygon
 //= require rug_builder/rug_form_rater
