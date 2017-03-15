@@ -140,3 +140,23 @@
 .float-right {
 	float: right;
 }
+
+/*****************************************************************************/
+/* Hiding                                                                    */
+/*****************************************************************************/
+
+@media (max-width: $screen-xs) {
+  .hide-xs { display: none; }
+}
+
+@media (max-width: $screen-sm) {
+  .hide-sm { display: none; }
+}
+
+@media (max-width: $screen-md) {
+  .hide-md { display: none; }
+}
+
+@media (max-width: $screen-lg) {
+  .hide-lg { display: none; }
+}

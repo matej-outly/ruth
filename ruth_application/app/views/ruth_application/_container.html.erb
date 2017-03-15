@@ -34,7 +34,7 @@
 			<% end %>
 		<% else %>
 			<% if !left_partial.blank? %>
-				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %>">
+				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %> hide-md">
 					<%= left_partial %>
 				</div>
 			<% end %>
@@ -48,7 +48,7 @@
 		
 		<% if RuthApplication.layout_mirror_collapsed %>
 			<% if !left_partial.blank? %>
-				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %>">
+				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %> hide-md">
 					<%= left_partial %>
 				</div>
 			<% end %>
