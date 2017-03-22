@@ -315,7 +315,9 @@
 			transition: background-color 0.3s;
 			min-height: 40px;
 			&.action {
+				white-space: nowrap;
 				text-align: right;
+				width: 1px; /* Minimal width */
 				@media (max-width: $screen-xs-max) {
 					width: auto;
 				}
@@ -325,18 +327,11 @@
 						padding-left: 45%;
 					}
 				}
-				&.standard {
-					width: 1px; /* Minimal width */
-				}
 			}
 		}
 
 		&:hover td {
 			background-color: white;
-		}
-
-		&.possibility {
-			color: $pale-text-color;
 		}
 		
 	}
