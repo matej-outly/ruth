@@ -100,6 +100,18 @@ module RuthApplication
 	@@layout_right_column_width = 3
 
 	#
+	# Layout left column should be hidden on mobile
+	#
+	mattr_accessor :layout_hide_left
+	@@layout_hide_left = false
+
+	#
+	# Layout right column should be hidden on mobile
+	#
+	mattr_accessor :layout_hide_right
+	@@layout_hide_right = false
+
+	#
 	# Use inverse navbar?
 	#
 	mattr_accessor :navbar_inverse
