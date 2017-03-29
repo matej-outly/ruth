@@ -17,6 +17,16 @@
 		main_column_width += right_column_width
 		main_column_push += right_column_width if RuthApplication.layout_mirror_collapsed
 	end
+	if RuthApplication.layout_hide_left
+		hide_left = "hide-md"
+	else
+		hide_left = ""
+	end
+	if RuthApplication.layout_hide_right
+		hide_right = "hide-md"
+	else
+		hide_right = ""
+	end
 %>
 <div class="container-fluid">
 	<div class="row">
@@ -28,13 +38,13 @@
 
 		<% if RuthApplication.layout_mirror_collapsed %>
 			<% if !right_partial.blank? %>
-				<div class="col-md-<%= right_column_width %> <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %>">
+				<div class="col-md-<%= right_column_width %> <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %> <%= hide_right %>">
 					<%= right_partial %>
 				</div>
 			<% end %>
 		<% else %>
 			<% if !left_partial.blank? %>
-				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %> hide-md">
+				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %> <%= hide_left %>">
 					<%= left_partial %>
 				</div>
 			<% end %>
@@ -48,13 +58,13 @@
 		
 		<% if RuthApplication.layout_mirror_collapsed %>
 			<% if !left_partial.blank? %>
-				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %> hide-md">
+				<div class="col-md-<%= left_column_width %> <%= left_column_pull > 0 ? "col-md-pull-" + left_column_pull.to_s : "" %> <%= hide_left %>">
 					<%= left_partial %>
 				</div>
 			<% end %>
 		<% else %>
 			<% if !right_partial.blank? %>
-				<div class="col-md-<%= right_column_width %> <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %>">
+				<div class="col-md-<%= right_column_width %> <%= right_column_push > 0 ? "col-md-push-" + right_column_push.to_s : "" %> <%= hide_right %>">
 					<%= right_partial %>
 				</div>
 			<% end %>
