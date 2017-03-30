@@ -206,18 +206,18 @@ cs:
       - Ne
     abbr_month_names:
       -
-      - Leden
-      - Únor
-      - Březen
-      - Duben
-      - Květen
-      - Červen
-      - Červenec
-      - Srpen
-      - Září
-      - Říjen
-      - Listopad
-      - Prosinec
+      - Led
+      - Úno
+      - Bře
+      - Dub
+      - Kvě
+      - Čern
+      - Čerc
+      - Srp
+      - Zář
+      - Říj
+      - Lis
+      - Pro
     day_names:
       - Neděle
       - Pondělí
