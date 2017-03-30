@@ -4,6 +4,11 @@ Ajax Form is JQuery plugin for managing Ajax form requests from/to Ruby on Rails
 
 ## Installation
 
+Add into your Gemfile and run `bundle install` afterwards:
+```ruby
+gem "ruth_base"
+```
+
 Add these lines into your `application.js` file:
 
 ```javascript
