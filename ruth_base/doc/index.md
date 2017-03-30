@@ -23,7 +23,6 @@ Ruth Base contains these libraries:
 - [Alertify](alertify.md)
 - [Clipboard](clipboard.md)
 - [Clockpicker](clockpicker.md)
-- [Confirm](confirm.md)
 - [Cycle2](cycle2.md)
 - [Destroyable](destroyable.md)
 - [Dropzone](dropzone.md)
