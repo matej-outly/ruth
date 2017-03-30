@@ -189,7 +189,7 @@
 			this.copyToObject(id);
 		}
 
-		AjaxForm.prototype.requestError = function(errors)
+		AjaxForm.prototype.requestError = function(callback)
 		{
 			// Something is bad
 			this.setFlashMessage(false);
