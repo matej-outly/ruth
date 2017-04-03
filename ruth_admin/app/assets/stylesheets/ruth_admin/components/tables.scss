@@ -1,0 +1,322 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Tables                                                                    */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Common table                                                              */
+/*****************************************************************************/
+
+.table {
+	thead {
+		tr {
+			th {
+				border-bottom: 2px solid $global-grid-color;
+			}
+		}
+	}
+	tbody {
+		tr {
+			td {
+				border-top: 1px solid $global-grid-color;
+			}
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Show table                                                                */
+/*****************************************************************************/
+
+.table.show-table {
+	background-color: $table-background-color;
+
+	tr {
+		td.show-table-label {
+			font-weight: normal;
+		}
+
+		td.show-table-value {
+			font-weight: bold;
+			&:first-child {
+				border-top: none;
+			}
+			> *:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		td:first-child {
+			width: 30%;
+		}
+
+		&:first-child {
+			td {
+				border-top: none;
+			}
+		}
+	}
+}
+
+.panel > .table.show-table {
+	border: none;
+	background-color: transparent;
+}
+
+/*****************************************************************************/
+/* Index table / hierarchical index table                                    */
+/*****************************************************************************/
+
+.table {
+	&.index-table, &.hierarchical-index-table {
+
+		.sorting {
+			font-weight: normal;
+			&:before {
+				content: "("
+			}
+			&:after {
+				content: ")"
+			}
+		}
+
+		tbody {
+			tr {
+				td {
+					background-color: $table-background-color;
+					transition: background-color 0.3s;
+					min-height: 40px;
+					&.actions {
+						white-space: nowrap;
+						text-align: right;
+						width: 1px; /* Minimal width */
+						@media (max-width: $screen-xs-max) {
+							width: auto;
+						}
+						& + .actions {
+							padding-left: 0;
+							@media (max-width: $screen-xs-max) {
+								padding-left: 45%;
+							}
+						}
+					}
+				}
+
+				&:hover td {
+					background-color: lighten($table-background-color, 5%);
+				}
+				
+			}
+		}
+	}
+
+	&.hierarchical-index-table {
+		
+		tbody {
+			tr {
+				td {
+					&.nesting { 
+						padding: 0; 
+						width: 40px; 
+						background-repeat: 
+						no-repeat; 
+						background-position: 0 -8px; 
+					}
+					&.nesting:first-child { 
+						padding-left: 20px; 
+						width: 60px; 
+						background-position: 20px -8px; 
+					}
+					&.leaf { 
+						/*padding-left: 20px;*/
+						font-weight: bold;
+					}
+					&.nesting-0-none { background-image: image-url("ruth_admin/nesting_0_none.png"); }
+					&.nesting-0-inner { background-image: image-url("ruth_admin/nesting_0_inner.png"); }
+					&.nesting-1-sibling { background-image: image-url("ruth_admin/nesting_1_sibling.png"); }
+					&.nesting-1-nosibling { background-image: image-url("ruth_admin/nesting_1_nosibling.png"); }
+					&.nesting-2-child { background-image: image-url("ruth_admin/nesting_2_child.png"); }
+					&.nesting-2-nochild { background-image: image-url("ruth_admin/nesting_2_nochild.png"); }
+				}
+			}
+		}
+	}
+
+}
+
+/*****************************************************************************/
+/* Picture index table                                                       */
+/*****************************************************************************/
+
+.picture-index-table {
+	
+	.thumbnail {
+		
+		.actions {
+			position: absolute;
+			top: 12px;
+			right: 26px;
+			z-index: 1000;
+		}
+
+	}
+
+}
+
+
+/*****************************************************************************/
+/* Empty table                                                               */
+/*****************************************************************************/
+
+.show-table-empty,
+.index-table-empty,
+.hierarchical-index-table-empty,
+.picture-index-table-empty {
+	padding: 5px;
+	color: $global-grid-color;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+/*****************************************************************************/
+/* Table heading                                                             */
+/*****************************************************************************/
+
+.show-table-heading, .picture-index-table-heading {
+	padding-bottom: 5px;
+	@include clearfix;
+
+	&.empty {
+		border-bottom: none;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	/*h1, h2, h3, h4, h5, h6 {
+		width: 50%;
+		float: left;
+		margin-top: 0;
+		margin-bottom: 0;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			margin-bottom: 15px;
+			text-align: center;
+		}
+	}*/
+
+	.actions {
+		float: right;
+		width: 50%;
+		text-align: right;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
+	}
+}
+
+.index-table-heading, .hierarchical-index-table-heading {
+	height: 0;
+	position: relative;
+	
+	.actions {
+		position: absolute;
+		right: 0;
+		top: 0;
+		text-align: right;
+	}
+
+	@media (max-width: $screen-sm) {
+		height: auto;
+		border-bottom: 1px solid $global-grid-color;
+		text-align: center;
+		padding-bottom: 10px;
+		.actions {
+			position: static;
+			text-align: center;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Table footer                                                              */
+/*****************************************************************************/
+
+.show-table-footer,
+.index-table-footer,
+.hierarchical-index-table-footer,
+.picture-index-table-footer {
+	border-top: 1px solid $global-grid-color;
+	margin-top: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	@include clearfix;
+
+	&.empty {
+		border-top: none;
+		margin-top: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	@media (max-width: $screen-sm) {
+		text-align: center;
+	}
+
+	.pagination {
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+
+	.summary {
+		float: right;
+		width: 20%;
+		text-align: right;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
+	}
+}
+
+.index-table-footer, .hierarchical-index-table-footer {
+	margin-top: -20px;
+}
+
+/*****************************************************************************/
+/* Sortable                                                                  */
+/*****************************************************************************/
+
+.index-table, .hierarchical-index-table {
+	tbody {
+		tr.placeholder {
+			td {
+				background-color: $global-link-color;
+			}
+		}
+	}
+}
+
+.picture-index-table {
+	.moving-handle {
+		position: absolute;
+		top: 12px;
+		left: 26px;
+		z-index: 1000;
+	}
+}
+
+.dragged {
+	position: absolute;
+	opacity: 0.5;
+	z-index: 2000;
+}

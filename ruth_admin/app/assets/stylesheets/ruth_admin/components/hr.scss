@@ -1,0 +1,64 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Horizontal divider                                                        */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+hr {
+	border-top: 1px solid $global-grid-color;
+}
+
+.hr-divider {
+	position: relative;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+	
+	&:before {
+		position: absolute;
+		//z-index: 10;
+		top: 50%;
+		display: block;
+		content: "";
+		width: 100%;
+		height: 1px;
+		background-color: $global-grid-color;
+	}
+
+	.hr-divider-content {
+		position: relative;
+		z-index: 2;
+		display: inline-block;
+		padding-left: 1em;
+		padding-right: 1em;
+		color: $divider-text-color;
+		vertical-align: middle;
+		background-color: $global-background-color;
+	}
+
+	.hr-divider-heading {
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 100%;
+		color: inherit;
+		font-weight: 300;
+	}
+
+	.hr-divider-nav {
+		> li > a {
+			padding-top: 4px;
+			padding-bottom: 4px;
+			font-size: 100%;
+		}
+		> .active > a {
+			font-weight: 300;
+		}
+	}
+}

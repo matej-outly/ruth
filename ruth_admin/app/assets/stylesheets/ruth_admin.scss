@@ -73,6 +73,25 @@
 @import "ruth_admin/typography";
 @import "ruth_admin/layout";
 @import "ruth_admin/colors";
-@import "ruth_admin/components";
-@import "ruth_admin/sidebar";
+
+/* Components */
+@import "ruth_admin/components/alerts";
+@import "ruth_admin/components/breadcrumb";
+@import "ruth_admin/components/buttons";
+@import "ruth_admin/components/dashhead";
+@import "ruth_admin/components/file_preview";
+@import "ruth_admin/components/flextable";
+@import "ruth_admin/components/forms";
+@import "ruth_admin/components/hr";
+@import "ruth_admin/components/maps";
+@import "ruth_admin/components/navigation";
+@import "ruth_admin/components/page_header";
+@import "ruth_admin/components/pagination";
+@import "ruth_admin/components/sidebar";
+@import "ruth_admin/components/tables";
+@import "ruth_admin/components/thumbnail";
+@import "ruth_admin/components/video";
+@import "ruth_admin/components/vr";
+
+/* Plugins */
 @import "ruth_admin/plugins";

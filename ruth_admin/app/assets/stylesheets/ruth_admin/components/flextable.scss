@@ -1,0 +1,36 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Flextable                                                                 */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.flextable {
+	dislay: table;
+	width: 100%;
+
+	.flextable-item {
+		display: table-cell;
+		width: 1%;
+		white-space: nowrap;
+		vertical-align: middle;
+		.btn-group {
+			margin-left: 10px;
+			> .btn {
+				float: none;
+			}
+			> .btn + .btn {
+				margin-left: -4px;
+			}
+		}
+	}
+
+	.flextable-primary {
+		width: 99%;
+	}
+
+}

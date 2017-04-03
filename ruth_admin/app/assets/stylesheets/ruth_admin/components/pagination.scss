@@ -1,0 +1,45 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Pagination                                                                */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.pagination {
+	> li {
+
+		> a,
+		> span {
+			color: $pagination-text-color;
+			background-color: $global-background-color;
+			border: 1px solid $global-grid-color;
+			&:hover, &:focus {
+				color: $pagination-active-text-color;
+				background-color: $global-grid-color;
+				border-color: $global-grid-color;
+			}
+		}
+	}
+
+	> .active {
+		> a, > a:hover, > a:focus,
+		> span, > span:hover, > span:focus {
+			color: $pagination-active-text-color;
+			background-color: $pagination-active-background-color;
+			border-color: $pagination-active-background-color;
+		}
+	}
+
+	> .disabled {
+		> span, > span:hover, > span:focus,
+		> a, > a:hover, > a:focus {
+			color: $pagination-text-color;
+			background-color: transparent;
+			border-color: $global-grid-color;
+		}
+	}
+}
