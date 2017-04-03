@@ -69,7 +69,7 @@ $.fn.editable = function(setOptions) {
 		if (options.toggleElement) {
 			$toggleEl = options.toggleElement;
 		} else if (options.toggleSelector) {
-			$toggleEl = $(options.toggleSelector);
+			$toggleEl = _this.find(options.toggleSelector);
 		} else {
 			ownToggleElement = true;
 			$toggleEl = $('<div class="btn btn-' + options.toggleButtonStyle + ' btn-' + options.toggleButtonSize + ' editable-toggle"><i class="fa fa-' + options.toggleButtonIcon + '"></i></div>');
