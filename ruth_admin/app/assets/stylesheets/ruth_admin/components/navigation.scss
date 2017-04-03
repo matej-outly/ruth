@@ -1,0 +1,226 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Navigation                                                                */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Iconav                                                                    */
+/*****************************************************************************/
+
+.iconav {
+	margin-top: -20px;
+	margin-bottom: 30px;
+
+	@media (min-width: $screen-sm-min) {
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 70px;
+		margin-top: 0;
+		margin-bottom: 0;
+		background-color: $nav-background-color;
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+
+	.iconav-brand {
+		display: block;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		font-size: 18px;
+		line-height: 1;
+		color: $nav-active-text-color;
+		text-align: center;
+		border-bottom: 0;
+		background-color: $nav-brand-color;
+		
+		&:hover {
+			color: $global-text-color;
+			text-decoration: none;
+		}
+
+		img {
+			width: 100%;
+			max-width: 70px;
+		}
+
+		@media (min-width: $screen-sm-min) {
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+	}
+
+	.iconav-brand-icon {
+		font-size: 30px;
+	}
+
+	/*.iconav-slider {
+		@media (max-width: $screen-sm-min) {
+			white-space: nowrap;
+		}
+	}*/
+
+	.iconav-nav {
+		> li {
+			float: none;
+			display: inline-block;
+			@media (min-width: $screen-sm-min) {
+				display: block;
+			}
+			> a {
+				position: relative;
+				padding: 10px 12px;
+				font-size: 18px;
+				text-align: center;
+				border-radius: 0;
+				@media (min-width: $screen-sm-min) {
+					padding: 15px;
+				}
+			}
+			
+			& + li {
+				margin-left: -3px;
+				@media (min-width: $screen-sm-min) {
+					margin-left: 0;
+					> a {
+						border-top: 1px solid $global-background-color;
+						border-right: 0;
+					}
+				}
+				.dropdown-menu {
+					top: 1px;
+				}	
+			}
+			
+			&.active {
+				> a {
+					&, &:focus, &:hover, &:active {
+						color: $nav-active-text-color;
+						background-color: $global-background-color;
+					}
+				}
+			}
+
+			> a > img {
+				width: 26px;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.iconav-nav-label {
+		font-size: 11px;
+		@media (min-width: $screen-sm-min) {
+			display: none;
+		}
+	}
+
+	.dropdown-menu {
+		position: absolute;
+		top: 0;
+		left: 100%;
+
+		@media (max-width: $screen-sm-min) {
+			position:absolute;
+			top: 100%;
+			left: 0;
+		}
+
+		margin: 0;
+		padding: 0;
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		border: none;
+		
+		background-color: $nav-hover-background-color;
+
+		> li {
+			> a {
+				padding: 10px 20px;
+				color: $global-text-color;
+				&:hover, &:focus {
+					background-color: $nav-background-color;
+					color: $nav-hover-text-color;
+				}
+			}
+			&.active {
+				> a {
+					&, &:hover, &:focus {
+						background-color: $nav-background-color;
+						color: $nav-hover-text-color;
+					}
+				}
+			}
+		}
+
+		.fa {
+			margin-right: 10px;
+		}
+
+		.divider {
+			background-color: $nav-background-color;
+			margin: 0;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Common navigation                                                         */
+/*****************************************************************************/
+
+.nav {
+	> li {
+		> a {
+			color: $global-text-color;
+			&:hover, &:focus {
+				background-color: $nav-hover-background-color;
+				color: $nav-hover-text-color;
+			}
+		}
+		&.open {
+			> a {
+				&, &:hover, &:focus {
+					background-color: $nav-hover-background-color;
+					color: $nav-hover-text-color;
+					border-color: $global-background-color;
+				}
+			}
+		}
+		&.disabled {
+			> a {
+				&, &:hover, &:focus {
+					color: $global-text-color;
+				}
+			}
+		}
+	}
+}
+
+.nav-pills {
+	> li {
+		> a {
+			font-weight: 300;
+			color: $global-text-color;
+		}
+		&.active {
+			> a {
+				&, &:hover, &:focus {
+					background-color: $global-grid-color;
+				}
+			}
+		}
+	}
+}

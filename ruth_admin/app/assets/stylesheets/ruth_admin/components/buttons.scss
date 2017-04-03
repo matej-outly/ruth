@@ -1,0 +1,226 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Buttons                                                                   */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.btn-default {
+	color: $button-text-color;
+	background-color: $default-color;
+	border-color: $default-color;
+	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
+		color: $button-text-color;
+		background-color: darken($default-color, 10%);
+		border-color: darken($default-color, 5%);
+	}
+	&.disabled, &[disabled], fieldset[disabled] & {
+		&:focus, &:hover, &:active, &.active {
+			color: $button-text-color;
+			background-color: darken($default-color, 10%);
+			border-color: darken($default-color, 5%);
+		}
+	}
+}
+
+.btn-primary {
+	color: $button-text-color;
+	background-color: $primary-color;
+	border-color: $primary-color;
+	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
+		color: $button-text-color;
+		background-color: darken($primary-color, 10%);
+		border-color: darken($primary-color, 5%);
+	}
+	&.disabled, &[disabled], fieldset[disabled] & {
+		&:focus, &:hover, &:active, &.active {
+			color: $button-text-color;
+			background-color: darken($primary-color, 10%);
+			border-color: darken($primary-color, 5%);
+		}
+	}
+}
+
+.btn-success {
+	color: $button-text-color;
+	background-color: $success-color;
+	border-color: $success-color;
+	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
+		color: $button-text-color;
+		background-color: darken($success-color, 10%);
+		border-color: darken($success-color, 5%);
+	}
+	&.disabled, &[disabled], fieldset[disabled] & {
+		&:focus, &:hover, &:active, &.active {
+			color: $button-text-color;
+			background-color: darken($success-color, 10%);
+			border-color: darken($success-color, 5%);
+		}
+	}
+}
+
+.btn-info {
+	color: $button-text-color;
+	background-color: $info-color;
+	border-color: $info-color;
+	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
+		color: $button-text-color;
+		background-color: darken($info-color, 10%);
+		border-color: darken($info-color, 5%);
+	}
+	&.disabled, &[disabled], fieldset[disabled] & {
+		&:focus, &:hover, &:active, &.active {
+			color: $button-text-color;
+			background-color: darken($info-color, 10%);
+			border-color: darken($info-color, 5%);
+		}
+	}
+}
+
+.btn-warning {
+	color: $button-text-color;
+	background-color: $warning-color;
+	border-color: $warning-color;
+	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
+		color: $button-text-color;
+		background-color: darken($warning-color, 10%);
+		border-color: darken($warning-color, 5%);
+	}
+	&.disabled, &[disabled], fieldset[disabled] & {
+		&:focus, &:hover, &:active, &.active {
+			color: $button-text-color;
+			background-color: darken($warning-color, 10%);
+			border-color: darken($warning-color, 5%);
+		}
+	}
+}
+
+.btn-danger {
+	color: $button-text-color;
+	background-color: $danger-color;
+	border-color: $danger-color;
+	&:focus, &:hover, &:active, &.active, &.active:hover, &.active:focus {
+		color: $button-text-color;
+		background-color: darken($danger-color, 10%);
+		border-color: darken($danger-color, 5%);
+	}
+	&.disabled, &[disabled], fieldset[disabled] & {
+		&:focus, &:hover, &:active, &.active {
+			color: $button-text-color;
+			background-color: darken($danger-color, 10%);
+			border-color: darken($danger-color, 5%);
+		}
+	}
+}
+
+.btn-default-outline {
+	color: $default-color;
+	background-color: transparent;
+	border-color: $default-color;
+	&:focus, &:hover, &:active, &.active {
+		color: $button-text-color;
+		background-color: $default-color;
+		box-shadow: none;
+	}
+	&.disabled, &[disabled], fieldset[disabled] &,
+	&.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
+		border-color: $default-color;
+	}
+}
+
+.btn-primary-outline {
+	color: $primary-color;
+	background-color: transparent;
+	border-color: $primary-color;
+	&:focus, &:hover, &:active, &.active {
+		color: $button-text-color;
+		background-color: $primary-color;
+		box-shadow: none;
+	}
+	&.disabled, &[disabled], fieldset[disabled] &,
+	&.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
+		border-color: $primary-color;
+	}
+}
+
+.btn-success-outline {
+	color: $success-color;
+	background-color: transparent;
+	border-color: $success-color;
+	&:focus, &:hover, &:active, &.active {
+		color: $button-text-color;
+		background-color: $success-color;
+		box-shadow: none;
+	}
+	&.disabled, &[disabled], fieldset[disabled] &,
+	&.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
+		border-color: $success-color;
+	}
+}
+
+.btn-info-outline {
+	color: $info-color;
+	background-color: transparent;
+	border-color: $info-color;
+	&:focus, &:hover, &:active, &.active {
+		color: $button-text-color;
+		background-color: $info-color;
+		box-shadow: none;
+	}
+	&.disabled, &[disabled], fieldset[disabled] &,
+	&.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
+		border-color: $info-color;
+	}
+}
+
+.btn-warning-outline {
+	color: $warning-color;
+	background-color: transparent;
+	border-color: $warning-color;
+	&:focus, &:hover, &:active, &.active {
+		color: $button-text-color;
+		background-color: $warning-color;
+		box-shadow: none;
+	}
+	&.disabled, &[disabled], fieldset[disabled] &,
+	&.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
+		border-color: $warning-color;
+	}
+}
+
+.btn-danger-outline {
+	color: $danger-color;
+	background-color: transparent;
+	border-color: $danger-color;
+	&:focus, &:hover, &:active, &.active {
+		color: $button-text-color;
+		background-color: $danger-color;
+		box-shadow: none;
+	}
+	&.disabled, &[disabled], fieldset[disabled] &,
+	&.disabled:hover, &[disabled]:hover, fieldset[disabled] &:hover,
+	&.disabled:focus, &[disabled]:focus, fieldset[disabled] &:focus,
+	&.disabled:active, &[disabled]:active, fieldset[disabled] &:active,
+	&.disabled.active, &[disabled].active, fieldset[disabled] &.active {
+		border-color: $danger-color;
+	}
+}

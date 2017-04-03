@@ -1,0 +1,62 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* File preview                                                              */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.file-preview {
+
+	height: 100%;
+	background: $global-grid-color;
+	position: relative;
+
+	.inner-box {
+		text-align: center;
+		position: absolute;
+		padding: 10px;
+		background: rgba(0, 0, 0, 0.8);
+		-moz-border-radius: 4px;
+		-webkit-border-radius: 4px;
+		border-radius: 4px;
+		display: block;
+		bottom: 10px;
+		left: 10px;
+		right: 10px;
+
+		.fa {
+			margin-right: 8px;
+		}
+	}
+
+}
+
+.index-table, .show-table {
+
+	.file-preview {
+
+		background: transparent;
+		position: relative;
+
+		.inner-box {
+			text-align: left;
+			position: static;
+			padding: 1px 7px;
+			background: rgba(0, 0, 0, 0.5);
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+			display: block;
+			
+			.fa {
+				margin-right: 8px;
+			}
+		}
+
+	}
+
+}

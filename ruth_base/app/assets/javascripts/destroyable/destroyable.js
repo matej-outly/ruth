@@ -33,7 +33,7 @@ $.fn.destroyable = function(setOptions) {
 		if (!destroySelector) {
 			destroyEl = $('<div class="btn btn-' + options.destroyButtonStyle + ' btn-' + options.destroyButtonSize + ' editable-toggle"><i class="fa fa-' + options.destroyButtonIcon + '"></i></div>');
 		} else {
-			destroyEl = $(destroySelector);
+			destroyEl = _this.find(destroySelector);
 		}
 		
 		// Value click

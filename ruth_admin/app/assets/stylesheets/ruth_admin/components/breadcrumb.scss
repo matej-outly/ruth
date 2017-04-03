@@ -1,0 +1,28 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Breadcrumb                                                                */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.breadcrumb {
+	background-color: transparent;
+	padding: 0;
+
+	> li + li:before {
+		display: inline-block;
+		vertical-align: bottom;
+		content: "\e080";
+		font-family: 'Glyphicons Halflings';
+		padding: 0 7px 0 3px;
+		color: $global-grid-color;
+	}
+
+	.active {
+		color: $global-grid-color;
+	}
+}

@@ -1,0 +1,80 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Dashhead                                                                  */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.dashhead {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+
+	.dashhead-titles {
+		@media (min-width: $screen-sm-min) {
+			float: left;
+		}
+	}
+
+	.dashhead-title {
+		margin-top: 0;
+	}
+
+	.dashhead-subtitle {
+		margin-top: 0;
+		margin-bottom: 5px;
+		font-weight: normal;
+		font-size: 85%;
+		color: $global-grid-color;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	.dashhead-toolbar {
+		margin-left: 0;
+		.input-with-icon {
+			width: 100%;
+			margin-bottom: 10px;
+			margin-left: 0;
+		}
+		@media (min-width: $screen-sm-min) {
+			float: right;
+			margin-top: 12px;
+			.input-with-icon {
+				width: 180px;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.dashhead-toolbar-item {
+		float: left;
+	}
+
+	.dashhead-toolbar-divider {
+		float: left;
+		width: 1px;
+		height: 34px;
+		margin-left: 10px;
+		margin-right: 10px;
+		background-color: $global-grid-color;
+	}
+
+}

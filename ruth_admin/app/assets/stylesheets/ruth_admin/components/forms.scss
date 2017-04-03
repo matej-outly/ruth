@@ -1,0 +1,143 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Forms                                                                     */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.input-group {
+	margin-bottom: 5px;
+}
+
+.form-inline {
+	label {
+		margin-right: 5px;
+	}
+	.form-group {
+		margin-right: 10px;
+	}
+	.btn-primary {
+		float: right;
+	}
+
+	@media (max-width: $screen-xs-max) {
+		label {
+			margin-right: 0;
+		}
+		.form-group {
+			margin-right: 0;
+		}
+		.btn-primary {
+			float: none;
+		}
+	}
+}
+
+.form-group {
+	.item {
+		margin-bottom: 5px;
+	}
+}
+
+/*****************************************************************************/
+/* Input with icon                                                           */
+/*****************************************************************************/
+
+.input-with-icon {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	> .form-control {
+		padding-left: 30px;
+	}
+	> .fa, > .icon {
+		position: absolute;
+		top: 9px;
+		left: 10px;
+		color: $form-icon-color;
+	}
+}
+
+/*****************************************************************************/
+/* Checkbox / Radiobutton                                                    */
+/*****************************************************************************/
+
+.checkbox-no-bootstrap {
+
+	label {
+		font-weight: normal;
+	}
+
+	label input[type=checkbox] {
+		display: none;
+		& + span {
+			height: 18px;
+			width: 18px;
+			border: 1px solid $form-grid-color;
+			color: $form-icon-color;
+			background: $form-background-color;
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			top: 1px;
+		}
+		&:checked + span:before {
+			display: block;
+			text-align: center;
+			line-height: 16px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-family: 'Glyphicons Halflings';
+			content: "\e013";
+			font-size: 70%;
+		}
+	}
+}
+
+.radio-no-bootstrap {
+
+	label {
+		font-weight: normal;
+	}
+
+	label input[type=radio] {
+		display: none;
+		& + span {
+			height: 18px;
+			width: 18px;
+			border: 1px solid $form-grid-color;
+			color: $form-icon-color;
+			background: $form-background-color;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			top: 1px;
+		}
+		&:checked + span:before {
+			display: block;
+			text-align: center;
+			line-height: 18px;
+			position: absolute;
+			top: -3px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-family: 'Glyphicons Halflings';
+			content: "\25cf";
+			font-size: 110%;
+		}
+	}
+}

@@ -49,7 +49,7 @@
 //= require rater/rater
 
 // ****************************************************************************
-// Custom jQuery plugins
+// Custom jQuery libraries
 // ****************************************************************************
 
 // Editable
@@ -60,6 +60,9 @@
 
 // Ajax Form
 //= require ajax_form/ajax_form
+
+// Tile resizer
+//= require tile_resizer/tile_resizer
 
 // ****************************************************************************
 // Rug
