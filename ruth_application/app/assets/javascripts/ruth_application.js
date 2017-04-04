@@ -33,8 +33,8 @@
 //= require fancybox/fancybox
 //= require ruth_application/fancybox
 
-// jCrop
-//= require jcrop/jcrop
+// Croppable (previously jCrop)
+//= require croppable/croppable
 
 // Cycle2
 //= require cycle2/cycle2
@@ -77,3 +77,4 @@
 //= require rug_builder/rug_list
 //= require rug_builder/rug_table
 //= require rug_builder/rug_tree
+//= require rug_builder/rug_crop
