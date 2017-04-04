@@ -220,8 +220,8 @@
 			//
 			getTouchCoordinates: function(touchEvent) {
 				console.log(touchEvent);
-				var pageX = touchEvent.targetTouches[0].pageX;
-				var pageY = touchEvent.targetTouches[0].pageY;
+				var pageX = touchEvent.originalEvent.targetTouches[0].pageX;
+				var pageY = touchEvent.originalEvent.targetTouches[0].pageY;
 				return this._fixCoordinates(pageX, pageY);
 			},
 
