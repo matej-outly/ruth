@@ -20,35 +20,38 @@
 		{
 			this.$image = $(image);
 			this.$container = null;
+
 			this.$crop = null;
+			this.cropElement = null;
+
+			this.$east = null;
+			this.eastElement = null;
+			this.$south = null;
+			this.southElement = null;
+			this.$west = null;
+			this.westElement = null;
+			this.$north = null;
+			this.northElement = null;
 
 			this.startCoordinates = null;
 			this.currentCoordinates = null;
+			this.fixedCoordinates = { x: null, y: null };
 			this.method = null;
+
+			this.minSize = { width: 15, height: 15 } // Minimal size of cropping rectangle
 
 		}
 		ImageCropper.prototype = {
 			constructor: ImageCropper,
 
 			ready: function() {
-				// Insert image into wrapper
-				this.$image.wrap("<div class='croppable-container'></div>");
-				this.$container = this.$image.parent();
+				// Crate markup
+				this.createCrop();
 
-				// Add class for image
-				this.$image.addClass("croppable-image");
-
-				// Add crop rectangle
-				this.$container.append("<div class='croppable-crop'></div>");
-				this.$crop = this.$container.find(".croppable-crop");
-				// this.$crop.append("<div class='croppable-crop-east'></div>");
-
-				// Init crop size
+				// Initialize values
 				this.initCrop();
 
-				// Bind container events
-				var self = this;
-				// this.$container.mousedown(function(e) { self.onMouseDown(e); });
+				// Bind events
 				this.$container.on("mousedown", this.onMouseDown.bind(this));
 				$(document).on("mousemove", this.onMouseMove.bind(this));
 				$(document).on("mouseup", this.onDeviceUp.bind(this));
@@ -60,6 +63,43 @@
 				}
 			},
 
+			//
+			// Create elements
+			//
+			createCrop: function() {
+				// Insert image into wrapper
+				this.$image.wrap("<div class='croppable-container'></div>");
+				this.$container = this.$image.parent();
+
+				// Add class for image
+				this.$image.addClass("croppable-image");
+
+				// Add crop rectangle
+				this.$container.append("<div class='croppable-crop'></div>");
+				this.$crop = this.$container.find(".croppable-crop");
+				this.cropElement = this.$crop[0];
+
+				// Add resize borders
+				this.$crop.append("<div class='croppable-crop-east'></div>");
+				this.$east = this.$crop.find(".croppable-crop-east");
+				this.eastElement = this.$east[0];
+
+				this.$crop.append("<div class='croppable-crop-south'></div>");
+				this.$south = this.$crop.find(".croppable-crop-south");
+				this.southElement = this.$south[0];
+
+				this.$crop.append("<div class='croppable-crop-west'></div>");
+				this.$west = this.$crop.find(".croppable-crop-west");
+				this.westElement = this.$west[0];
+
+				this.$crop.append("<div class='croppable-crop-north'></div>");
+				this.$north = this.$crop.find(".croppable-crop-north");
+				this.northElement = this.$north[0];
+			},
+
+			//
+			// Initialize values
+			//
 			initCrop: function() {
 				if (options.rounded === true) {
 					this.$crop.addClass("croppable-rounded");
@@ -94,11 +134,43 @@
 
 			onDeviceDown: function(event, coordinatesFunction) {
 				if (this.method === null) {
-					if (event.target === this.$crop[0]) {
+					event.preventDefault();
+
+					switch (event.target) {
+					case this.cropElement:
 						this.method = "moveCrop";
 						this.startCoordinates = coordinatesFunction(event);
+						break;
 
-					} else {
+					case this.eastElement:
+						this.method = "resizeCrop";
+						var position = this.$crop.position();
+						this.startCoordinates = { x: position.left, y: position.top }
+						this.fixedCoordinates = { x: null, y: position.top + this.$crop.height() }
+						break;
+
+					case this.southElement:
+						this.method = "resizeCrop";
+						var position = this.$crop.position();
+						this.startCoordinates = { x: position.left, y: position.top }
+						this.fixedCoordinates = { x: position.left + this.$crop.width(), y: null }
+						break;
+
+					case this.westElement:
+						this.method = "resizeCrop";
+						var position = this.$crop.position();
+						this.startCoordinates = { x: position.left + this.$crop.width(), y: position.top }
+						this.fixedCoordinates = { x: null, y: position.top + this.$crop.height() }
+						break;
+
+					case this.northElement:
+						this.method = "resizeCrop";
+						var position = this.$crop.position();
+						this.startCoordinates = { x: position.left, y: position.top + this.$crop.height() }
+						this.fixedCoordinates = { x: position.left + this.$crop.width(), y: null }
+						break;
+
+					default:
 						this.method = "createCrop";
 						this.startCoordinates = coordinatesFunction(event);
 					}
@@ -107,6 +179,7 @@
 
 			onDeviceMove: function(event, coordinatesFunction) {
 				if (this.method !== null) {
+					event.preventDefault();
 					this.currentCoordinates = coordinatesFunction(event);
 					this.updateCrop();
 				}
@@ -116,6 +189,7 @@
 				this.method = null;
 				this.startCoordinates = null;
 				this.currentCoordinates = null;
+				this.fixedCoordinates = { x: null, y: null };
 			},
 
 
@@ -145,6 +219,7 @@
 			// Get coordinates from touch always within container
 			//
 			getTouchCoordinates: function(touchEvent) {
+				console.log(touchEvent);
 				var pageX = touchEvent.targetTouches[0].pageX;
 				var pageY = touchEvent.targetTouches[0].pageY;
 				return this._fixCoordinates(pageX, pageY);
@@ -176,7 +251,18 @@
 			updateCrop: function() {
 				if (this.startCoordinates !== null && this.currentCoordinates !== null) {
 
-					if (this.method === "createCrop") {
+					switch (this.method) {
+					case "resizeCrop":
+						if (this.fixedCoordinates.x !== null) {
+							this.currentCoordinates.x = this.fixedCoordinates.x;
+						}
+						if (this.fixedCoordinates.y !== null) {
+							this.currentCoordinates.y = this.fixedCoordinates.y;
+						}
+
+						// no break
+
+					case "createCrop":
 						this.fixCurrentCoordinatesByAspectRatio();
 
 						var left = Math.min(this.startCoordinates.x, this.currentCoordinates.x);
@@ -185,28 +271,42 @@
 						var height = Math.max(this.startCoordinates.y, this.currentCoordinates.y) - top;
 
 						this.setCropPositionAndSizeInPx(left, top, width, height);
+						break;
 
-					}
-					else if (this.method === "moveCrop") {
-						var moveX = this.currentCoordinates.x - this.startCoordinates.x;
-						var moveY = this.currentCoordinates.y - this.startCoordinates.y;
+					case "moveCrop":
+						var state = this._getCurrentState();
 
-						var position = this.$crop.position();
-						var top = position.top;
-						var left = position.left;
-						var width = this.$crop.width();
-						var height = this.$crop.height();
+						if (state.maxWidth < state.left + state.moveX + state.width) { state.moveX = state.maxWidth - state.left - state.width; }
+						if (state.maxHeight < state.top + state.moveY + state.height) { state.moveY = state.maxHeight - state.top - state.height; }
+						if (state.left + state.moveX < 0) { state.moveX = -state.left; }
+						if (state.top + state.moveY < 0) { state.moveY = -state.top; }
 
-						var maxWidth = this.$container.width();
-						var maxHeight = this.$container.height();
-
-						if (maxWidth < left + moveX + width) { moveX = maxWidth - left - width; }
-						if (maxHeight < top + moveY + height) { moveY = maxHeight - top - height; }
-						if (left + moveX < 0) { moveX = -left; }
-						if (top + moveY < 0) { moveY = -top; }
-
-						this.setCropPositionAndSizeInPx(left + moveX, top + moveY);
+						this.setCropPositionAndSizeInPx(state.left + state.moveX, state.top + state.moveY, null, null);
 						this.startCoordinates = this.currentCoordinates;
+						break;
+
+					// case "resizeEast":
+						/*
+						var state = this._getCurrentState();
+
+						if (state.width + state.moveX < this.minSize.width) { state.moveX = this.minSize.width - state.width; }
+						if (state.maxWidth < state.left + state.moveX + state.width) { state.moveX = state.maxWidth - state.left - state.width; }
+
+						// Update width
+						var newWidth = state.width + state.moveX;
+						var newHeight = null;
+
+						// Update height if aspect ratio
+						if (options.aspectRatio !== null) {
+							newHeight = state.width / options.aspectRatio;
+							if (newHeight < this.minSize.height) { newHeight = this.minSize.height; newWidth = state.width * options.aspectRatio; }
+							if (state.maxHeight < state.top + newHeight) { newHeight = state.maxHeight - state.top; newWidth = state.width * options.aspectRatio; }
+						}
+
+						this.setCropPositionAndSizeInPx(null, null, newWidth, newHeight);
+						this.startCoordinates = this.currentCoordinates;
+						*/
+						// break;
 					}
 
 					this.signalUpdated();
@@ -214,33 +314,62 @@
 			},
 
 			//
-			// Set crop rectangel position and size in px, which will be automatically recomputed into percents
+			// Get current state for update
+			//
+			_getCurrentState: function() {
+				var position = this.$crop.position();
+
+				return {
+					moveX: this.currentCoordinates.x - this.startCoordinates.x,
+					moveY: this.currentCoordinates.y - this.startCoordinates.y,
+					top: position.top,
+					left: position.left,
+					width: this.$crop.width(),
+					height: this.$crop.height(),
+					maxWidth: this.$container.width(),
+					maxHeight: this.$container.height(),
+				}
+			},
+
+			//
+			// Set crop rectangle position and size in px, which will be automatically recomputed into percents
 			//
 			setCropPositionAndSizeInPx(left, top, width, height) {
 				var containerWidth = this.$container.width();
 				var containerHeight = this.$container.height();
 
-				left = left / containerWidth;
-				top = top / containerHeight;
+				if (left !== null) {
+					left = left / containerWidth;
+				}
+				if (top !== null) {
+					top = top / containerHeight;
+				}
+				if (width !== null) {
+					width = width / containerWidth;
+				}
+				if (height !== null) {
+					height = height / containerHeight;
+				}
 
-				if (width !== "undefined" && height !== "undefined") {
-					this.setCropPositionAndSizeInPercents(left, top, width / containerWidth, height / containerHeight);
-				}
-				else {
-					this.setCropPositionAndSizeInPercents(left, top);
-				}
+				this.setCropPositionAndSizeInPercents(left, top, width, height);
 			},
 
 			//
 			// Set crop rectangle CSS position and size in percents (percents in [0.0, 1.0] interval)
 			//
 			setCropPositionAndSizeInPercents(left, top, width, height) {
-				var cssProperties = {
-					left: (left * 100) + "%",
-					top: (top * 100) + "%",
+				var cssProperties = {};
+
+				if (left !== null) {
+					cssProperties.left = (left * 100) + "%";
 				}
-				if (width !== "undefined" && height !== "undefined") {
+				if (top !== null) {
+					cssProperties.top = (top * 100) + "%";
+				}
+				if (width !== null) {
 					cssProperties.width = (width * 100) + "%";
+				}
+				if (height !== null) {
 					cssProperties.height = (height * 100) + "%"
 				}
 
@@ -256,7 +385,6 @@
 					height: this.$image.prop("naturalHeight"),
 				}
 			},
-
 
 			//
 			// Return real coordinates (computed to picture size)
@@ -297,7 +425,7 @@
 				var newX = this.startCoordinates.x + aspectDeltaX;
 				var newY = this.startCoordinates.y + aspectDeltaY;
 
-				if (Math.abs(deltaX) < Math.abs(deltaY)) {
+				if (this.fixedCoordinates.y === null || (this.fixedCoordinates.x !== null && Math.abs(deltaX) < Math.abs(deltaY))) {
 					this.currentCoordinates.x = this.startCoordinates.x + aspectDeltaX;
 				}
 				else {

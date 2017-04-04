@@ -50,6 +50,48 @@
 				border-radius: 50%;
 			}
 		}
+
+		$croppable-resize-size: 5px;
+		@mixin croppable-resize-style {
+			position: absolute;
+		}
+
+		.croppable-crop-east {
+			@include croppable-resize-style;
+			top: $croppable-resize-size;
+			bottom: $croppable-resize-size;
+			right: 0;
+			width: $croppable-resize-size;
+			cursor: e-resize;
+		}
+
+		.croppable-crop-south {
+			@include croppable-resize-style;
+			left: $croppable-resize-size;
+			bottom: 0;
+			right: $croppable-resize-size;
+			height: $croppable-resize-size;
+			cursor: s-resize;
+		}
+
+		.croppable-crop-west {
+			@include croppable-resize-style;
+			top: $croppable-resize-size;
+			bottom: $croppable-resize-size;
+			left: 0;
+			width: $croppable-resize-size;
+			cursor: w-resize;
+		}
+
+		.croppable-crop-north {
+			@include croppable-resize-style;
+			left: $croppable-resize-size;
+			top: 0;
+			right: $croppable-resize-size;
+			height: $croppable-resize-size;
+			cursor: n-resize;
+		}
+
 	}
 }
 
