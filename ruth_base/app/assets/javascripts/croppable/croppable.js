@@ -41,6 +41,7 @@
 				// Add crop rectangle
 				this.$container.append("<div class='croppable-crop'></div>");
 				this.$crop = this.$container.find(".croppable-crop");
+				// this.$crop.append("<div class='croppable-crop-east'></div>");
 
 				// Init crop size
 				this.initCrop();
@@ -199,8 +200,8 @@
 						var maxWidth = this.$container.width();
 						var maxHeight = this.$container.height();
 
-						if (maxWidth < left + moveX + width) { moveX = Math.max(0, maxWidth - left - width); }
-						if (maxHeight < top + moveY + height) { moveY = Math.max(0, maxHeight - top - height); }
+						if (maxWidth < left + moveX + width) { moveX = maxWidth - left - width; }
+						if (maxHeight < top + moveY + height) { moveY = maxHeight - top - height; }
 						if (left + moveX < 0) { moveX = -left; }
 						if (top + moveY < 0) { moveY = -top; }
 
