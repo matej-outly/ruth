@@ -219,7 +219,6 @@
 			// Get coordinates from touch always within container
 			//
 			getTouchCoordinates: function(touchEvent) {
-				console.log(touchEvent);
 				var pageX = touchEvent.originalEvent.targetTouches[0].pageX;
 				var pageY = touchEvent.originalEvent.targetTouches[0].pageY;
 				return this._fixCoordinates(pageX, pageY);
