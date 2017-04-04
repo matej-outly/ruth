@@ -326,14 +326,14 @@
 		td {
 			transition: background-color 0.3s;
 			min-height: 40px;
-			&.action {
+			&.actions {
 				white-space: nowrap;
 				text-align: right;
 				width: 1px; /* Minimal width */
 				@media (max-width: $screen-xs-max) {
 					width: auto;
 				}
-				& + .action {
+				& + .actions {
 					padding-left: 0;
 					@media (max-width: $screen-xs-max) {
 						padding-left: 45%;
