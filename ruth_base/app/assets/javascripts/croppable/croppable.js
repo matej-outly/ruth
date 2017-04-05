@@ -3,9 +3,9 @@
 
 		var options = $.extend({
 			aspectRatio: null,
-			updated: null,
 			initial: null,
 			rounded: false,
+			cropUpdated: null,
 		}, setOptions);
 
 		/*
@@ -39,6 +39,9 @@
 			this.method = null;
 
 			this.minSize = { width: 15, height: 15 } // Minimal size of cropping rectangle
+
+			// For special case after initialization
+			this._replaceMoveByCreateAction = false;
 
 		}
 		ImageCropper.prototype = {
@@ -113,6 +116,34 @@
 						options.initial.width / contentSize.width,
 						options.initial.height / contentSize.height
 					);
+					this.signalCropUpdated();
+				}
+				else if (options.aspectRatio !== null) {
+					// Set up crop to be centered by aspect ratio
+					var maxWidth = this.$container.width();
+					var maxHeight = this.$container.height();
+
+					var width = maxHeight * options.aspectRatio;
+					var height = maxWidth / options.aspectRatio;
+
+					if (maxWidth < width) {
+						width = height * options.aspectRatio;
+					}
+					if (maxHeight < height) {
+						height = width * options.aspectRatio;
+					}
+
+					var deltaX = maxWidth - width;
+					var deltaY = maxHeight - height;
+
+					this.setCropPositionAndSizeInPx(deltaX / 2, deltaY / 2, width, height);
+					this.setReplaceMoveByCreateAction(true);
+					this.signalCropUpdated();
+				}
+				else {
+					this.setCropPositionAndSizeInPercents(0, 0, 1, 1);
+					this.setReplaceMoveByCreateAction(true);
+					this.signalCropUpdated();
 				}
 			},
 
@@ -137,11 +168,6 @@
 					event.preventDefault();
 
 					switch (event.target) {
-					case this.cropElement:
-						this.method = "moveCrop";
-						this.startCoordinates = coordinatesFunction(event);
-						break;
-
 					case this.eastElement:
 						this.method = "resizeCrop";
 						var position = this.$crop.position();
@@ -170,7 +196,18 @@
 						this.fixedCoordinates = { x: position.left + this.$crop.width(), y: null }
 						break;
 
-					default:
+					case this.cropElement:
+						if (!this.getReplaceMoveByCreateAction()) {
+							this.method = "moveCrop";
+							this.startCoordinates = coordinatesFunction(event);
+							break;
+						}
+						else {
+							this.setReplaceMoveByCreateAction(false);
+							// no break
+						}
+
+					default: // must follow after cropElement case
 						this.method = "createCrop";
 						this.startCoordinates = coordinatesFunction(event);
 					}
@@ -193,17 +230,38 @@
 			},
 
 
-			signalUpdated: function() {
-				if (options.updated !== null) {
+			signalCropUpdated: function() {
+				if (options.cropUpdated !== null) {
 					var crop = this.getCropCoordinates();
 
-					options.updated({
+					options.cropUpdated({
 						x: Math.round(crop.x),
 						y: Math.round(crop.y),
 						width: Math.round(crop.width),
 						height: Math.round(crop.height)
 					});
 				}
+			},
+
+			//
+			// Set up move replacement by update action
+			//
+			setReplaceMoveByCreateAction: function(enabled) {
+				if (enabled) {
+					this._replaceMoveByCreateAction = true;
+					this.$crop.addClass("croppable-crop-create");
+				}
+				else {
+					this._replaceMoveByCreateAction = false;
+					this.$crop.removeClass("croppable-crop-create");
+				}
+			},
+
+			//
+			// Get state of replacement by update acton
+			//
+			getReplaceMoveByCreateAction: function() {
+				return this._replaceMoveByCreateAction;
 			},
 
 			//
@@ -308,7 +366,7 @@
 						// break;
 					}
 
-					this.signalUpdated();
+					this.signalCropUpdated();
 				}
 			},
 
