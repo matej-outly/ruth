@@ -135,7 +135,7 @@
 					var deltaY = maxHeight - height;
 
 					this.setCropPositionAndSizeInPx(deltaX / 2, deltaY / 2, width, height);
-					this.setReplaceMoveByCreateAction(true);
+					// this.setReplaceMoveByCreateAction(true);
 					this.signalCropUpdated();
 				}
 				else {
