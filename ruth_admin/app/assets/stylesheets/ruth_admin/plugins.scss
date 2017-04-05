@@ -90,6 +90,15 @@ ul.token-input-list-facebook {
 	}
 }
 
+.input-group-addon + ul.token-input-list-facebook {
+	-webkit-border-top-left-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	-moz-border-radius-topleft: 0;
+	-moz-border-radius-bottomleft: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
 /* Token */
 li.token-input-token-facebook {
 	padding: 2px 6px;
