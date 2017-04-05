@@ -2,10 +2,10 @@
 	$.fn.croppable = function(setOptions) {
 
 		var options = $.extend({
-			aspectRatio: null,
-			initial: null,
-			rounded: false,
-			cropUpdated: null,
+			aspectRatio: null, // Image aspect ratio
+			initial: null, // Initial in real px
+			rounded: false, // Should be selection rounded? Just effect.
+			cropUpdated: null, // Callback when selection changed
 		}, setOptions);
 
 		/*
@@ -37,8 +37,6 @@
 			this.currentCoordinates = null;
 			this.fixedCoordinates = { x: null, y: null };
 			this.method = null;
-
-			this.minSize = { width: 15, height: 15 } // Minimal size of cropping rectangle
 
 			// For special case after initialization
 			this._replaceMoveByCreateAction = false;
@@ -341,29 +339,6 @@
 						this.setCropPositionAndSizeInPx(state.left + state.moveX, state.top + state.moveY, null, null);
 						this.startCoordinates = this.currentCoordinates;
 						break;
-
-					// case "resizeEast":
-						/*
-						var state = this._getCurrentState();
-
-						if (state.width + state.moveX < this.minSize.width) { state.moveX = this.minSize.width - state.width; }
-						if (state.maxWidth < state.left + state.moveX + state.width) { state.moveX = state.maxWidth - state.left - state.width; }
-
-						// Update width
-						var newWidth = state.width + state.moveX;
-						var newHeight = null;
-
-						// Update height if aspect ratio
-						if (options.aspectRatio !== null) {
-							newHeight = state.width / options.aspectRatio;
-							if (newHeight < this.minSize.height) { newHeight = this.minSize.height; newWidth = state.width * options.aspectRatio; }
-							if (state.maxHeight < state.top + newHeight) { newHeight = state.maxHeight - state.top; newWidth = state.width * options.aspectRatio; }
-						}
-
-						this.setCropPositionAndSizeInPx(null, null, newWidth, newHeight);
-						this.startCoordinates = this.currentCoordinates;
-						*/
-						// break;
 					}
 
 					this.signalCropUpdated();
@@ -472,6 +447,8 @@
 				// Make ideal crop, do not check bounds
 				var deltaX = this.currentCoordinates.x - this.startCoordinates.x;
 				var deltaY = this.currentCoordinates.y - this.startCoordinates.y;
+
+				//
 
 				var absDeltaX = Math.abs(deltaY) * options.aspectRatio;
 				var aspectDeltaX = (0 < deltaX) ? absDeltaX : -absDeltaX;
