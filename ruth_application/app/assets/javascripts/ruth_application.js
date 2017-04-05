@@ -33,9 +33,6 @@
 //= require fancybox/fancybox
 //= require ruth_application/fancybox
 
-// Croppable (previously jCrop)
-//= require croppable/croppable
-
 // Cycle2
 //= require cycle2/cycle2
 
@@ -64,11 +61,15 @@
 // Tile resizer
 //= require tile_resizer/tile_resizer
 
+// Croppable
+//= require croppable/croppable
+
 // ****************************************************************************
 // Rug
 // ****************************************************************************
 
 //= require rug_builder/rug_form_conditional_section
+//= require rug_builder/rug_form_crop
 //= require rug_builder/rug_form_dropzone
 //= require rug_builder/rug_form_dropzone_many
 //= require rug_builder/rug_form_map_location
@@ -77,4 +78,3 @@
 //= require rug_builder/rug_list
 //= require rug_builder/rug_table
 //= require rug_builder/rug_tree
-//= require rug_builder/rug_crop
