@@ -366,7 +366,7 @@
 			//
 			// Set crop rectangle position and size in px, which will be automatically recomputed into percents
 			//
-			setCropPositionAndSizeInPx(left, top, width, height) {
+			setCropPositionAndSizeInPx: function(left, top, width, height) {
 				var containerWidth = this.$container.width();
 				var containerHeight = this.$container.height();
 
@@ -389,7 +389,7 @@
 			//
 			// Set crop rectangle CSS position and size in percents (percents in [0.0, 1.0] interval)
 			//
-			setCropPositionAndSizeInPercents(left, top, width, height) {
+			setCropPositionAndSizeInPercents: function(left, top, width, height) {
 				var cssProperties = {};
 
 				if (left !== null) {
