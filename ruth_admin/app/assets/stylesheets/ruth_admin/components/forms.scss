@@ -141,3 +141,21 @@
 		}
 	}
 }
+
+/*****************************************************************************/
+/* Crop                                                                      */
+/*****************************************************************************/
+
+.cropbox {
+	padding: 10px;
+	padding-bottom: 4px;
+	background-color: white;
+	border: 1px dashed $form-grid-color;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	&:empty {
+		display: none;
+	}
+}

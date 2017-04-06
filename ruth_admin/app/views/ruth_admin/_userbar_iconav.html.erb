@@ -1,0 +1,27 @@
+<div class="userbar">
+	<% if user_signed_in? %>
+		<%
+			dropdowns = []
+			if RuthAdmin.show_profile_menu_if.nil? || eval("(#{RuthAdmin.show_profile_menu_if}) == true")
+				dropdowns << render(partial: "ric_auth/shared/admin/profile/menu")
+			end
+			if RuthAdmin.show_session_menu_if.nil? || eval("(#{RuthAdmin.show_session_menu_if}) == true")
+				dropdowns << render(partial: "ric_auth/shared/admin/session/menu_signed")
+			end
+		%>
+		<% if !dropdowns.empty? %>
+			<div class="dropdown">
+				<div class="avatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<% if current_user.respond_to?(:avatar) && current_user.avatar.present? %>
+						<%= image_tag(current_user.avatar.url(:thumb)) %>
+					<% else %>
+						<%= rug_icon("user") %>
+					<% end %>
+				</div>
+				<ul class="dropdown-menu dropdown-menu-right">
+					<%= dropdowns.join("<li role=\"separator\" class=\"divider\"></li>").html_safe %>
+				</ul>
+			</div>
+		<% end %>
+	<% end %>
+</div>

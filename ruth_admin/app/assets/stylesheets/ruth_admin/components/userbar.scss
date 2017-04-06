@@ -1,0 +1,35 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Userbar                                                                   */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 6. 4. 2017                                                        */
+/*                                                                           */
+/*****************************************************************************/
+
+.userbar {
+	position: fixed;
+	z-index: 10000;
+	right: 10px;
+	top: 10px;
+	text-align: right;
+
+	.dropdown {
+		display: inline-block;
+		cursor: pointer;
+	}
+
+	.avatar {
+		> img, > i {
+			-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+			-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+		}
+	}
+	
+	@media (max-width: $screen-sm) {
+		position: absolute;
+	}
+}

@@ -27,6 +27,8 @@
 		clear: both;
 	}
 
+	text-align: center;
+
 	.dashhead-titles {
 		@media (min-width: $screen-sm-min) {
 			float: left;
@@ -65,7 +67,7 @@
 	}
 
 	.dashhead-toolbar-item {
-		float: left;
+		//float: left;
 	}
 
 	.dashhead-toolbar-divider {

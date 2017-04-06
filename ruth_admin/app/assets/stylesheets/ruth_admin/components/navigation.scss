@@ -49,13 +49,18 @@
 		}
 
 		img {
-			width: 100%;
-			max-width: 70px;
+			//width: 100%;
+			//max-width: 70px;
+			max-height: 38px;
 		}
 
 		@media (min-width: $screen-sm-min) {
 			padding-top: 15px;
 			padding-bottom: 15px;
+			img {
+				width: 100%;
+				max-height: none;
+			}
 		}
 	}
 
@@ -70,6 +75,7 @@
 	}*/
 
 	.iconav-nav {
+		text-align: center;
 		> li {
 			float: none;
 			display: inline-block;
@@ -84,6 +90,9 @@
 				border-radius: 0;
 				@media (min-width: $screen-sm-min) {
 					padding: 15px;
+				}
+				.iconav-nav-label {
+					display: none;
 				}
 			}
 			
@@ -130,7 +139,7 @@
 		left: 100%;
 
 		@media (max-width: $screen-sm-min) {
-			position:absolute;
+			position: absolute;
 			top: 100%;
 			left: 0;
 		}

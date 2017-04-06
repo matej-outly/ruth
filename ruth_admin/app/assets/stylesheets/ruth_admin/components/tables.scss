@@ -239,6 +239,10 @@
 		border-bottom: 1px solid $global-grid-color;
 		text-align: center;
 		padding-bottom: 10px;
+		&.empty {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
 		.actions {
 			position: static;
 			text-align: center;
