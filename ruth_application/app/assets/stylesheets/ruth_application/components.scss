@@ -568,3 +568,15 @@
 .well {
 	background-color: darken($content-color, 3%);
 }
+
+/*****************************************************************************/
+/* Ticket                                                                    */
+/*****************************************************************************/
+
+.ticket {
+	display: block;
+	&:hover, &:focus {
+		text-decoration: none;
+		color: inherit;
+	}
+}
