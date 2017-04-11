@@ -158,4 +158,10 @@ module RuthApplication
 	mattr_accessor :copyright_menu
 	@@copyright_menu = []
 
+	#
+	# Include TinyMCE init script generated from tinymce.yml if available
+	#
+	mattr_accessor :include_default_tinymce
+	@@include_default_tinymce = true
+
 end

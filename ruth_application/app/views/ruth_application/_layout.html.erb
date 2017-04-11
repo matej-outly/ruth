@@ -5,6 +5,7 @@
 	<title><%= render partial: "ruth_application/title" %></title>
 	<%= stylesheet_link_tag    RuthApplication.css_layout, media: "all" %>
 	<%= javascript_include_tag RuthApplication.js_layout %>
+	<%= tinymce if defined?(tinymce) && RuthApplication.include_default_tinymce %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
