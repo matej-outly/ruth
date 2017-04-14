@@ -60,6 +60,7 @@
 
 // Tile resizer
 //= require tile_resizer/tile_resizer
+//= require ruth_application/tile_resizer
 
 // Croppable
 //= require croppable/croppable
