@@ -282,6 +282,25 @@
 }
 
 /*****************************************************************************/
+/* Crop                                                                      */
+/*****************************************************************************/
+
+.cropbox {
+	padding: 10px;
+	padding-bottom: 4px;
+	background-color: white;
+	border: 1px dashed $grid-color;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	&:empty {
+		display: none;
+	}
+}
+
+
+/*****************************************************************************/
 /* Tabs                                                                      */
 /*****************************************************************************/
 
@@ -595,6 +614,33 @@
 	&:hover, &:focus {
 		text-decoration: none;
 		color: inherit;
+	}
+
+	.ticket-heading {
+		& + * {
+			border-top: 1px solid;
+		}
+	}
+
+	.ticket-body {
+		& + * {
+			border-top: 1px solid;
+		}
+	}
+
+	.ticket-footer {
+
+	}
+
+	.ticket-heading, .ticket-body, .ticket-footer {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		&:first-child {
+			padding-top: 0;
+		}
+		&:last-child {
+			padding-bottom: 0;
+		}
 	}
 }
 
