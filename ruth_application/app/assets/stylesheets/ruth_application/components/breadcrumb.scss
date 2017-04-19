@@ -1,0 +1,25 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Breadcrumb                                                                */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 19. 4. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.breadcrumb {
+	padding: 0;
+	background-color: transparent;
+	border-radius: 0;
+
+	> .active {
+		/*color: $text-color;*/
+	}
+
+	> li + li::before {
+		/*color: $link-color;*/
+		padding-left: 8px;
+	}
+}

@@ -1,0 +1,106 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Forms                                                                     */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 19. 4. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Checkbox / Radiobutton                                                    */
+/*****************************************************************************/
+
+.checkbox-no-bootstrap {
+
+	label {
+		font-weight: normal;
+	}
+
+	label input[type=checkbox] {
+		display: none;
+		& + span {
+			height: 18px;
+			width: 18px;
+			border: 1px solid $grid-color;
+			background: white;
+			-moz-border-radius: 2px;
+			-webkit-border-radius: 2px;
+			border-radius: 2px;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			top: 1px;
+		}
+		&:checked + span:before {
+			display: block;
+			text-align: center;
+			line-height: 16px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-family: 'Glyphicons Halflings';
+			content: "\e013";
+			font-size: 70%;
+		}
+	}
+}
+
+.radio-no-bootstrap {
+
+	label {
+		font-weight: normal;
+	}
+
+	label input[type=radio] {
+		display: none;
+		& + span {
+			height: 18px;
+			width: 18px;
+			border: 1px solid $grid-color;
+			background: white;
+			-moz-border-radius: 50%;
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			top: 1px;
+		}
+		&:checked + span:before {
+			display: block;
+			text-align: center;
+			line-height: 18px;
+			position: absolute;
+			top: -3px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			font-family: 'Glyphicons Halflings';
+			content: "\25cf";
+			font-size: 110%;
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Crop                                                                      */
+/*****************************************************************************/
+
+.cropbox {
+	padding: 10px;
+	padding-bottom: 4px;
+	background-color: white;
+	border: 1px dashed $grid-color;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	&:empty {
+		display: none;
+	}
+}

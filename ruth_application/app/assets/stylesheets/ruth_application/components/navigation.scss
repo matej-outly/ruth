@@ -1,0 +1,35 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Navigation                                                                */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 19. 4. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+/*****************************************************************************/
+/* Tabs                                                                      */
+/*****************************************************************************/
+
+.nav-tabs {
+	margin-bottom: $spacer;
+	border-bottom: 1px solid $grid-color;
+
+	> li.active {
+		> a, > a:hover, > a:focus {
+			background: $content-color;
+			border: 1px solid $grid-color;
+			border-bottom-color: transparent;
+			color: $text-color;
+		}
+	}
+	> li {
+		> a:hover, > a:focus {
+			border: 1px solid transparent;
+			border-bottom-color: $grid-color;
+			background: transparent;
+		}
+	}
+}

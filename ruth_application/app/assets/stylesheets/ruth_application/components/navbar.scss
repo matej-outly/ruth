@@ -1,0 +1,37 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Navbar                                                                    */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 19. 4. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.navbar {
+	.navbar-brand {
+		height: 50px;
+		img {
+			margin: -15px 0 -15px 0;
+			height: 50px;
+		}
+	}
+	.navbar-collapse {
+		margin-right: 15px;
+		@media (max-width: $screen-sm) {
+			margin-right: -15px;
+		}
+	}
+	.navbar-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.navbar-nav {
+		.fa {
+			width: 20px;
+		}
+	}
+}
+

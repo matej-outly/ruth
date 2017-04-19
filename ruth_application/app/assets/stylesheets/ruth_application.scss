@@ -65,5 +65,26 @@
 @import "ruth_application/typography";
 @import "ruth_application/layout";
 @import "ruth_application/colors";
-@import "ruth_application/components";
+
+/* Components */
+@import "ruth_application/components/actions_list";
+@import "ruth_application/components/avatar_list";
+@import "ruth_application/components/breadcrumb";
+@import "ruth_application/components/callout";
+@import "ruth_application/components/forms";
+@import "ruth_application/components/jumbotron";
+@import "ruth_application/components/navbar";
+@import "ruth_application/components/navigation";
+@import "ruth_application/components/page_header";
+@import "ruth_application/components/panel";
+@import "ruth_application/components/panel_link_list";
+@import "ruth_application/components/panel_profile";
+@import "ruth_application/components/partners_list";
+@import "ruth_application/components/simple_list";
+@import "ruth_application/components/tables";
+@import "ruth_application/components/thumbnail";
+@import "ruth_application/components/ticket";
+@import "ruth_application/components/well";
+
+/* Plugins */
 @import "ruth_application/plugins";
