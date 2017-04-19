@@ -19,7 +19,7 @@ $color-yellow-dark: #e0c900 !default;
 
 $color-red: #ca3838 !default;
 $color-red-pale: #f2dede !default;
-$color-red-dark: #ca3838 !default;
+$color-red-dark: #a94442 !default;
 
 $color-green: #58c026 !default;
 $color-green-pale: #dff0d8 !default;
@@ -31,21 +31,21 @@ $color-green-dark: #58c026 !default;
 
 .panel {
 	&.color-yellow { 
-		border-color: $color-yellow-dark;
+		border-color: darken($color-yellow-pale,6%);
 		background-color: $color-yellow-pale;
-		.panel-footer { border-top-color: $color-yellow-dark; }
+		.panel-footer { border-top-color: darken($color-yellow-pale,6%); }
 		hr { border-top-color: $color-yellow-dark; }
 	}
 	&.color-red { 
-		border-color: $color-red-dark;
+		border-color: darken($color-red-pale,6%);
 		background-color: $color-red-pale;
-		.panel-footer { border-top-color: $color-red-dark; }
+		.panel-footer { border-top-color: darken($color-red-pale,6%); }
 		hr { border-top-color: $color-red-dark; }
 	}
 	&.color-green { 
-		border-color: $color-green-dark; 
+		border-color: darken($color-green-pale,6%); 
 		background-color: $color-green-pale;
-		.panel-footer { border-top-color: $color-green-dark; }
+		.panel-footer { border-top-color: darken($color-green-pale,6%); }
 		hr { border-top-color: $color-green-dark; }
 	}
 }
