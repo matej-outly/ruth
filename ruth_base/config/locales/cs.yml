@@ -262,7 +262,7 @@ cs:
       almost_x_years:
         one: skoro 1 rok
         other: skoro %{count} let
-      half_a_minute: half a minute
+      half_a_minute: půl minuty
       less_than_x_minutes:
         one: méně něž minuta
         other: méně něž %{count} minut
