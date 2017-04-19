@@ -247,6 +247,7 @@ cs:
       - :day
       - :month
       - :year
+  
   datetime:
     distance_in_words:
       about_x_hours:
@@ -290,6 +291,7 @@ cs:
       month: Měsíc
       second: Sekunda
       year: Rok
+  
   time:
     formats:
       default: "%-d. %-m. %Y %k:%M"
@@ -299,12 +301,12 @@ cs:
 
   number:
     currency:
-        format:
-          unit: "Kč"
-          delimiter: " "
-          separator: ","
-          precision: 2
-          format: "%n %u"
+      format:
+        unit: "Kč"
+        delimiter: " "
+        separator: ","
+        precision: 2
+        format: "%n %u"
     format:
       separator: ","
       delimiter: " "
