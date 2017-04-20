@@ -28,10 +28,12 @@
 	}
 
 	text-align: center;
-
-	.dashhead-titles {
-		@media (min-width: $screen-sm-min) {
+	@media (min-width: $screen-sm-min) {
+		.dashhead-titles {
 			float: left;
+		}
+		.dashhead-subtitle {
+			text-align: left;
 		}
 	}
 
