@@ -1,0 +1,45 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Statistics                                                                */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 19. 4. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.statistics {
+
+	.statistics-header {
+		font-weight: bold;
+	}
+
+	th.statistics-header {
+		text-align: right;
+	}
+
+	.statistics-value {
+		text-align: right;
+	}
+
+	.statistics-total {
+		font-weight: bold;
+		text-align: right;
+	}
+
+	> tbody {
+		> tr {
+			> th {
+				border-top: 0;
+				border-bottom: 1px solid $dark-grid-color;
+			}
+			> td {
+				transition: background-color 0.3s;
+			}
+			&:hover > td {
+				background-color: white;
+			}
+		}
+	}
+}
