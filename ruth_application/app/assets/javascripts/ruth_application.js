@@ -55,6 +55,9 @@
 // Destroyable
 //= require destroyable/destroyable
 
+// Affixable
+//= require affixable/affixable
+
 // Ajax Form
 //= require ajax_form/ajax_form
 
