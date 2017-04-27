@@ -1,0 +1,6 @@
+function perfect_scrollbar_ready() 
+{
+	$(".index-table").perfectScrollbar();
+	$(".hierarchical-index-table").perfectScrollbar();
+}
+$(document).on('<%= RuthAdmin.use_turbolinks ? "turbolinks:load" : "ready" %>', perfect_scrollbar_ready);
