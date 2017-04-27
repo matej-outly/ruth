@@ -14,17 +14,20 @@
 }
 
 .form-inline {
+	margin-bottom: -10px;
 	label {
 		margin-right: 5px;
 	}
 	.form-group {
 		margin-right: 10px;
+		margin-bottom: 10px;
 	}
 	.btn-primary {
 		float: right;
 	}
 
 	@media (max-width: $screen-xs-max) {
+		margin-bottom: 0;
 		label {
 			margin-right: 0;
 		}

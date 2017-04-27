@@ -31,160 +31,6 @@
 }
 
 /*****************************************************************************/
-/* Show table                                                                */
-/*****************************************************************************/
-
-.table.show-table {
-	background-color: $table-background-color;
-
-	tr {
-		td.show-table-label {
-			font-weight: normal;
-		}
-
-		td.show-table-value {
-			font-weight: bold;
-			&:first-child {
-				border-top: none;
-			}
-			> *:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		td:first-child {
-			width: 30%;
-		}
-
-		&:first-child {
-			td {
-				border-top: none;
-			}
-		}
-	}
-}
-
-.panel > .table.show-table {
-	border: none;
-	background-color: transparent;
-}
-
-/*****************************************************************************/
-/* Index table / hierarchical index table                                    */
-/*****************************************************************************/
-
-.table {
-	&.index-table, &.hierarchical-index-table {
-
-		.sorting {
-			font-weight: normal;
-			&:before {
-				content: "("
-			}
-			&:after {
-				content: ")"
-			}
-		}
-
-		tbody {
-			tr {
-				td {
-					background-color: $table-background-color;
-					transition: background-color 0.3s;
-					min-height: 40px;
-					&.actions {
-						white-space: nowrap;
-						text-align: right;
-						width: 1px; /* Minimal width */
-						@media (max-width: $screen-xs-max) {
-							width: auto;
-						}
-						& + .actions {
-							padding-left: 0;
-							@media (max-width: $screen-xs-max) {
-								padding-left: 45%;
-							}
-						}
-					}
-				}
-
-				&:hover td {
-					background-color: lighten($table-background-color, 5%);
-				}
-				
-			}
-		}
-	}
-
-	&.hierarchical-index-table {
-		
-		tbody {
-			tr {
-				td {
-					&.nesting { 
-						padding: 0; 
-						width: 40px; 
-						background-repeat: 
-						no-repeat; 
-						background-position: 0 -8px; 
-					}
-					&.nesting:first-child { 
-						padding-left: 20px; 
-						width: 60px; 
-						background-position: 20px -8px; 
-					}
-					&.leaf { 
-						/*padding-left: 20px;*/
-						font-weight: bold;
-					}
-					&.nesting-0-none { background-image: image-url("ruth_admin/nesting_0_none.png"); }
-					&.nesting-0-inner { background-image: image-url("ruth_admin/nesting_0_inner.png"); }
-					&.nesting-1-sibling { background-image: image-url("ruth_admin/nesting_1_sibling.png"); }
-					&.nesting-1-nosibling { background-image: image-url("ruth_admin/nesting_1_nosibling.png"); }
-					&.nesting-2-child { background-image: image-url("ruth_admin/nesting_2_child.png"); }
-					&.nesting-2-nochild { background-image: image-url("ruth_admin/nesting_2_nochild.png"); }
-				}
-			}
-		}
-	}
-
-}
-
-/*****************************************************************************/
-/* Picture index table                                                       */
-/*****************************************************************************/
-
-.picture-index-table {
-	
-	.thumbnail {
-		
-		.actions {
-			position: absolute;
-			top: 12px;
-			right: 26px;
-			z-index: 1000;
-		}
-
-	}
-
-}
-
-
-/*****************************************************************************/
-/* Empty table                                                               */
-/*****************************************************************************/
-
-.show-table-empty,
-.index-table-empty,
-.hierarchical-index-table-empty,
-.picture-index-table-empty {
-	padding: 5px;
-	color: $global-grid-color;
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-/*****************************************************************************/
 /* Table heading                                                             */
 /*****************************************************************************/
 
@@ -251,6 +97,171 @@
 }
 
 /*****************************************************************************/
+/* Show table body                                                           */
+/*****************************************************************************/
+
+.table.show-table-body {
+	background-color: $table-background-color;
+
+	tr {
+		td.show-table-label {
+			font-weight: normal;
+		}
+
+		td.show-table-value {
+			font-weight: bold;
+			&:first-child {
+				border-top: none;
+			}
+			> *:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		td:first-child {
+			width: 30%;
+		}
+
+		&:first-child {
+			td {
+				border-top: none;
+			}
+		}
+	}
+}
+
+.panel > .show-table > .table {
+	border: none;
+	background-color: transparent;
+}
+
+/*****************************************************************************/
+/* Index table / hierarchical index table body                               */
+/*****************************************************************************/
+
+.table {
+	&.index-table-body, &.hierarchical-index-table-body {
+
+		.sorting {
+			font-weight: normal;
+			&:before {
+				content: "("
+			}
+			&:after {
+				content: ")"
+			}
+		}
+
+		tbody {
+			tr {
+				td {
+					background-color: $table-background-color;
+					transition: background-color 0.3s;
+					min-height: 40px;
+					&.actions {
+						white-space: nowrap;
+						text-align: right;
+						width: 1px; /* Minimal width */
+						@media (max-width: $screen-xs-max) {
+							width: auto;
+						}
+						& + .actions {
+							padding-left: 0;
+							@media (max-width: $screen-xs-max) {
+								padding-left: 45%;
+							}
+						}
+					}
+				}
+
+				&:hover td {
+					background-color: lighten($table-background-color, 5%);
+				}
+				
+			}
+			
+			// Sortable		
+			tr.placeholder {
+				td {
+					background-color: $global-link-color;
+				}
+			}
+		}
+	}
+
+	&.hierarchical-index-table-body {
+		
+		tbody {
+			tr {
+				td {
+					&.nesting { 
+						padding: 0; 
+						width: 40px; 
+						background-repeat: 
+						no-repeat; 
+						background-position: 0 -8px; 
+					}
+					&.nesting:first-child { 
+						padding-left: 20px; 
+						width: 60px; 
+						background-position: 20px -8px; 
+					}
+					&.leaf { 
+						/*padding-left: 20px;*/
+						font-weight: bold;
+					}
+					&.nesting-0-none { background-image: image-url("ruth_admin/nesting_0_none.png"); }
+					&.nesting-0-inner { background-image: image-url("ruth_admin/nesting_0_inner.png"); }
+					&.nesting-1-sibling { background-image: image-url("ruth_admin/nesting_1_sibling.png"); }
+					&.nesting-1-nosibling { background-image: image-url("ruth_admin/nesting_1_nosibling.png"); }
+					&.nesting-2-child { background-image: image-url("ruth_admin/nesting_2_child.png"); }
+					&.nesting-2-nochild { background-image: image-url("ruth_admin/nesting_2_nochild.png"); }
+				}
+			}
+		}
+	}
+
+}
+
+/*****************************************************************************/
+/* Picture index table body                                                  */
+/*****************************************************************************/
+
+.picture-index-table-body {
+	.thumbnail {
+		.actions {
+			position: absolute;
+			top: 12px;
+			right: 26px;
+			z-index: 1000;
+		}
+	}
+
+	.moving-handle {
+		position: absolute;
+		top: 12px;
+		left: 26px;
+		z-index: 1000;
+	}
+}
+
+/*****************************************************************************/
+/* Empty table body                                                          */
+/*****************************************************************************/
+
+.empty {
+	&.show-table-body,
+	&.index-table-body,
+	&.hierarchical-index-table-body,
+	&.picture-index-table-body {
+		padding: 5px;
+		color: $global-grid-color;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+}
+
+/*****************************************************************************/
 /* Table footer                                                              */
 /*****************************************************************************/
 
@@ -297,27 +308,19 @@
 }
 
 /*****************************************************************************/
-/* Sortable                                                                  */
+/* Scrollbar                                                                 */
 /*****************************************************************************/
 
-.index-table, .hierarchical-index-table {
-	tbody {
-		tr.placeholder {
-			td {
-				background-color: $global-link-color;
-			}
-		}
+.index-table,
+.hierarchical-index-table {
+	position: relative;
+	.ps-scrollbar-x-rail {
 	}
 }
 
-.picture-index-table {
-	.moving-handle {
-		position: absolute;
-		top: 12px;
-		left: 26px;
-		z-index: 1000;
-	}
-}
+/*****************************************************************************/
+/* Sortable                                                                  */
+/*****************************************************************************/
 
 .dragged {
 	position: absolute;
