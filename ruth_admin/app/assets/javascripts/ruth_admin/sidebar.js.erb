@@ -68,11 +68,14 @@ RuthSidebar.prototype = {
 
 		// Save scroll position to local storage
 		$(".sidebar-content").scroll(this.saveScroll.bind(this));
+
+		// Load scroll
+		this.loadScroll();
 	}
 }
 
 var ruth_sidebar = null;
-$(document).ready(function() {
+$(document).on('<%= RuthAdmin.use_turbolinks ? "turbolinks:load" : "ready" %>', function() {
 	ruth_sidebar = new RuthSidebar({});
 	ruth_sidebar.ready();
 });

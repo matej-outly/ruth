@@ -6,6 +6,9 @@
 	<%= stylesheet_link_tag    RuthApplication.css_layout, media: "all" %>
 	<%= javascript_include_tag RuthApplication.js_layout %>
 	<%= tinymce if defined?(tinymce) && RuthApplication.include_default_tinymce %>
+	<% if RuthApplication.include_google_maps_api && RuthApplication.google_maps_api_key %>
+		<script src="https://maps.googleapis.com/maps/api/js?key=<%= RuthApplication.google_maps_api_key %>"></script>
+	<% end %>
 	<%= csrf_meta_tags %>
 </head>
 <body>

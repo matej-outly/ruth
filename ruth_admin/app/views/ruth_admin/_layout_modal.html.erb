@@ -5,7 +5,12 @@
 	<title><%= render partial: "ruth_admin/title" %></title>
 	<%= stylesheet_link_tag    RuthAdmin.css_layout, media: "all" %>
 	<%= javascript_include_tag RuthAdmin.js_layout %>
+	<%= tinymce if defined?(tinymce) && RuthAdmin.include_default_tinymce %>
+	<% if RuthAdmin.include_google_maps_api && RuthAdmin.google_maps_api_key %>
+		<script src="https://maps.googleapis.com/maps/api/js?key=<%= RuthAdmin.google_maps_api_key %>"></script>
+	<% end %>
 	<%= csrf_meta_tags %>
+	<meta name="turbolinks-cache-control" content="no-cache">
 </head>
 <body class="layout-modal">
 	<%= yield %>

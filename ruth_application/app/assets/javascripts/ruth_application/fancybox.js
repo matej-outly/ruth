@@ -5,4 +5,4 @@ function fancybox_ready()
 		closeEffect	: 'none'
 	});
 }
-$(document).ready(fancybox_ready);
+$(document).on('<%= RuthApplication.use_turbolinks ? "turbolinks:load" : "ready" %>', fancybox_ready);

@@ -159,9 +159,27 @@ module RuthApplication
 	@@copyright_menu = []
 
 	#
+	# Use Turbolinks for admin render (you need to manually add turbolinks gem and include it to assets pipeline)
+	#
+	mattr_accessor :use_turbolinks
+	@@use_turbolinks = false
+
+	#
 	# Include TinyMCE init script generated from tinymce.yml if available
 	#
 	mattr_accessor :include_default_tinymce
 	@@include_default_tinymce = true
+
+	#
+	# Include Google Maps API script
+	#
+	mattr_accessor :include_google_maps_api
+	@@include_google_maps_api = false
+
+	#
+	# Google Maps API key (necessary for correct Google Maps API include)
+	#
+	mattr_accessor :google_maps_api_key
+	@@google_maps_api_key = nil
 
 end

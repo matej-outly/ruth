@@ -5,7 +5,7 @@
 			<a href="#" class="sidebar-toggle"><%= rug_icon("angle-double-right") %></a>
 			<a href="#" class="sidebar-toggle"><%= rug_icon("angle-double-left") %></a>
 		</div>
-		<div class="sidebar-content sidebar-content-hidden sidebar-content-scrolled">
+		<div class="sidebar-content sidebar-content-hidden sidebar-content-scrolled" id="sidebar-left" <%= RuthAdmin.use_turbolinks && RuthAdmin.sidebar_turbolink_permanent ? "data-turbolinks-permanent" : "" %>>
 			<%= sidebar.html_safe %>
 		</div>
     </div>
