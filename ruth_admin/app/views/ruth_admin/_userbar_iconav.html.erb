@@ -3,10 +3,10 @@
 		<%
 			dropdowns = []
 			if RuthAdmin.show_profile_menu_if.nil? || eval("(#{RuthAdmin.show_profile_menu_if}) == true")
-				dropdowns << render(partial: "ric_auth/shared/admin/profile/menu")
+				dropdowns << render(partial: "ric_auth_admin/shared/profile/menu")
 			end
 			if RuthAdmin.show_session_menu_if.nil? || eval("(#{RuthAdmin.show_session_menu_if}) == true")
-				dropdowns << render(partial: "ric_auth/shared/admin/session/menu_signed")
+				dropdowns << render(partial: "ric_auth_admin/shared/session/menu_signed")
 			end
 		%>
 		<% if !dropdowns.empty? %>
