@@ -106,7 +106,7 @@ cs:
         bool_no: red
       boolean_icons:
         bool_yes: check
-        bool_no: cancel
+        bool_no: close
       address:
         street: Ulice
         number: Číslo
