@@ -13,20 +13,24 @@
 	
 	<%= breadcrumbs style: :bootstrap if defined?(breadcrumbs) %>
 
-	<div class="dashhead">
-		<div class="dashhead-titles">
-			<h2 class="dashhead-title"><%= final_header %></h2>
-			<% if final_subheader %>
-				<h6 class="dashhead-subtitle"><%= final_subheader %></h6>
+	<% if final_header || actions %>
+		<div class="dashhead">
+			<% if final_header %>
+				<div class="dashhead-titles">
+					<h2 class="dashhead-title"><%= final_header %></h2>
+					<% if final_subheader %>
+						<h6 class="dashhead-subtitle"><%= final_subheader %></h6>
+					<% end %>
+				</div>
+			<% end %>
+			<% if actions %>
+				<div class="dashhead-toolbar">
+					<%= actions.html_safe %>
+				</div>
 			<% end %>
 		</div>
-		<% if actions %>
-			<div class="dashhead-toolbar">
-				<%= actions.html_safe %>
-			</div>
-		<% end %>
-	</div>
-	<hr/>
+		<hr/>
+	<% end %>
 
 	<%= render partial: "ruth_admin/flash_alertify" %>
 
