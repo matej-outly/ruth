@@ -10,8 +10,8 @@
 /*****************************************************************************/
 
 .text-box {
-	border: 1px solid $grid-color;
-	background-color: white;
+	border: 1px solid $global-grid-color;
+	background-color: $table-background-color;
 	padding: 10px;
 	padding-bottom: 2px;
 	margin-bottom: 20px;

@@ -118,8 +118,16 @@ li.token-input-input-token-facebook input::placeholder {
 	color: #999999;
 }
 
-li.token-input-token-facebook span {
-	color: #d8d8d8;
+li.token-input-token-facebook {
+	white-space: normal;
+	position: relative;
+	padding-right: 20px;
+	span { // Close button
+		color: #d8d8d8;
+		position: absolute;
+		top: 0;
+		right: 6px;
+	}
 }
 
 li.token-input-selected-token-facebook {

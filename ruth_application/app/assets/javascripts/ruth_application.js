@@ -5,6 +5,7 @@
 // jQuery
 //= require jquery
 //= require jquery_ujs
+//= require ruth_application/confirm
 
 // Bootstrap
 //= require bootstrap-sprockets
