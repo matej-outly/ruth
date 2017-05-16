@@ -31,6 +31,7 @@ def item_label(item)
 end
 def render_first_level_item(t, item, dropdown = "")
 	result = ""
+	rendered = false
 	if is_item_shown?(item)
 		if item[:type] == "delimiter"
 			# nothing to render ...
@@ -68,12 +69,14 @@ def render_first_level_item(t, item, dropdown = "")
 			end
 			result += dropdown
 			result += "</li>\n"
+			rendered = true
 		end
 	end
-	return result.html_safe
+	return [result.html_safe, rendered]
 end
 def render_second_level_item(t, item)
 	result = ""
+	rendered = false
 	if is_item_shown?(item)
 		if item[:type] == "delimiter"
 			result += "<li role=\"separator\" class=\"divider\"></li>\n"
@@ -89,9 +92,10 @@ def render_second_level_item(t, item)
 				result.html_safe
 			end
 			result += "</li>\n"
+			rendered = true
 		end
 	end
-	return result.html_safe
+	return [result.html_safe, rendered]
 end
 %>
 
@@ -106,17 +110,27 @@ end
 	<div class="iconav-slider">
 		<ul class="nav iconav-nav">
 			
-			<% RuthAdmin.header_menu.each do |item| %>
-				<% dropdown = "" %>
-				<% if item[:dropdown] %>
-					<% dropdown += "<ul class=\"dropdown-menu\">\n" %>
-					<% item[:dropdown].each do |dropdown_item| %>
-						<% dropdown += render_second_level_item(self, dropdown_item) %>
-					<% end %>
-					<% dropdown += "</ul>\n" %>
-				<% end %>
-				<%= render_first_level_item(self, item, dropdown) %>
-			<% end %>
+			<% 
+				result = ""
+				RuthAdmin.header_menu.each do |item|
+					dropdown = ""
+					dropdown_count = 0
+					if item[:dropdown]
+						dropdown += "<ul class=\"dropdown-menu\">\n"
+						item[:dropdown].each do |dropdown_item|
+							second_level, second_level_rendered = render_second_level_item(self, dropdown_item)
+							dropdown += second_level
+							dropdown_count += 1 if second_level_rendered
+						end
+						dropdown += "</ul>\n"
+					end
+					if dropdown.blank? || dropdown_count > 0
+						first_level, first_level_rendered = render_first_level_item(self, item, dropdown) 
+						result += first_level
+					end
+				end 
+			%>
+			<%= result.html_safe %>
 
 		</ul>
 	</div>
