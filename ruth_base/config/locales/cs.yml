@@ -37,6 +37,7 @@ cs:
       send: "Odeslat"
       pay: "Zaplatit"
       synchronize: "Synchronizovat"
+      export: "Exportovat"
 
   general:
     back: "zpět"
