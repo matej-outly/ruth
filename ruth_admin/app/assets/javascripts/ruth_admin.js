@@ -88,6 +88,7 @@
 //= require rug_builder/rug_form_map_polygon
 //= require rug_builder/rug_form_rater
 //= require rug_builder/rug_list
+//= require rug_builder/rug_map
 //= require rug_builder/rug_table
 //= require rug_builder/rug_tree
 
