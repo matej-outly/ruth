@@ -11,6 +11,12 @@
 
 .ticket {
 	display: block;
+	padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid $grid-color;
+    background-color: transparent;
+    border-radius: 4px;
+
 	&:hover, &:focus {
 		text-decoration: none;
 		color: inherit;
@@ -41,5 +47,31 @@
 		&:last-child {
 			padding-bottom: 0;
 		}
+	}
+
+	&.alert-dismissible {
+		.close {
+			right: 0;
+		}
+		.close:first-child + .ticket-heading, .close:first-child + .ticket-body, .close:first-child + .ticket-footer {
+			padding-top: 0;
+		}
+	}
+}
+
+label.ticket-with-checkbox {
+	font-weight: inherit;
+	display: block;
+
+	.ticket {
+		cursor: pointer;
+	}
+
+	input[type=checkbox] {
+		display: none;
+	}
+
+	input[type=checkbox]:checked + .ticket {
+		background-color: white;
 	}
 }
