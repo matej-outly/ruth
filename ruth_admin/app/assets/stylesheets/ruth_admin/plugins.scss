@@ -237,6 +237,15 @@ ul.jqtree-tree {
 	.jqtree-element {
 		padding: 3px 8px;
 		position: relative;
+
+		&.jqtree-element-published {
+
+		}
+		&.jqtree-element-unpublished {
+			.jqtree-title {
+				color: darken($global-text-color, 40%);
+			}
+		}
 	}
 
 	.jqtree-title {
