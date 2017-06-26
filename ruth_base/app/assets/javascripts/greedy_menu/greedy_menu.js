@@ -166,7 +166,7 @@ var greedyMenu = null;
 		ready: function() {
 			// Initialize rearranging
 			var self = this;
-			this.$window.resize(function() {
+			this.$window.on("resize orientationchange", function() {
 				self.rearrange();
 			});
 
