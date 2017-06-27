@@ -1,9 +1,24 @@
-var greedyMenu = null;
-
 (function($) {
+
+	// *************************************************************************
+	// Default options
+	// *************************************************************************
+
+	var defaultOptions = {
+		widthCorrection: 1.00, // Plus 5% just in case the font is not loaded
+		hamburgerWidth: 70, // Hamburger icon width in px
+		mobileBreakpoint: 767, //991, // Breakpoint, where menu becomes mobile
+	};
+
+
+	// *************************************************************************
+	// GreedyMenu class
+	// *************************************************************************
 
 	function GreedyMenu($container, options) {
 		this.$container = $container;
+		this.options = options;
+
 		this.$fixeds = this.$container.find(".nav-greedy-fixed");
 		this.$visibleLinks = this.$container.find(".nav-greedy-nav");
 		this.$hiddenLinks = this.$container.find(".nav-greedy-overflow");
@@ -13,20 +28,14 @@ var greedyMenu = null;
 		this.$mobileHamburgerButton = this.$container.find(".nav-mobile-hamburger-button");
 		this.$window = $(window);
 
-		this.options = {
-			widthCorrection: 1.00, // Plus 5% just in case the font is not loaded
-			hamburgerWidth: 70, // Hamburger icon width in px
-			mobileBreakpoint: 767, //991, // Breakpoint, where menu becomes mobile
-		};
-
 		this.availableSpace = 0;
 		this.itemsCount = 0;
 		this.breakWidths = [];
-
 		this.visibleItemsCount = 0;
-
 		this.currentMenuStyle = null; // "greedy" or "mobile", null for uninitialized menu
 
+		// Initialize menu
+		this._initialize();
 	}
 	GreedyMenu.prototype = {
 		constructor: GreedyMenu,
@@ -163,9 +172,17 @@ var greedyMenu = null;
 			}
 		},
 
-		ready: function() {
-			// Initialize rearranging
+	// Private:
+		_initialize: function() {
 			var self = this;
+
+			// Bind to window load menu for complete rearranging (ie. after font loads).
+			this.$window.on("load", function() {
+				self.currentMenuStyle = null;
+				self.rearrange();
+			});
+
+			// Initialize rearranging
 			this.$window.on("resize orientationchange", function() {
 				self.rearrange();
 			});
@@ -199,24 +216,31 @@ var greedyMenu = null;
 				}
 
 			});
-
-		},
+		}
 
 	};
 
-	function initGreedyMenu() {
-		if (greedyMenu === null) {
-			greedyMenu = new GreedyMenu($(".nav-greedy-container"), {});
-			greedyMenu.ready();
-		}
-		else {
-			// Completelly rearrange
-			greedyMenu.currentMenuStyle = null;
-			greedyMenu.rearrange();
-		}
+	// *************************************************************************
+	// jQuery plugin
+	// *************************************************************************
+
+	$.fn.greedyMenu = function(options) {
+		var settings = $.extend({}, defaultOptions, options);
+
+		return $(this).each(function() {
+			var $this = $(this);
+			var greedyMenu = new GreedyMenu($this, settings);
+			$this.data("greedyMenu", greedyMenu);
+		});
 	}
 
-	$(document).ready(initGreedyMenu);
-	$(window).bind("load", initGreedyMenu);
+	// *************************************************************************
+	// Easy binding
+	// *************************************************************************
+
+	$.greedyMenu = function(options) {
+		$(".nav-greedy-container").greedyMenu(options);
+	}
+
 
 })(jQuery);
