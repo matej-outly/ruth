@@ -370,7 +370,7 @@
     */
 
     // apply on DOM ready event
-    $(matchHeight._applyDataApi);
+    // $(matchHeight._applyDataApi);
 
     // use on or bind where supported
     var on = $.fn.on ? 'on' : 'bind';
