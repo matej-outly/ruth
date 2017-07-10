@@ -45,12 +45,7 @@ module RuthAdmin
 				if lookup_context.find_all("#{controller_path}/_actions").any?
 					result = render(partial: "#{controller_path}/actions", 
 						locals: { 
-							options: { 
-								format: :btn,
-								class: "dashhead-toolbar-item", 
-								btn_style: "primary-outline",
-								labels: false
-							} 
+							options: RuthAdmin.actions_options
 						}
 					).trim
 					if !result.blank?

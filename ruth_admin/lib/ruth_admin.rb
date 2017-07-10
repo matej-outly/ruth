@@ -153,4 +153,25 @@ module RuthAdmin
 	mattr_accessor :google_maps_api_key
 	@@google_maps_api_key = nil
 
+	#
+	# Options passed to rug_tabs component
+	#
+	mattr_accessor :tabs_options
+	@@tabs_options = {
+		header_style: "pills", 
+		header_class: "hr-divider-content hr-divider-nav", 
+		header_container_class: "hr-divider"
+	}
+
+	#
+	# Options passed to rug_menu component in actions partial
+	#
+	mattr_accessor :actions_options
+	@@actions_options = { 
+		format: :btn,
+		class: "dashhead-toolbar-item", 
+		btn_style: "primary-outline",
+		labels: false
+	}
+
 end

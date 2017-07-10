@@ -182,4 +182,18 @@ module RuthApplication
 	mattr_accessor :google_maps_api_key
 	@@google_maps_api_key = nil
 
+	#
+	# Options passed to rug_tabs component
+	#
+	mattr_accessor :tabs_options
+	@@tabs_options = {}
+
+	#
+	# Options passed to rug_menu component in actions partial
+	#
+	mattr_accessor :actions_options
+	@@actions_options = {
+		class: "actions-list"
+	}
+
 end
