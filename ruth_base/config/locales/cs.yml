@@ -268,10 +268,15 @@ cs:
   time:
     formats:
       default: "%-d. %-m. %Y %k:%M"
-      moment: "D. M. YYYY h:mm"
       hour_min: "%k:%M"
       min_sec: "%M:%S"
       hour_min_sec: "%k:%M:%S"
+      full: "%-d. %-m. %Y %k:%M:%S"
+      moment: "D. M. YYYY h:mm"
+      moment_hour_min: "h:mm"
+      moment_min_sec: "m:ss"
+      moment_hour_min_sec: "h:mm:ss"
+      moment_full: "D. M. YYYY h:mm:ss"
 
   number:
     currency:
