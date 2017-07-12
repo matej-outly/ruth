@@ -21,6 +21,9 @@
 //= require pikaday/pikaday
 //= require pikaday/pikaday.jquery
 
+// DateRangePicker
+//= require daterangepicker/daterangepicker
+
 // Tokeninput
 //= require tokeninput/tokeninput
 

@@ -38,6 +38,8 @@ cs:
       pay: "Zaplatit"
       synchronize: "Synchronizovat"
       export: "Exportovat"
+      ok: "OK"
+      cancel: "Zrušit"
 
   general:
     back: "zpět"
@@ -199,6 +201,7 @@ cs:
       - Neděle
     formats:
       default: "%-d. %-m. %Y"
+      moment: "D. M. YYYY"
     month_names:
       -
       - Leden
@@ -265,6 +268,7 @@ cs:
   time:
     formats:
       default: "%-d. %-m. %Y %k:%M"
+      moment: "D. M. YYYY h:mm"
       hour_min: "%k:%M"
       min_sec: "%M:%S"
       hour_min_sec: "%k:%M:%S"
