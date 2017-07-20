@@ -45,6 +45,7 @@
 
 // Perfect Scrollbar
 //= require perfect_scrollbar/perfect_scrollbar.jquery
+//= require ruth_application/perfect_scrollbar
 
 // Rater
 //= require rater/rater
