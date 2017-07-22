@@ -4,7 +4,7 @@
 /*                                                                           */
 /* AjaxForm - plugin for form handling via Ajax (submit, messages)           */
 /*                                                                           */
-/* Author: Jaroslav Mlejnek                                                  */
+/* Author: Jaroslav Mlejnek, Matěj Outlý                                     */
 /* Date  : 20. 2. 2017                                                       */
 /*                                                                           */
 /*****************************************************************************/
@@ -12,39 +12,23 @@
 /*****************************************************************************/
 /*
 /* Options:
-/* - flashSelector (string) .... Selector for inline flash container, if not
-/*                               provided, Alertify plugin used
-/* - successMessage (string) ... Message displayed at success
-/* - errorMessage (string) ..... Message displayed at error
-/* - clearOnSubmit (boolean) ... Clear form values when successfuly submitted?
-/* - behaviorOnSubmit (none|hide|redirect) ... What to do when form is
-/*                               successfuly submitted
-/* - hideTimeout (integer) ..... How many seconds to wait until hidden form is
-/*                               shown again, hide forever if null (only for
-/*                               'hide' behavior)
-/* - copyToObject (string) ..... JS object implementing addItem() and
-/*                               changeItem()  functions where submitted data
-/*                               will be copied
-/* - redirectUrl (string) ...... URL where to redirect when form is successfuly
-/*                               submitted (necessary for 'hide' behavior)
-/* - showUrl (string) .......... URL where edited object can be loaded through
-/*                               AJAX (necessary if copyToObject defined)
-/* - invisibleRecaptcha (boolean) ...  Use invisible recaptcha? Default - autodetect
-/* - logCallback (boolean) ..... Log success and error callbacks into console
-/*                               (for debugging purposes)
-/*
-/* Coresponding options set via data attribute:
-/* - data-af-flash-selector
-/* - data-af-success-message
-/* - data-af-error-message
-/* - data-af-clear-on-submit
-/* - data-af-behavior-on-submit
-/* - data-af-hide-timeout
-/* - data-af-copy-to-object
-/* - data-af-redirect-url
-/* - data-af-show-url
-/* - data-af-invisible-recaptcha
-/* - data-af-log-callback
+/* - flashSelector (string)       ... Selector for inline flash container, if not provided, Alertify plugin auto detected and used if possible
+/* - modalSelector (string)       ... Selector for wrapping (Bootstrap) modal (only for 'modal' behavior)
+/* - successMessage (string)      ... Message displayed at success
+/* - errorMessage (string)        ... Message displayed at error
+/* - clearOnSubmit (boolean)      ... Clear form values when successfuly submitted?
+/* - behaviorOnSubmit (enum)      ... What to do when form is successfuly submitted
+/*                                    Possible values are:
+/*                                    - none     ... No action
+/*                                    - hide     ... Hide form for hideTimeout seconds
+/*                                    - redirect ... Redirect to redirectUrl
+/*                                    - modal    ... Toggle modal defined by modalSelector
+/* - hideTimeout (integer)        ... How many seconds to wait until hidden form is shown again, hide forever if null (only for 'hide' behavior)
+/* - copyToObject (string)        ... JS object implementing addItem() and changeItem() functions where submitted data will be copied
+/* - redirectUrl (string)         ... URL where to redirect when form is successfuly submitted (necessary for 'redirect' behavior)
+/* - showUrl (string)             ... URL where edited object can be loaded through AJAX (necessary if copyToObject defined)
+/* - invisibleRecaptcha (boolean) ... Use invisible recaptcha?
+/* - logCallback (boolean)        ... Log success and error callbacks into console (for debugging purposes)
 /*
 /*****************************************************************************/
 
@@ -73,26 +57,6 @@
 			// Basic configuration
 			this.$form = $(form);
 			this.options = (typeof options !== 'undefined' ? options : {});
-
-			// Override options with data attributes if defined
-			var overrideOptions = {
-				flashSelector: this.$form.attr("data-af-flash-selector"),
-				successMessage: this.$form.attr("data-af-success-message"),
-				errorMessage: this.$form.attr("data-af-error-message"),
-				clearOnSubmit: (this.$form.attr("data-af-clear-on-submit") ? (this.$form.attr("data-af-clear-on-submit") == "true") : undefined),
-				behaviorOnSubmit: this.$form.attr("data-af-behavior-on-submit"),
-				hideTimeout: (this.$form.attr("data-af-hide-timeout") ? parseInt(this.$form.attr("data-af-hide-timeout")) : undefined),
-				copyToObject: this.$form.attr("data-af-copy-to-object"),
-				redirectUrl: this.$form.attr("data-af-redirect-url"),
-				showUrl: this.$form.attr("data-af-show-url"),
-				invisibleRecaptcha: (this.$form.attr("data-af-invisible-recaptcha") ? (this.$form.attr("data-af-invisible-recaptcha") == "true") : undefined),
-				logCallback: (this.$form.attr("data-af-log-callback") ? (this.$form.attr("data-af-log-callback") == "true") : undefined),
-			};
-			for (var key in this.options) {
-				if (typeof overrideOptions[key] !== 'undefined') {
-					this.options[key] = overrideOptions[key];
-				}
-			}
 
 			// Advanced configuration
 			this.$submitButton = this.$form.find("[type='submit']");
@@ -159,6 +123,12 @@
 			} else if (this.options.behaviorOnSubmit == "redirect") {
 				self.clearForm();
 				// TODO
+
+			// Modal
+			} else if (this.options.behaviorOnSubmit == "modal") {
+				var $modal = $(this.options.modalSelector);
+				$modal.modal("toggle");
+				self.clearForm();
 
 			// Nothing
 			} else {
