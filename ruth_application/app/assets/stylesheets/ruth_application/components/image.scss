@@ -1,0 +1,22 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Image                                                                     */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 25. 7. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+img.img-responsive {
+	max-width: 100%;
+}
+
+img.img-box {
+	display: inline-block;
+	border: 1px solid $grid-color;
+	background-color: white;
+	padding: 10px;
+	margin-bottom: 20px;
+}
