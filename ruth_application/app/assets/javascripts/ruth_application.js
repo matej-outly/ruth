@@ -17,10 +17,6 @@
 // ClockPicker
 //= require clockpicker/clockpicker
 
-// Pikaday
-//= require pikaday/pikaday
-//= require pikaday/pikaday.jquery
-
 // DateRangePicker
 //= require daterangepicker/daterangepicker
 
