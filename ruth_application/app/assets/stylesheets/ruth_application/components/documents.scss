@@ -1,0 +1,76 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Documents                                                                 */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 27. 7. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+$document-gutter-width: 10px !default;
+$document-tile-width: 150px !default;
+$document-split-folders-and-files: false !default;
+
+.document-listing {
+	margin-left: ceil(-$document-gutter-width/2);
+	margin-right: floor(-$document-gutter-width/2);
+}
+
+.document-folder, .document-file {
+	position: relative;
+	display: inline-block;
+	margin: 0 floor($document-gutter-width/2) $document-gutter-width ceil($document-gutter-width/2);
+	width: $document-tile-width;
+	vertical-align: top;
+
+	background: white;
+	border: 1px solid $grid-color;
+
+	&.document-new {
+		background: rgba(white, 0.5); 
+		border: 1px dashed $grid-color;
+		> a {
+			color: rgba($text-color, 0.5);
+		}
+	}
+
+	.document-mime-type {
+		display: block;
+		margin-bottom: 5px;
+	}
+
+	.document-title {
+		display: block;
+	}
+
+	> a {
+		color: $text-color;
+		padding: 15px 8px 8px 8px;
+		display: block;
+		text-align: center;
+
+		&.active {
+			background: $navbar-default-link-active-bg;
+		}
+	}
+
+	.document-actions {
+		background: rgba(white, 0.8); 
+		position: absolute;
+		top: 0;
+		right: 0;
+		> a {
+			padding: 3px 6px;
+			display: inline-block;
+		}
+	}
+
+}
+
+@if $document-split-folders-and-files == false {
+	.document-listing-folders, .document-listing-files {
+		display: inline;
+	}
+}
