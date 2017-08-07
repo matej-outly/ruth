@@ -224,3 +224,12 @@
 		border-color: $danger-color;
 	}
 }
+
+.btn-raw {
+	border: none;
+	padding: 0 3px;
+	vertical-align: baseline;
+	&:active {
+		box-shadow: none;
+	}
+}
