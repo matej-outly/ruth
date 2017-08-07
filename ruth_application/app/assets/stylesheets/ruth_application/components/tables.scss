@@ -56,12 +56,12 @@ div.table {
 }
 
 /*****************************************************************************/
-/* Table heading                                                             */
+/* Table header                                                              */
 /*****************************************************************************/
 
-.show-table-heading,
-.index-table-heading,
-.picture-index-table-heading {
+.show-table-header,
+.index-table-header,
+.index-thumbnails-header {
 	border-bottom: 1px solid $grid-color;
 	margin-bottom: $spacer-y;
 	padding-bottom: $spacer-y;
@@ -98,7 +98,7 @@ div.table {
 	}
 }
 
-.index-table-heading {
+.index-table-header {
 	margin-bottom: ($spacer-y / 2);
 }
 
@@ -159,7 +159,7 @@ div.table {
 .empty {
 	&.show-table-body,
 	&.index-table-body,
-	&.picture-index-table-body {
+	&.index-thumbnails-body {
 		color: $pale-text-color;
 		text-align: center;
 		margin-bottom: 20px;
@@ -172,7 +172,7 @@ div.table {
 
 .show-table-footer,
 .index-table-footer,
-.picture-index-table-footer {
+.index-thumbnails-footer {
 	border-top: 1px solid $grid-color;
 	margin-top: $spacer-y;
 	padding-top: $spacer-y;
@@ -212,10 +212,10 @@ div.table {
 }
 
 /*****************************************************************************/
-/* Picture index table                                                       */
+/* Index thumbnails                                                          */
 /*****************************************************************************/
 
-.picture-index-table {
+.index-thumbnails {
 	.thumbnail {
 		.actions {
 			position: absolute;
@@ -236,8 +236,7 @@ div.table {
 /* Scrollbar                                                                 */
 /*****************************************************************************/
 
-.index-table,
-.hierarchical-index-table {
+.index-table {
 	position: relative;
 }
 

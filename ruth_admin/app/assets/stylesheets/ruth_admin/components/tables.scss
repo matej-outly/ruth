@@ -31,10 +31,10 @@
 }
 
 /*****************************************************************************/
-/* Table heading                                                             */
+/* Table header                                                             */
 /*****************************************************************************/
 
-.show-table-heading, .picture-index-table-heading {
+.show-table-header, .index-thumbnails-header {
 	padding-bottom: 5px;
 	@include clearfix;
 
@@ -69,7 +69,7 @@
 	}
 }
 
-.index-table-heading, .hierarchical-index-table-heading {
+.index-table-header, .index-table-header {
 	height: 0;
 	position: relative;
 	
@@ -140,7 +140,7 @@
 /*****************************************************************************/
 
 .table {
-	&.index-table-body, &.hierarchical-index-table-body {
+	&.index-table-body {
 
 		.sorting {
 			font-weight: normal;
@@ -189,7 +189,7 @@
 		}
 	}
 
-	&.hierarchical-index-table-body {
+	&.hierarchical {
 		
 		tbody {
 			tr {
@@ -227,7 +227,7 @@
 /* Picture index table body                                                  */
 /*****************************************************************************/
 
-.picture-index-table-body {
+.index-thumbnails-body {
 	.thumbnail {
 		.actions {
 			position: absolute;
@@ -252,8 +252,7 @@
 .empty {
 	&.show-table-body,
 	&.index-table-body,
-	&.hierarchical-index-table-body,
-	&.picture-index-table-body {
+	&.index-thumbnails-body {
 		padding: 5px;
 		color: $global-grid-color;
 		text-align: center;
@@ -267,8 +266,7 @@
 
 .show-table-footer,
 .index-table-footer,
-.hierarchical-index-table-footer,
-.picture-index-table-footer {
+.index-thumbnails-footer {
 	border-top: 1px solid $global-grid-color;
 	margin-top: 10px;
 	padding-top: 10px;
@@ -303,7 +301,7 @@
 	}
 }
 
-.index-table-footer, .hierarchical-index-table-footer {
+.index-table-footer {
 	margin-top: -20px;
 }
 
@@ -311,11 +309,8 @@
 /* Scrollbar                                                                 */
 /*****************************************************************************/
 
-.index-table,
-.hierarchical-index-table {
+.index-table {
 	position: relative;
-	.ps-scrollbar-x-rail {
-	}
 }
 
 /*****************************************************************************/
