@@ -2,7 +2,8 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><%= render partial: "ruth_application/title" %></title>
+	<%= render partial: "ruth_application/title" %>
+	<%= render partial: "ruth_application/favicon" %>
 	<%= stylesheet_link_tag    RuthApplication.css_layout, media: "all" %>
 	<%= javascript_include_tag RuthApplication.js_layout %>
 	<%= tinymce if defined?(tinymce) && RuthApplication.include_default_tinymce %>
