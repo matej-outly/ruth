@@ -133,18 +133,8 @@ Each configuration option have its data attribute equivalent, which should be se
 - `clearOnSubmit` (`boolean`)
     - Clear form values when successfuly submitted?
 
-- `behaviorOnSubmit` (`none|hide|redirect`)
+- `onSuccess` (`function`)
     - What to do when form is successfuly submitted
 
-- `hideTimeout` (`integer`)
-    - How many seconds to wait until hidden form is shown again, hide forever if null (only for 'hide' behavior)
-
-- `copyToObject` (`string`)
-    - JS object implementing addItem() and changeItem()  functions where submitted data will be copied
-
-- `redirectUrl` (`string`)
-    - URL where to redirect when form is successfuly submitted (necessary for 'hide' behavior)
-
-- `showUrl` (`string`)
-    - URL where edited object can be loaded through AJAX (necessary if copyToObject defined)
-
+- `onError` (`function`)
+    - What to do when form is NOT successfuly submitted

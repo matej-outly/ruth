@@ -12,23 +12,13 @@
 /*****************************************************************************/
 /*
 /* Options:
-/* - flashSelector (string)       ... Selector for inline flash container, if not provided, Alertify plugin auto detected and used if possible
-/* - modalSelector (string)       ... Selector for wrapping (Bootstrap) modal (only for 'modal' behavior)
-/* - successMessage (string)      ... Message displayed at success
-/* - errorMessage (string)        ... Message displayed at error
-/* - clearOnSubmit (boolean)      ... Clear form values when successfuly submitted?
-/* - behaviorOnSubmit (enum)      ... What to do when form is successfuly submitted
-/*                                    Possible values are:
-/*                                    - none     ... No action
-/*                                    - hide     ... Hide form for hideTimeout seconds
-/*                                    - redirect ... Redirect to redirectUrl
-/*                                    - modal    ... Toggle modal defined by modalSelector
-/* - hideTimeout (integer)        ... How many seconds to wait until hidden form is shown again, hide forever if null (only for 'hide' behavior)
-/* - copyToObject (string)        ... JS object implementing addItem() and changeItem() functions where submitted data will be copied
-/* - redirectUrl (string)         ... URL where to redirect when form is successfuly submitted (necessary for 'redirect' behavior)
-/* - showUrl (string)             ... URL where edited object can be loaded through AJAX (necessary if copyToObject defined)
-/* - invisibleRecaptcha (boolean) ... Use invisible recaptcha?
-/* - logCallback (boolean)        ... Log success and error callbacks into console (for debugging purposes)
+/* - flashSelector (string)  ... Selector for inline flash container, if not provided, Alertify plugin auto detected and used if possible
+/* - successMessage (string) ... Message displayed at success
+/* - errorMessage (string)   ... Message displayed at error
+/* - clearOnSubmit (boolean) ... Clear form values when successfuly submitted?
+/* - onSuccess (function)    ... What to do when form is successfuly submitted
+/* - onError (function)      ... What to do when form is NOT successfuly submitted
+/* - log (boolean)           ... Log success and error callbacks into console (for debugging purposes)
 /*
 /*****************************************************************************/
 
@@ -42,13 +32,10 @@
 			successMessage: "Record has been successfully saved.",
 			errorMessage: "Record has not been saved, please check form for errors.",
 			clearOnSubmit: true,
-			behaviorOnSubmit: "none",
-			hideTimeout: 5,
-			copyToObject: null,
-			redirectUrl: null,
-			showUrl: null,
+			onSuccess: null,
+			onError: null,
 			invisibleRecaptcha: null, // null means auto-detect
-			logCallback: false,
+			log: false,
 		}, setOptions);
 
 		// Constructor
@@ -81,10 +68,48 @@
 			return this.$form.attr("id");
 		}
 
+		// ********************************************************************
+		// Predefined behaviors (must be manualy connected through onSuccess callback)
+		// ********************************************************************
+
+		AjaxForm.prototype.toggleModal = function(selector)
+		{
+			var $modal = $(selector);
+			if ($modal.length > 0) {
+				$modal.modal("toggle");
+			}
+		}
+
+		// Hide form (by setting .af-hidden CSS class). If timeout given, form is shown again after this time.
+		AjaxForm.prototype.hideForm = function(timeout)
+		{
+			var self = this;
+			$container = this.$form.find(".af-container");
+			if ($container.length == 0) {
+				$container = this.$form;
+			}
+			$container.addClass("af-hidden")
+			if (timeout) {
+				setTimeout(function() {
+					$container.removeClass("af-hidden");
+				}, timeout * 1000);
+			}
+		}
+
+		// Call reload function on gevin JS object with given ID as parameter
+		AjaxForm.prototype.reloadObject = function(objectName, id)
+		{
+			eval('var object = ' + objectName.toString() + ';');
+			object.reload(id);
+		}
+		
+		// ********************************************************************
+		// Flash
+		// ********************************************************************
+
 		// Set flash message on success or error
 		AjaxForm.prototype.setFlashMessage = function(result)
 		{
-
 			// Set message to flash selector
 			if (this.options.flashSelector) {
 				var $flash = $(this.options.flashSelector);
@@ -101,58 +126,21 @@
 			}
 		}
 
-		AjaxForm.prototype.behaveOnSubmit = function()
-		{
-			var self = this;
-
-			// Hide and (optionaly) show
-			if (this.options.behaviorOnSubmit == "hide") {
-				$formContainer = this.$form.find(".af-container");
-				if ($formContainer.length == 0) {
-					$formContainer = this.$form;
-				}
-				$formContainer.addClass("af-hidden")
-				if (this.options.hideTimeout) {
-					setTimeout(function() {
-						self.clearForm();
-						$formContainer.removeClass("af-hidden");
-					}, this.options.hideTimeout * 1000);
-				}
-
-			// Redirect
-			} else if (this.options.behaviorOnSubmit == "redirect") {
-				self.clearForm();
-				// TODO
-
-			// Modal
-			} else if (this.options.behaviorOnSubmit == "modal") {
-				var $modal = $(this.options.modalSelector);
-				$modal.modal("toggle");
-				self.clearForm();
-
-			// Nothing
-			} else {
-				self.clearForm();
-			}
-		}
-
-		AjaxForm.prototype.copyToObject = function(id)
-		{
-			var self = this;
-
-			if (self.options.copyToObject && self.options.showUrl) {
-				var showUrl = self.options.showUrl.replace(':id', id);
-				$.get(showUrl, function(data) {
-					eval('var copyToObject = ' + self.options.copyToObject + ';');
-					copyToObject.changeItem(id, data);
-				});
-			}
-		}
+		// ********************************************************************
+		// Clear
+		// ********************************************************************
 
 		AjaxForm.prototype.clearErrors = function()
 		{
 			this.$form.find(".errors").empty();
 			this.$form.find(".has-error").removeClass("has-error");
+		}
+
+		AjaxForm.prototype.clearRecaptcha = function()
+		{
+			if (typeof grecaptcha != "undefined" && this.$form.find(".g-recaptcha")) {
+				grecaptcha.reset();
+			}
 		}
 
 		AjaxForm.prototype.clearForm = function()
@@ -164,19 +152,20 @@
 			}
 		}
 
-		AjaxForm.prototype.clearRecaptcha = function()
-		{
-			if (typeof grecaptcha != "undefined" && this.$form.find(".g-recaptcha")) {
-				grecaptcha.reset();
-			}
-		}
+		// ********************************************************************
+		// Submit logic
+		// ********************************************************************
 
 		AjaxForm.prototype.requestSuccess = function(id)
 		{
 			// Everything is OK
 			this.setFlashMessage(true);
-			this.behaveOnSubmit();
-			this.copyToObject(id);
+			this.clearForm();
+			
+			// Succes submit callback
+			if (this.options.onSuccess && typeof(this.options.onSuccess) === "function") {
+				this.options.onSuccess(this, id);
+			}
 		}
 
 		AjaxForm.prototype.requestError = function(callback)
@@ -199,6 +188,11 @@
 
 				// Mark field as errorous
 				$field.closest(".form-group").addClass("has-error")
+			}
+
+			// Error callback
+			if (this.options.onError && typeof(this.options.onError) === "function") {
+				this.options.onError(this, callback);
 			}
 		}
 
