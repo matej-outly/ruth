@@ -102,6 +102,12 @@
 			eval('var object = ' + objectName.toString() + ';');
 			object.reload(id);
 		}
+
+		// Call reload current page
+		AjaxForm.prototype.reloadPage = function()
+		{
+			window.location.reload();
+		}
 		
 		// ********************************************************************
 		// Flash
