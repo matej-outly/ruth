@@ -201,6 +201,7 @@ cs:
       - Neděle
     formats:
       default: "%-d. %-m. %Y"
+      day_month: "%-d. %-m."
       moment: "D. M. YYYY"
     month_names:
       -
