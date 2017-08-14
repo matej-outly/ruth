@@ -156,14 +156,12 @@ div.table {
 	}
 }
 
-.empty {
-	&.show-table-body,
-	&.index-table-body,
-	&.index-thumbnails-body {
-		color: $pale-text-color;
-		text-align: center;
-		margin-bottom: 20px;
-	}
+.empty-message {
+	padding: 5px;
+	color: $pale-text-color;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 20px;
 }
 
 /*****************************************************************************/
@@ -224,7 +222,7 @@ div.table {
 			z-index: 1000;
 		}
 	}
-	.moving-handle {
+	.move-handle {
 		position: absolute;
 		top: 12px;
 		left: 26px;

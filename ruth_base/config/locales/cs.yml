@@ -18,8 +18,8 @@ cs:
       previous_week: Předchozí týden
       next_week: Následující týden
       week: "Týden %{week}"
-    index_table:
-      empty: "Tabulka neobsahuje žádný záznam."
+    index:
+      empty: "Neobsahuje žádný záznam."
     autocomplete:
       hint: "Začněte psát hledaný výraz"
       no_results: "Žádné výsledky"
@@ -259,11 +259,12 @@ cs:
         one: 1 sekunda
         other: "%{count} sekund"
     prompts:
-      day: Den
-      hour: Hodina
-      minute: Minta
-      month: Měsíc
       second: Sekunda
+      minute: Minta
+      hour: Hodina
+      day: Den
+      week: Týden
+      month: Měsíc
       year: Rok
   
   time:
