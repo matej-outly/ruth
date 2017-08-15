@@ -19,3 +19,15 @@
 		}
 	}
 }
+
+.btn-concept {
+	border: 1px dashed $grid-color;
+	padding: 15px;
+	display: block;
+	background: transparent;
+	color: darken($grid-color, 10%);
+	&:hover, &:focus {
+		background: transparent;
+		color: darken($grid-color, 20%);
+	}
+}

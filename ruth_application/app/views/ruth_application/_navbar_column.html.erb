@@ -4,8 +4,8 @@
 			align = component.values.first
 			component = component.keys.first
 		else
-			align = :left
+			align = nil
 		end
 	%>
-	<%= render partial: "ruth_application/component", locals: { component: component, align: align } %>
+	<%= render partial: "ruth_application/component", locals: { component: component.to_s, align: align } %>
 <% end %>

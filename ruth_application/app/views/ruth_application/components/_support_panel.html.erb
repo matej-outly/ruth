@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h5 class="m-a-0"><%= t("headers.ruth_application.support") %></h5>
+	</div>
+	<div class="panel-body">
+		<ul class="list-unstyled">
+			<% RuthApplication.support.each do |item| %>
+				<li class="m-b-sm"><%= rug_icon(item[:icon], class: "m-r text-muted") if !item[:icon].blank? %><%= item[:label].html_safe if !item[:label].blank? %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

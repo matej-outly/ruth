@@ -1,0 +1,6 @@
+<h5><%= t("headers.ruth_application.about") %></h5>
+<ul class="list-unstyled">
+	<% RuthApplication.about.each do |item| %>
+		<li class="m-b-sm"><%= rug_icon(item[:icon], class: "m-r text-muted") if !item[:icon].blank? %><%= item[:label].html_safe if !item[:label].blank? %></li>
+	<% end %>
+</ul>

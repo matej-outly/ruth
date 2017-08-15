@@ -1,0 +1,5 @@
+<% controller_path = controller.class.name.to_snake[0..-12] %>
+<% if lookup_context.find_all("#{controller_path}/_menu").any? %>
+	<% partial = render(partial: "#{controller_path}/menu") %>
+	<%= partial %>
+<% end %>

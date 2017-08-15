@@ -1,0 +1,17 @@
+<% if RuthApplication.layout[:footer] %>
+	<div class="footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4">
+					<%= render partial: "ruth_application/footer_column", locals: { id: :left } %>
+				</div>
+				<div class="col-md-4">
+					<%= render partial: "ruth_application/footer_column", locals: { id: :middle } %>
+				</div>
+				<div class="col-md-4 text-right">
+					<%= render partial: "ruth_application/footer_column", locals: { id: :right } %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

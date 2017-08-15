@@ -5,7 +5,15 @@
 				<%= yield %>
 			</div>
 		<% else %>
-			<%= render partial: "ruth_application/component", locals: { component: component.to_s } %>
+			<% 
+				if component.is_a?(Hash) && !component.empty?
+					align = component.values.first
+					component = component.keys.first
+				else
+					align = nil
+				end
+			%>
+			<%= render partial: "ruth_application/component", locals: { component: component.to_s, align: align } %>
 		<% end %>
 	<% end %>
 <% end %>

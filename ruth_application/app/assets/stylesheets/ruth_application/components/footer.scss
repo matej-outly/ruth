@@ -2,46 +2,15 @@
 /* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
 /*****************************************************************************/
 /*                                                                           */
-/* Panels                                                                    */
+/* Footer                                                                    */
 /*                                                                           */
 /* Author: Matěj Outlý                                                       */
 /* Date  : 19. 4. 2017                                                       */
 /*                                                                           */
 /*****************************************************************************/
 
-.panel {
-	.panel-heading {
-		h1, h2, h3 {
-			margin-top: 10px;
-		}
-	}
-
-	.panel-title {
-		a {
-			&:hover, &:focus {
-				text-decoration: none;
-			}
-		}
-
-		.label {
-			margin: 0 10px;
-			top: -2px;
-			position: relative;
-		}
-	}
+.footer {
+	padding: 20px 0 50px 0;
+	background: $footer-color;
 }
 
-.panel-concept {
-	border: 1px dashed $grid-color;
-	> a.btn {
-		padding: 15px;
-		border: none;
-		display: block;
-		background: transparent;
-		color: darken($grid-color, 10%);
-		&:hover, &:focus {
-			background: transparent;
-			color: darken($grid-color, 20%);
-		}
-	}
-}

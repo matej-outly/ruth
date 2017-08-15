@@ -17,7 +17,7 @@ table.table {
 	> thead {
 		> tr {
 			> th {
-				background-color: $content-color;
+				//background-color: $content-color;
 				border-bottom: 1px solid $dark-grid-color;
 			}
 		}
@@ -202,6 +202,10 @@ div.table {
 			float: none;
 			text-align: center;
 		}
+	}
+
+	.btn-concept {
+		margin: 0 15px;
 	}
 }
 

@@ -1,0 +1,3 @@
+<% RuthApplication.layout[:footer][id].each do |component| %>
+	<%= render partial: "ruth_application/component", locals: { component: component.to_s } %>
+<% end %>

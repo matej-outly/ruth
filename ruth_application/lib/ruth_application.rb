@@ -66,7 +66,7 @@ module RuthApplication
 				:breadcrumb,
 			],
 			left: [
-				:actions,
+				:actions_list,
 				:help,
 			],
 			main: [
@@ -75,8 +75,17 @@ module RuthApplication
 			],
 			right: [
 				:profile,
-				:about,
-				:copyright,
+			],
+		},
+		footer: {
+			left: [
+				:copyright_raw,
+			],
+			middle: [
+				:support_raw,
+			],
+			right: [
+				:about_raw,
 			],
 		}
 	}
@@ -143,6 +152,15 @@ module RuthApplication
 	]
 
 	#
+	# Support
+	#
+	mattr_accessor :support
+	@@support = [
+		{ icon: "envelope-o", label: "podpora@domena.cz" },
+		{ icon: "phone", label: "Váš telefon..." },
+	]
+
+	#
 	# Copyright info
 	#
 	mattr_accessor :copyright_name
@@ -191,9 +209,20 @@ module RuthApplication
 	#
 	# Options passed to rug_menu component in actions partial
 	#
-	mattr_accessor :actions_options
-	@@actions_options = {
+	mattr_accessor :actions_list_options
+	@@actions_listl_options = {
 		class: "actions-list"
+	}
+
+	#
+	# Options passed to rug_menu component in actions partial
+	#
+	mattr_accessor :actions_buttons_options
+	@@actions_buttons_options = { 
+		class: "actions-buttons",
+		format: :btn,
+		btn_style: "default",
+		labels: false
 	}
 
 end
