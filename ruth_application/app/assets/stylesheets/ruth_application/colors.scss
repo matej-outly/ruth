@@ -29,6 +29,10 @@ $color-blue: #009ac1 !default;
 $color-blue-pale: #a2e1f1 !default;
 $color-blue-dark: #009ac1 !default;
 
+$color-orange: #f0ad4e !default;
+$color-orange-pale: #fff3e2 !default;
+$color-orange-dark: #bd822d !default;
+
 /*****************************************************************************/
 /* Panels                                                                    */
 /*****************************************************************************/
@@ -58,6 +62,12 @@ $color-blue-dark: #009ac1 !default;
 		.panel-footer { border-top-color: darken($color-blue-pale,6%); }
 		hr { border-top-color: $color-blue-dark; }
 	}
+	&.color-orange { 
+		border-color: darken($color-orange-pale,6%); 
+		background-color: $color-orange-pale;
+		.panel-footer { border-top-color: darken($color-orange-pale,6%); }
+		hr { border-top-color: $color-orange-dark; }
+	}
 }
 
 /*****************************************************************************/
@@ -70,8 +80,21 @@ $color-blue-dark: #009ac1 !default;
 		&.color-red { background: $color-red; border-color: $color-red-dark; color: white; }
 		&.color-green { background: $color-green; border-color: $color-green-dark; color: white; }
 		&.color-blue { background: $color-blue; border-color: $color-blue-dark; color: white; }
+		&.color-orange { background: $color-orange; border-color: $color-orange-dark; color: white; }
 		&.color-transparent { background: none; border: none; color: inherit; }
 	}
+}
+
+/*****************************************************************************/
+/* Badges                                                                    */
+/*****************************************************************************/
+
+.badge {
+	&.color-yellow { background: $color-yellow; color: inherit; }
+	&.color-red { background: $color-red; color: white; }
+	&.color-green { background: $color-green; color: white; }
+	&.color-blue { background: $color-blue; color: white; }
+	&.color-orange { background: $color-orange; color: white; }
 }
 
 /*****************************************************************************/
@@ -83,6 +106,7 @@ $color-blue-dark: #009ac1 !default;
 	&.color-red { background: $color-red-pale; border-color: $color-red-dark; color: inherit; }
 	&.color-green { background: $color-green-pale; border-color: $color-green-dark; color: inherit; }
 	&.color-blue { background: $color-blue-pale; border-color: $color-blue-dark; color: inherit; }
+	&.color-orange { background: $color-orange-pale; border-color: $color-orange-dark; color: inherit; }
 }
 
 /*****************************************************************************/
@@ -94,6 +118,7 @@ $color-blue-dark: #009ac1 !default;
 	&.color-red { background: $color-red-pale; border-color: $color-red-dark; color: inherit; }
 	&.color-green { background: $color-green-pale; border-color: $color-green-dark; color: inherit; }
 	&.color-blue { background: $color-blue-pale; border-color: $color-blue-dark; color: inherit; }
+	&.color-orange { background: $color-orange-pale; border-color: $color-orange-dark; color: inherit; }
 }
 
 /*****************************************************************************/
@@ -105,4 +130,5 @@ td {
 	&.color-red { background: $color-red-pale; color: inherit; }
 	&.color-green { background: $color-green-pale; color: inherit; }
 	&.color-blue { background: $color-blue-pale; color: inherit; }
+	&.color-orange { background: $color-orange-pale; color: inherit; }
 }

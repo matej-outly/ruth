@@ -11,8 +11,18 @@
 
 .panel {
 	.panel-heading {
-		h1, h2, h3 {
-			margin-top: 10px;
+		position: relative;
+
+		h1, h2, h3, h4 {
+			margin-top: 2px;
+			margin-bottom: 0;
+		}
+
+		.actions {
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 9px;
 		}
 	}
 
@@ -33,6 +43,7 @@
 
 .panel-concept {
 	border: 1px dashed $grid-color;
+	background: rgba(white, 0.8);
 	> a.btn {
 		padding: 15px;
 		border: none;
@@ -40,8 +51,11 @@
 		background: transparent;
 		color: darken($grid-color, 10%);
 		&:hover, &:focus {
-			background: transparent;
+			background: white;
 			color: darken($grid-color, 20%);
+		}
+		&:active, &.active {
+			box-shadow: none;
 		}
 	}
 }

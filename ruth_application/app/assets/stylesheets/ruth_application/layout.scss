@@ -70,3 +70,23 @@ body.layout-auth, body.layout-exception {
 .content-container {
 	padding-bottom: 30px;
 }
+
+/*****************************************************************************/
+/* Footer                                                                    */
+/*****************************************************************************/
+
+html{
+	position:relative; 
+	min-height: 100%;
+}
+
+body {
+	padding-bottom: 200px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}

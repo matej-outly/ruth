@@ -59,11 +59,12 @@ div.table {
 /* Table header                                                              */
 /*****************************************************************************/
 
-.show-table-header,
+.show-header,
 .index-table-header,
+.index-list-header,
 .index-thumbnails-header {
-	border-bottom: 1px solid $grid-color;
-	margin-bottom: $spacer-y;
+	//border-bottom: 1px solid $grid-color;
+	margin-bottom: 0;
 	padding-bottom: $spacer-y;
 	@include clearfix;
 
@@ -96,17 +97,25 @@ div.table {
 			text-align: center;
 		}
 	}
+
+	&.full-actions {
+		.actions {
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
+	}
 }
 
 .index-table-header {
-	margin-bottom: ($spacer-y / 2);
+	padding-bottom: ($spacer-y / 2);
 }
 
 /*****************************************************************************/
 /* Table body                                                                */
 /*****************************************************************************/
 
-.table.show-table-body {
+.table.show-body {
 	border: 1px solid $grid-color;
 	background-color: white;
 
@@ -168,8 +177,9 @@ div.table {
 /* Table footer                                                              */
 /*****************************************************************************/
 
-.show-table-footer,
+.show-footer,
 .index-table-footer,
+.index-list-footer,
 .index-thumbnails-footer {
 	border-top: 1px solid $grid-color;
 	margin-top: $spacer-y;
@@ -211,6 +221,13 @@ div.table {
 
 .index-table-footer {
 	margin-top: -20px;
+}
+
+.show-footer,
+.index-list-footer,
+.index-thumbnails-footer {
+	border-top: none;
+	margin-top: 0;
 }
 
 /*****************************************************************************/

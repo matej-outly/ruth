@@ -2,35 +2,33 @@
 /* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
 /*****************************************************************************/
 /*                                                                           */
-/* Buttons                                                                   */
+/* Progress                                                                  */
 /*                                                                           */
 /* Author: Matěj Outlý                                                       */
-/* Date  : 7. 8. 2017                                                        */
+/* Date  : 19. 4. 2017                                                       */
 /*                                                                           */
 /*****************************************************************************/
 
-.btn {
-	&.btn-raw {
-		border: none;
-		padding: 0 3px;
-		vertical-align: baseline;
-		&:active {
-			box-shadow: none;
-		}
+.progress {
+	position: relative;
+	background-color: #eeeeee;
+	.progress-bar-title {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8);
 	}
 }
 
-.btn-concept {
-	border: 1px dashed $grid-color;
-	background: rgba(white, 0.8);
-	padding: 15px;
-	display: block;
-	color: darken($grid-color, 10%);
-	&:hover, &:focus {
-		background: white;
-		color: darken($grid-color, 20%);
-	}
-	&:active, &.active {
-		box-shadow: none;
-	}
+.progress-label-right {
+	float: right;
+	margin-left: 15px;
+}
+
+.progress-label-left {
+	float: left;
+	margin-right: 15px;
 }
