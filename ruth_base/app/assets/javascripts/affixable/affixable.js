@@ -2,7 +2,7 @@
 /* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
 /*****************************************************************************/
 /*                                                                           */
-/* Affixable - plugin for elemetn fixation inside its container              */
+/* Affixable - plugin for element fixation inside its container              */
 /*                                                                           */
 /* Author: Matěj Outlý                                                       */
 /* Date  : 25. 4. 2017                                                       */
@@ -18,10 +18,14 @@ $.fn.affixable = function(setOptions) {
 	this.each(function(index, element) {
 		var $affixable = $(element);
 		var $container = $affixable.closest('.affixable-container');
+		var $heightContainer = $affixable.closest('.affixable-height-container');
 		var containerOffset = $container.offset().top;
 		var containerHeight = $container.height();
 		var affixableHeight = $affixable.height();
 
+		// Set minimum container height
+		$heightContainer.css('min-height', (affixableHeight + parseInt($heightContainer.css('padding-top')) + parseInt($heightContainer.css('padding-top'))) + 'px');
+		
 		$affixable.addClass('affixable');
 
 		$(window).scroll(function() {
