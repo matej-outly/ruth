@@ -62,7 +62,7 @@ def render_item(t, item, dropdown = "")
 end
 %>
 
-<ul class="nav navbar-nav navbar-<%= align.to_s %>">
+<ul class="nav navbar-nav <%= align ? "navbar-" + align.to_s : "" %>">
 	<% RuthApplication.main_menu.each do |item| %>
 		<% dropdown = "" %>
 		<% if item[:dropdown] %>

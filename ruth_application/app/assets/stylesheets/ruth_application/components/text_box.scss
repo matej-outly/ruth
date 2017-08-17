@@ -13,6 +13,9 @@
 	border: 1px solid $grid-color;
 	background-color: white;
 	padding: 10px;
-	padding-bottom: 2px;
 	margin-bottom: 20px;
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
 }
