@@ -52,6 +52,18 @@
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+	position: relative;
+	&:after {
+		content: "\f093";
+		font: normal normal normal 14px/1 FontAwesome;
+		font-size: inherit;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		color: $grid-color;
+	}
 
 	.dz-preview .dz-image {
 		-webkit-border-radius: 3px;
