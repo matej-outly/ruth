@@ -12,3 +12,11 @@
 .well {
 	background-color: darken($content-color, 3%);
 }
+
+a.well {
+	display: block;
+	color: inherit;
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+}

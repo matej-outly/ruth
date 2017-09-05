@@ -46,6 +46,9 @@
 // Rater
 //= require rater/rater
 
+// Match Height
+//= require match_height/match_height
+
 // ****************************************************************************
 // Custom jQuery libraries
 // ****************************************************************************
