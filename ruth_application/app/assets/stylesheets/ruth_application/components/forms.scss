@@ -13,7 +13,7 @@
 /* Checkbox / Radiobutton                                                    */
 /*****************************************************************************/
 
-.checkbox-no-bootstrap {
+.checkbox-no-bootstrap, .checkbox {
 
 	label {
 		font-weight: normal;
@@ -33,6 +33,7 @@
 			vertical-align: top;
 			position: relative;
 			top: 1px;
+			margin-right: 10px;
 		}
 		&:checked + span:before {
 			display: block;
@@ -46,11 +47,12 @@
 			font-family: 'Glyphicons Halflings';
 			content: "\e013";
 			font-size: 70%;
+			color: $text-color;
 		}
 	}
 }
 
-.radio-no-bootstrap {
+.radio-no-bootstrap, .radio {
 
 	label {
 		font-weight: normal;
@@ -70,6 +72,7 @@
 			vertical-align: top;
 			position: relative;
 			top: 1px;
+			margin-right: 10px;
 		}
 		&:checked + span:before {
 			display: block;
@@ -83,6 +86,7 @@
 			font-family: 'Glyphicons Halflings';
 			content: "\25cf";
 			font-size: 110%;
+			color: $text-color;
 		}
 	}
 }

@@ -48,6 +48,10 @@
 
 // Match Height
 //= require match_height/match_height
+//= require ruth_application/match_height
+
+// Multiselect
+//= require multiselect/multiselect
 
 // ****************************************************************************
 // Custom jQuery libraries

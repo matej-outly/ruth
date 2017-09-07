@@ -1,0 +1,5 @@
+function match_height_ready()
+{
+	$.fn.matchHeight._applyDataApi();
+}
+$(document).on('<%= RuthApplication.use_turbolinks ? "turbolinks:load" : "ready" %>', match_height_ready);

@@ -24,6 +24,11 @@ cs:
       hint: "Začněte psát hledaný výraz"
       no_results: "Žádné výsledky"
       search_in_progress: "Probíhá vyhledávání..."
+    multiselect:
+      select_all: Vybrat vše
+      none_selected: Vyberte
+      selected: položky
+      all_selected: Vše vybráno
 
   helpers:
     submit:
