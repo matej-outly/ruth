@@ -30,12 +30,52 @@
 	}
 }
 
+
+
+/*	&.hierarchical {
+/*		
+/*		tbody {
+/*			tr {
+/*				td {
+/*					&.nesting { 
+/*						padding: 0; 
+/*						width: 40px; 
+/*						background-repeat: 
+/*						no-repeat; 
+/*						background-position: 0 -8px; 
+/*					}
+/*					&.nesting:first-child { 
+/*						padding-left: 20px; 
+/*						width: 60px; 
+/*						background-position: 20px -8px; 
+/*					}
+/*					&.leaf { 
+/*						/*padding-left: 20px;*/
+/*						font-weight: bold;
+/*					}
+/*					&.nesting-0-none { background-image: image-url("ruth_admin/nesting_0_none.png"); }
+/*					&.nesting-0-inner { background-image: image-url("ruth_admin/nesting_0_inner.png"); }
+/*					&.nesting-1-sibling { background-image: image-url("ruth_admin/nesting_1_sibling.png"); }
+/*					&.nesting-1-nosibling { background-image: image-url("ruth_admin/nesting_1_nosibling.png"); }
+/*					&.nesting-2-child { background-image: image-url("ruth_admin/nesting_2_child.png"); }
+/*					&.nesting-2-nochild { background-image: image-url("ruth_admin/nesting_2_nochild.png"); }
+/*				}
+/*			}
+/*		}
+/*	}
+
+
 /*****************************************************************************/
-/* Table header                                                             */
+/* Table header                                                              */
 /*****************************************************************************/
 
-.show-table-header, .index-thumbnails-header {
-	padding-bottom: 5px;
+.show-header,
+.index-table-header,
+.index-list-header,
+.index-thumbnails-header {
+	//border-bottom: 1px solid $grid-color;
+	margin-bottom: 0;
+	padding-bottom: $spacer-y;
 	@include clearfix;
 
 	&.empty {
@@ -44,7 +84,7 @@
 		padding-bottom: 0;
 	}
 
-	/*h1, h2, h3, h4, h5, h6 {
+	h1, h2, h3, h4, h5, h6 {
 		width: 50%;
 		float: left;
 		margin-top: 0;
@@ -52,10 +92,10 @@
 		@media (max-width: $screen-sm) {
 			width: 100%;
 			float: none;
-			margin-bottom: 15px;
+			margin-bottom: $spacer-y;
 			text-align: center;
 		}
-	}*/
+	}
 
 	.actions {
 		float: right;
@@ -67,187 +107,74 @@
 			text-align: center;
 		}
 	}
-}
 
-.index-table-header, .index-table-header {
-	height: 0;
-	position: relative;
-	
-	.actions {
-		position: absolute;
-		right: 0;
-		top: 0;
-		text-align: right;
-	}
-
-	@media (max-width: $screen-sm) {
-		height: auto;
-		border-bottom: 1px solid $global-grid-color;
-		text-align: center;
-		padding-bottom: 10px;
-		&.empty {
-			border-bottom: none;
-			padding-bottom: 0;
-		}
+	&.full-actions {
 		.actions {
-			position: static;
+			width: 100%;
+			float: none;
 			text-align: center;
 		}
 	}
 }
 
+.index-table-header {
+	padding-bottom: ($spacer-y / 2);
+}
+
 /*****************************************************************************/
-/* Show table body                                                           */
+/* Table body                                                                */
 /*****************************************************************************/
 
-.table.show-table-body {
+.table.show-body {
+	border: 1px solid $global-grid-color;
 	background-color: $table-background-color;
 
-	tr {
-		td.show-table-label {
-			font-weight: normal;
-		}
-
-		td.show-table-value {
-			font-weight: bold;
-			&:first-child {
-				border-top: none;
+	> tbody {
+		> tr {
+			> td:nth-child(1) {
+				width: 20%;
 			}
-			> *:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		td:first-child {
-			width: 30%;
-		}
-
-		&:first-child {
-			td {
-				border-top: none;
+			> td:nth-child(2) {
+				font-weight: bold;
 			}
 		}
 	}
 }
 
-.panel > .show-table > .table {
-	border: none;
-	background-color: transparent;
-}
-
-/*****************************************************************************/
-/* Index table / hierarchical index table body                               */
-/*****************************************************************************/
-
-.table {
-	&.index-table-body {
-
-		.sorting {
-			font-weight: normal;
-			&:before {
-				content: "("
-			}
-			&:after {
-				content: ")"
-			}
-		}
-
-		tbody {
-			tr {
-				td {
-					background-color: $table-background-color;
-					transition: background-color 0.3s;
-					min-height: 40px;
-					&.actions {
-						white-space: nowrap;
-						text-align: right;
-						width: 1px; /* Minimal width */
-						@media (max-width: $screen-xs-max) {
-							width: auto;
-						}
-						& + .actions {
-							padding-left: 0;
-							@media (max-width: $screen-xs-max) {
-								padding-left: 45%;
-							}
-						}
-					}
-				}
-
-				&:hover td {
-					background-color: lighten($table-background-color, 5%);
-				}
-				
-			}
-			
-			// Sortable		
-			tr.placeholder {
-				td {
-					background-color: $global-link-color;
-				}
-			}
-		}
-	}
-
-	&.hierarchical {
+.table.index-table-body {
+	tr, div.tr, form.tr {
 		
-		tbody {
-			tr {
-				td {
-					&.nesting { 
-						padding: 0; 
-						width: 40px; 
-						background-repeat: 
-						no-repeat; 
-						background-position: 0 -8px; 
+		td, div.td {
+			transition: background-color 0.3s;
+			background-color: $table-background-color;
+			min-height: 40px;
+			&.actions {
+				white-space: nowrap;
+				text-align: right;
+				width: 1px; /* Minimal width */
+				@media (max-width: $screen-xs-max) {
+					width: auto;
+				}
+				& + .actions {
+					padding-left: 0;
+					@media (max-width: $screen-xs-max) {
+						padding-left: 45%;
 					}
-					&.nesting:first-child { 
-						padding-left: 20px; 
-						width: 60px; 
-						background-position: 20px -8px; 
-					}
-					&.leaf { 
-						/*padding-left: 20px;*/
-						font-weight: bold;
-					}
-					&.nesting-0-none { background-image: image-url("ruth_admin/nesting_0_none.png"); }
-					&.nesting-0-inner { background-image: image-url("ruth_admin/nesting_0_inner.png"); }
-					&.nesting-1-sibling { background-image: image-url("ruth_admin/nesting_1_sibling.png"); }
-					&.nesting-1-nosibling { background-image: image-url("ruth_admin/nesting_1_nosibling.png"); }
-					&.nesting-2-child { background-image: image-url("ruth_admin/nesting_2_child.png"); }
-					&.nesting-2-nochild { background-image: image-url("ruth_admin/nesting_2_nochild.png"); }
 				}
 			}
 		}
-	}
 
-}
-
-/*****************************************************************************/
-/* Picture index table body                                                  */
-/*****************************************************************************/
-
-.index-thumbnails-body {
-	.thumbnail {
-		.actions {
-			position: absolute;
-			top: 12px;
-			right: 26px;
-			z-index: 1000;
+		&:hover td, &:hover div.td {
+			background-color: lighten($table-background-color, 5%);
 		}
 	}
 
-	.move-handle {
-		position: absolute;
-		top: 12px;
-		left: 26px;
-		z-index: 1000;
+	tr.placeholder, div.tr.placeholder, form.tr.placeholder {
+		td, div.td {
+			background: #337ab7;
+		}
 	}
 }
-
-/*****************************************************************************/
-/* Empty table body                                                          */
-/*****************************************************************************/
 
 .empty-message {
 	padding: 5px;
@@ -261,13 +188,14 @@
 /* Table footer                                                              */
 /*****************************************************************************/
 
-.show-table-footer,
+.show-footer,
 .index-table-footer,
+.index-list-footer,
 .index-thumbnails-footer {
 	border-top: 1px solid $global-grid-color;
-	margin-top: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	margin-top: $spacer-y;
+	padding-top: $spacer-y;
+	padding-bottom: $spacer-y;
 	@include clearfix;
 
 	&.empty {
@@ -296,10 +224,42 @@
 			text-align: center;
 		}
 	}
+
+	.btn-concept {
+		margin: 0 15px;
+	}
 }
 
 .index-table-footer {
 	margin-top: -20px;
+}
+
+.show-footer,
+.index-list-footer,
+.index-thumbnails-footer {
+	border-top: none;
+	margin-top: 0;
+}
+
+/*****************************************************************************/
+/* Index thumbnails                                                          */
+/*****************************************************************************/
+
+.index-thumbnails {
+	.thumbnail {
+		.actions {
+			position: absolute;
+			top: 12px;
+			right: 26px;
+			z-index: 1000;
+		}
+	}
+	.move-handle {
+		position: absolute;
+		top: 12px;
+		left: 26px;
+		z-index: 1000;
+	}
 }
 
 /*****************************************************************************/

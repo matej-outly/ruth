@@ -1,0 +1,21 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Text box                                                                  */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.form-box {
+	width: 50%;
+	margin: 0 auto;
+	border: 1px solid $global-grid-color;
+	background-color: $table-background-color;
+	padding: 15px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
