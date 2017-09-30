@@ -20,6 +20,8 @@ cs:
       week: "Týden %{week}"
     index:
       empty: "Neobsahuje žádný záznam."
+    show:
+      empty: "Neobsahuje žádný záznam."
     autocomplete:
       hint: "Začněte psát hledaný výraz"
       no_results: "Žádné výsledky"
