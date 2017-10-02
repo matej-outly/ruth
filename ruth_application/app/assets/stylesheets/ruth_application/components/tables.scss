@@ -165,6 +165,44 @@ div.table {
 	}
 }
 
+ul.show-body {
+	background: white;
+	list-style: none;
+	margin-bottom: 0;
+	padding-left: 0;
+	
+	li {
+		position: relative;
+		padding: 3px 0;
+
+		&:before {
+			content: " ";
+			display: block;
+			border-bottom: 1px dotted $grid-color;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 7px;
+		}		
+		
+		> * {
+			position: relative;
+			background: white;
+		}
+
+		> .show-value {
+			font-weight: bold;
+			float: right;
+			padding-left: 5px;
+		}
+
+		> .show-label {
+			padding-right: 5px;
+		}
+		
+	}
+}
+
 .empty-message {
 	padding: 5px;
 	color: $pale-text-color;
