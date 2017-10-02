@@ -10,7 +10,6 @@
 /*****************************************************************************/
 
 .form-box {
-	width: 50%;
 	margin: 0 auto;
 	border: 1px solid $global-grid-color;
 	background-color: $table-background-color;
@@ -20,6 +19,11 @@
 	border-radius: 4px;
 
 	&.form-box-full {
+		width: 100%;
+	}
+
+	width: 50%;
+	@media (max-width: $screen-lg) {
 		width: 100%;
 	}
 }

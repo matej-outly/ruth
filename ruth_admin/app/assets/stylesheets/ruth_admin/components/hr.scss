@@ -62,3 +62,9 @@ hr {
 		}
 	}
 }
+
+.form-box, .text-box {
+	.hr-divider .hr-divider-content {
+		background-color: lighten($global-background-color, 5%);
+	}
+}
