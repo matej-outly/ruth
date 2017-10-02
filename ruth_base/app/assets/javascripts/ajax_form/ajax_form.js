@@ -204,7 +204,7 @@
 
 		AjaxForm.prototype.ajaxSuccess = function(callback)
 		{
-			if (Number.isInteger(callback)) {
+			if ((callback ^ 0) === callback) { // == Number.isInteger(callback) does not work in IE...
 				this.requestSuccess(callback);
 			} else {
 				this.requestError(callback);
