@@ -5,6 +5,11 @@ def render_item(t, item, dropdown = "")
 	# Show?
 	if item[:show_if]
 		show = eval("(#{item[:show_if]}) == true")
+	elsif item[:dropdown]
+		show = false
+		item[:dropdown].each do |dropdown_item|
+			show ||= dropdown_item[:show_if] ? eval("(#{dropdown_item[:show_if]}) == true") : true
+		end
 	else
 		show = true
 	end
