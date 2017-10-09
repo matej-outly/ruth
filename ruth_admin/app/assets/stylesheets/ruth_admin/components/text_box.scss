@@ -15,4 +15,12 @@
 	padding: 10px;
 	padding-bottom: 2px;
 	margin-bottom: 20px;
+
+	table {
+		border-color: $global-grid-color !important;
+
+		td {
+			border-color: $global-grid-color !important;
+		}
+	}
 }

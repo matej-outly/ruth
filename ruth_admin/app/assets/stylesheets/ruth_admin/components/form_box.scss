@@ -18,12 +18,36 @@
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 
+	&.form-box-xs {
+		width: 30%;
+		@media (max-width: $screen-lg) {
+			width: 100%;
+		}
+	}
+
+	&.form-box-sm {
+		width: 45%;
+		@media (max-width: $screen-lg) {
+			width: 100%;
+		}
+	}
+
+	&, &.form-box-md {
+		width: 60%;
+		@media (max-width: $screen-lg) {
+			width: 100%;
+		}
+	}
+
+	&.form-box-lg {
+		width: 75%;
+		@media (max-width: $screen-lg) {
+			width: 100%;
+		}
+	}
+
 	&.form-box-full {
 		width: 100%;
 	}
 
-	width: 50%;
-	@media (max-width: $screen-lg) {
-		width: 100%;
-	}
 }
