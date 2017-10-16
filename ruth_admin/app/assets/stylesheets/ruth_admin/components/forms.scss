@@ -175,3 +175,50 @@
 		color: inherit;
 	}
 }
+
+/*****************************************************************************/
+/* Thumbnail checkbox / radio                                                */
+/*****************************************************************************/
+
+.thumbnail-checkbox, .thumbnail-radio {
+	display: block;
+	cursor: pointer;
+
+	.thumbnail {
+		position: relative;
+		-webkit-transition: border 0s;
+		-o-transition: border 0s;
+		transition: border 0s;
+	}
+
+	input[type=checkbox], input[type=radio] {
+		display: none;
+	}
+
+	input[type=checkbox]:checked + .thumbnail, input[type=radio]:checked + .thumbnail {
+		border: 1px solid $primary-color;
+
+		&:after {
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba($primary-color,0.5);
+			font-family: 'Glyphicons Halflings';
+			color: white;
+			text-align: center;
+			line-height: 200px;
+			font-size: 40px;
+		}
+	}
+}
+
+.thumbnail-checkbox input[type=checkbox]:checked + .thumbnail:after {
+	content: "\e013";
+}
+
+.thumbnail-radio input[type=radio]:checked + .thumbnail:after {
+	content: "\25cf";
+}
