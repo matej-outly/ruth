@@ -22,8 +22,9 @@
 	
 	table {
 		border-color: $global-grid-color !important;
+		width: 100% !important;
 
-		td {
+		td, th {
 			border-color: $global-grid-color !important;
 		}
 	}
