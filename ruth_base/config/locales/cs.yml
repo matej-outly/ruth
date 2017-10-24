@@ -96,16 +96,18 @@ cs:
       add: "přidat"
       remove: "odebrat"
       reload: "obnovit"
-      messages:
-        create:
-          success: "Položka byla úspěšně vytvořena."
-          error: "Nepodařilo se vytvořit položku."
-        update:
-          success: "Položka byla úspěšně upravena."
-          error: "Nepodařilo se upravit položku."
-        destroy:
-          success: "Položka byla úspěšně smazána."
-          error: "Nepodařilo se smazat položku."
+    
+    messages:
+      not_found: "Nenalezeno."
+      create:
+        success: "Položka byla úspěšně vytvořena."
+        error: "Nepodařilo se vytvořit položku."
+      update:
+        success: "Položka byla úspěšně upravena."
+        error: "Nepodařilo se upravit položku."
+      destroy:
+        success: "Položka byla úspěšně smazána."
+        error: "Nepodařilo se smazat položku."
 
     attribute:
       boolean:
