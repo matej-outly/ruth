@@ -12,5 +12,8 @@
 .footer {
 	padding: 20px 0 50px 0;
 	background: $footer-color;
+	-webkit-box-shadow: inset 0px 30px 80px -30px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0px 30px 80px -30px rgba(0,0,0,0.1);
+	box-shadow: inset 0px 30px 80px -30px rgba(0,0,0,0.1);
 }
 
