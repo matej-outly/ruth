@@ -21,7 +21,7 @@
 }
 
 .btn-concept {
-	border: 1px dashed $grid-color;
+	border: 1px dashed darken($grid-color, 10%);
 	background: rgba(white, 0.8);
 	padding: 15px;
 	display: block;

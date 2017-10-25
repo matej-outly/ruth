@@ -48,7 +48,7 @@
 /*****************************************************************************/
 
 .dropzone { 
-	border: 1px dashed $grid-color;
+	border: 1px dashed darken($grid-color, 10%);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -65,14 +65,29 @@
 		color: $grid-color;
 	}
 
-	.dz-preview .dz-image {
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		border-radius: 3px;
+	.dz-preview {
+		
+		&.dz-image-preview {
+			background: $grid-color;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+		}
 
-		img {
-			width: 100%;
-			height: 100%;
+		.dz-image {
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+
+			img {
+				width: 100%;
+				height: 100%;
+
+				/* Hide ALT text */
+				text-indent: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+			}
 		}
 	}
 }

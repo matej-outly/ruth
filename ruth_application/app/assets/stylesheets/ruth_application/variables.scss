@@ -10,6 +10,10 @@
 /*****************************************************************************/
 
 $font: "Roboto", "Helvetica", sans-serif;
+$font-bold: 700;
+$font-semi-bold: 600;
+$font-medium: 500;
+$font-regular: 400;
 
 /*****************************************************************************/
 /* Colors                                                                    */
@@ -26,6 +30,7 @@ $danger-color: #d9534f !default;
 $grid-color: #dddddd !default;
 $dark-grid-color: #101010 !default;
 $content-color: #f5f5f5 !default;
+$link-color: #337ab7 !default;
 $text-color: #000000 !default;
 $inverse-text-color: #ffffff !default;
 $pale-text-color: #dddddd !default;

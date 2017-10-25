@@ -109,7 +109,7 @@ td, div.td {
 	padding: 10px;
 	padding-bottom: 4px;
 	background-color: white;
-	border: 1px dashed $grid-color;
+	border: 1px dashed darken($grid-color, 10%);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -135,7 +135,7 @@ td, div.td {
 .editable {
 	position: relative;
 	background-color: white;
-	border: 1px dashed $grid-color;
+	border: 1px dashed darken($grid-color, 10%);
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
