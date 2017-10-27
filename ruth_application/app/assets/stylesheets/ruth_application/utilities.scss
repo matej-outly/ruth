@@ -112,21 +112,21 @@
 .text-xs-center { text-align: center; }
 
 @media (min-width: $screen-sm-min) {
-  .text-sm-left   { text-align: left; }
-  .text-sm-right  { text-align: right; }
-  .text-sm-center { text-align: center; }
+	.text-sm-left   { text-align: left; }
+	.text-sm-right  { text-align: right; }
+	.text-sm-center { text-align: center; }
 }
 
 @media (min-width: $screen-md-min) {
-  .text-md-left   { text-align: left; }
-  .text-md-right  { text-align: right; }
-  .text-md-center { text-align: center; }
+	.text-md-left   { text-align: left; }
+	.text-md-right  { text-align: right; }
+	.text-md-center { text-align: center; }
 }
 
 @media (min-width: $screen-lg-min) {
-  .text-lg-left   { text-align: left; }
-  .text-lg-right  { text-align: right; }
-  .text-lg-center { text-align: center; }
+	.text-lg-left   { text-align: left; }
+	.text-lg-right  { text-align: right; }
+	.text-lg-center { text-align: center; }
 }
 
 /*****************************************************************************/
@@ -146,17 +146,17 @@
 /*****************************************************************************/
 
 @media (max-width: $screen-xs) {
-  .hide-xs { display: none; }
+	.hide-xs { display: none; }
 }
 
 @media (max-width: $screen-sm) {
-  .hide-sm { display: none; }
+	.hide-sm { display: none; }
 }
 
 @media (max-width: $screen-md) {
-  .hide-md { display: none; }
+	.hide-md { display: none; }
 }
 
 @media (max-width: $screen-lg) {
-  .hide-lg { display: none; }
+	.hide-lg { display: none; }
 }
