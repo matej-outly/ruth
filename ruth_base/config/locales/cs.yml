@@ -99,6 +99,7 @@ cs:
     
     messages:
       not_found: "Nenalezeno."
+      not_authorized: "K této obrazovce nemáte oprávnění."
       create:
         success: "Položka byla úspěšně vytvořena."
         error: "Nepodařilo se vytvořit položku."
