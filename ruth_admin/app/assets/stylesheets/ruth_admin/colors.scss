@@ -15,15 +15,18 @@
 
 $color-yellow: #fff178 !default;
 $color-yellow-pale: #fcf8e3 !default;
-$color-yellow-dark: #e0c900 !default;
+$color-yellow-dark: darken($color-yellow, 10%) !default;
+$color-yellow-text: #252830 !default;
 
-$color-red: #ca3838 !default;
-$color-red-pale: #f2dede !default;
-$color-red-dark: #ca3838 !default;
+$color-red: #e33145 !default;
+$color-red-pale: #f1c5ca !default;
+$color-red-dark: darken($color-red, 10%) !default;
+$color-red-text: white !default;
 
-$color-green: #58c026 !default;
-$color-green-pale: #dff0d8 !default;
-$color-green-dark: #58c026 !default;
+$color-green: #18b37e !default;
+$color-green-pale: #c8eade !default;
+$color-green-dark: darken($color-green, 10%) !default;
+$color-green-text: white !default;
 
 /*****************************************************************************/
 /* Panels                                                                    */
@@ -59,8 +62,29 @@ $color-green-dark: #58c026 !default;
 
 .label {
 	&.label-default {
-		&.color-yellow { background: $color-yellow; border-color: $color-yellow-dark; color: #252830; }
-		&.color-red { background: $color-red; border-color: $color-red-dark; color: white; }
-		&.color-green { background: $color-green; border-color: $color-green-dark; color: white; }
+		&.color-yellow { background: $color-yellow; border-color: $color-yellow-dark; color: $color-yellow-text; }
+		&.color-red { background: $color-red; border-color: $color-red-dark; color: $color-red-text; }
+		&.color-green { background: $color-green; border-color: $color-green-dark; color: $color-green-text; }
+	}
+}
+
+/*****************************************************************************/
+/* Buttons                                                                   */
+/*****************************************************************************/
+
+.btn {
+	&.btn-default {
+		&.color-yellow {
+			background: $color-yellow; border-color: $color-yellow; color: $color-yellow-text;
+			&:hover, &:focus { background: $color-yellow-dark; }
+		}
+		&.color-red { 
+			background: $color-red; border-color: $color-red; color: $color-red-text;
+			&:hover, &:focus { background: $color-red-dark; }
+		}
+		&.color-green {
+			background: $color-green; border-color: $color-green; color: $color-green-text;
+			&:hover, &:focus { background: $color-green-dark; }
+		}
 	}
 }

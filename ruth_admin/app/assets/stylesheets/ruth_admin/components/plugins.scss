@@ -31,12 +31,12 @@
 		font-size: 14px;
 		border-radius: 4px;
 		&.ajs-ok {
-			color: $inverse-text-color;
+			color: $button-text-color;
 			background-color: $primary-color;
 			border-color: $primary-color;
 		}
 		&.ajs-cancel {
-			color: $inverse-text-color;
+			color: $button-text-color;
 			background-color: $danger-color;
 			border-color: $danger-color;
 		}
@@ -48,46 +48,19 @@
 /*****************************************************************************/
 
 .dropzone { 
-	border: 1px dashed darken($grid-color, 10%);
+	border: 1px dashed $form-grid-color;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	position: relative;
-	&:after {
-		content: "\f093";
-		font: normal normal normal 14px/1 FontAwesome;
-		font-size: inherit;
-		text-rendering: auto;
-		-webkit-font-smoothing: antialiased;
-		position: absolute;
-		right: 10px;
-		top: 10px;
-		color: $grid-color;
-	}
 
-	.dz-preview {
-		
-		&.dz-image-preview {
-			background: $grid-color;
-			-webkit-border-radius: 3px;
-			-moz-border-radius: 3px;
-			border-radius: 3px;
-		}
+	.dz-preview .dz-image {
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
 
-		.dz-image {
-			-webkit-border-radius: 3px;
-			-moz-border-radius: 3px;
-			border-radius: 3px;
-
-			img {
-				width: 100%;
-				height: 100%;
-
-				/* Hide ALT text */
-				text-indent: 100%;
-				white-space: nowrap;
-				overflow: hidden;
-			}
+		img {
+			width: 100%;
+			height: 100%;
 		}
 	}
 }
@@ -108,7 +81,7 @@ ul.token-input-list-facebook {
 	min-height: 34px;
 	min-width: 170px;
 	font-family: $font;
-	color: $text-color;
+	color: $form-text-color;
 	font-size: 14px;
 
 	li input {
@@ -172,47 +145,25 @@ div.token-input-dropdown-facebook {
 	-webkit-border-radius: 4px; 
 	border-radius: 4px; 
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
-	z-index: 1050 !important; // Over modal dialog
 }
 
 /* "Start typing" / "No results" message */
 div.token-input-dropdown-facebook p {
 	padding: 5px 10px;
 	font-weight: bold;
-	color: $text-color;
+	color: $form-text-color;
 }
 
 /* Common search result item */
 div.token-input-dropdown-facebook ul li {
 	padding: 5px 10px;
-	color: $text-color;
+	color: $form-text-color;
 }
 
 /* Highlighted search result item */
 div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-facebook { 
 	background-color: #616161;
 	color: white;
-}
-
-/*****************************************************************************/
-/* Multiselect                                                               */
-/*****************************************************************************/
-
-.multiselect-container {
-	> li {
-		> a {
-			padding: 3px 12px;
-			> label {
-				padding: 3px 20px 3px 0px;
-			}
-		}
-
-		&.multiselect-group {
-			label {
-				padding: 3px 20px 3px 0px;
-			}
-		}
-	}
 }
 
 /*****************************************************************************/
@@ -274,4 +225,192 @@ div.token-input-dropdown-facebook ul li.token-input-selected-dropdown-item-faceb
 	background: #616161; 
 	border-radius: 0; 
 	color: white;
+}
+
+/*****************************************************************************/
+/* jqTree                                                                    */
+/*****************************************************************************/
+
+ul.jqtree-tree {
+	margin-left: 20px;
+
+	.jqtree-element {
+		padding: 3px 8px;
+		position: relative;
+
+		&.jqtree-element-published {
+
+		}
+		&.jqtree-element-unpublished {
+			.jqtree-title, .jqtree-icon {
+				opacity: 0.3;
+			}
+		}
+	}
+
+	.jqtree-title {
+		color: $global-text-color;
+		margin-left: 0;
+		.input-group {
+			margin-bottom: 0;
+		}
+	}
+
+	.jqtree-toggler {
+		position: absolute;
+		top: 0;
+		width: 22px;
+		height: 28px;
+		line-height: 28px;
+		text-align: center;
+		display: block;
+		color: $global-text-color;
+		&:hover {
+			color: darken($global-text-color, 20%);
+			text-decoration: none;
+		}
+		&.jqtree-toggler-left {
+			left: -55px;
+			margin-right: 0;
+		}
+	}
+
+	.jqtree-icon {
+		position: absolute;
+		top: 0;
+		left: -20px;
+		width: 22px;
+		height: 28px;
+		line-height: 28px;
+		text-align: center;
+		color: darken($global-text-color, 40%);
+	}
+
+	.jqtree-actions {
+		position: absolute;
+		top: 3px;
+		right: 3px;
+		.jqtree-other-actions {
+			display: inline-block;
+		}
+		> * {
+			margin-left: 3px;
+		}
+	}
+
+	ul.jqtree_common {
+		margin-left: 16px;
+		position: relative;
+		&:before {
+			content: " ";
+			position: absolute;
+			top: 0;
+			bottom: 12px;
+			left: -62px;
+			width: 8px;
+			border-left: 1px dashed darken($global-text-color, 40%);
+			border-bottom: 1px dashed darken($global-text-color, 40%);
+		}
+	}
+
+	li.jqtree-selected > .jqtree-element,
+	li.jqtree-selected > .jqtree-element:hover {
+		background: lighten($global-background-color, 5%);
+		text-shadow: none;
+	}
+
+	.dropdown-menu {
+		left: auto;
+		right: 0;
+	}
+}
+
+.jqtree-global-actions {
+	text-align: right;
+	padding-right: 3px;
+	> * {
+		margin-left: 3px;
+	}
+}
+
+/*****************************************************************************/
+/* Perfect Scrollbar                                                         */
+/*****************************************************************************/
+
+.ps-container {
+	
+	> .ps-scrollbar-y-rail, > .ps-scrollbar-x-rail {
+		> .ps-scrollbar-y, > .ps-scrollbar-x {
+			background-color: $nav-hover-background-color;
+		}
+	}
+
+	&:hover {
+		> .ps-scrollbar-y-rail, > .ps-scrollbar-x-rail {
+			&:hover {
+				background-color: $nav-background-color;
+				> .ps-scrollbar-y, > .ps-scrollbar-x {
+					background-color: $nav-hover-background-color;
+				}
+			}
+		}
+	}
+
+	&.ps-in-scrolling, &.ps-in-scrolling:hover {
+		&.ps-y, &.ps-x {
+			> .ps-scrollbar-y-rail, > .ps-scrollbar-x-rail {
+				background-color: $nav-background-color;
+				> .ps-scrollbar-y, > .ps-scrollbar-x {
+					background-color: $nav-hover-background-color;
+				}
+			}
+		}
+	}
+}
+
+/*****************************************************************************/
+/* Froala                                                                    */
+/*****************************************************************************/
+
+.fr-box {
+	.fr-toolbar {
+		border-top: 5px solid $form-grid-color;
+	}
+
+
+	&.fr-dirty {
+		.fr-toolbar {
+			border-top: 5px solid $color-red;
+		}
+	}
+
+	&.fr-clean {
+		.fr-toolbar {
+			border-top: 5px solid $color-green;
+		}
+	}
+}
+
+.fr-box.editable {
+	.fr-element {
+		padding: 10px 16px;
+		border-top: 5px solid $form-grid-color;
+		border-radius: 2px;
+
+		> *:last-child, > *:last-child > *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&.fr-dirty {
+		.fr-element {
+			border-top: 5px solid $color-red;
+		}
+	}
+
+	&.fr-clean {
+		.fr-element {
+			border-top: 5px solid $color-green;
+		}
+	}
 }

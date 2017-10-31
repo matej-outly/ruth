@@ -10,12 +10,15 @@
 /*****************************************************************************/
 
 .text-box {
+	overflow: scroll;
 	border: 1px solid $global-grid-color;
 	background-color: $table-background-color;
 	padding: 10px;
 	margin-bottom: 20px;
+	min-height: 43px;
+	border-radius: 4px;
 
-	> *:last-child {
+	> *:last-child, > *:last-child > *:last-child {
 		padding-bottom: 0;
 		margin-bottom: 0;
 	}
