@@ -10,7 +10,7 @@
 /*****************************************************************************/
 
 .text-box {
-	overflow: scroll;
+	overflow: auto;
 	border: 1px solid $global-grid-color;
 	background-color: $table-background-color;
 	padding: 10px;
