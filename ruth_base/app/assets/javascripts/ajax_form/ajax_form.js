@@ -34,7 +34,6 @@
 			clearOnSubmit: true,
 			onSuccess: null,
 			onError: null,
-			invisibleRecaptcha: null, // null means auto-detect
 			log: false,
 		}, setOptions);
 
@@ -47,13 +46,6 @@
 
 			// Advanced configuration
 			this.$submitButton = this.$form.find("[type='submit']");
-			this.$recaptchaSubmitButton = this.$form.find("button.g-recaptcha");
-			this.invisibleRecaptchaId = "onInvisibleRecaptchaFormSubmit_" + this.id();
-
-			if (options.invisibleRecaptcha === null) {
-				// Autodetect invisible recaptcha by recaptcha id
-				options.invisibleRecaptcha = (this.$recaptchaSubmitButton.length !== 0);
-			}
 		}
 
 		// Form URL
@@ -142,17 +134,9 @@
 			this.$form.find(".has-error").removeClass("has-error");
 		}
 
-		AjaxForm.prototype.clearRecaptcha = function()
-		{
-			if (typeof grecaptcha != "undefined" && this.$form.find(".g-recaptcha")) {
-				grecaptcha.reset();
-			}
-		}
-
 		AjaxForm.prototype.clearForm = function()
 		{
 			this.clearErrors();
-			this.clearRecaptcha();
 			if (this.options.clearOnSubmit) {
 				this.$form.find(".form-control").val("");
 			}
@@ -179,8 +163,7 @@
 			// Something is bad
 			this.setFlashMessage(false);
 			this.clearErrors();
-			this.clearRecaptcha();
-
+			
 			// Set error messages
 			for (var field in callback) {
 				var fieldId = this.id() + "_" + field + "_errors";
@@ -217,7 +200,6 @@
 			// There should be third state of flash messge with parameter "null".
 			this.setFlashMessage(false);
 			this.clearErrors();
-			this.clearRecaptcha();
 		}
 
 		AjaxForm.prototype.submitForm = function()
@@ -262,22 +244,12 @@
 
 		AjaxForm.prototype.activateAjax = function()
 		{
-			if (options.invisibleRecaptcha === true) {
-				// Submiting form in invisible recaptcha callback,
-				// callback must be within window "namespace"
-				window[this.invisibleRecaptchaId] = this.submitForm.bind(this);
-
-				// Add recaptcha callback to button
-				this.$recaptchaSubmitButton.attr("data-callback", this.invisibleRecaptchaId);
-			}
-			else {
-				// Submit form via AJAX after click on submit button
-				var self = this;
-				this.$submitButton.click(function(e) {
-					e.preventDefault();
-					self.submitForm();
-				});
-			}
+			// Submit form via AJAX after click on submit button
+			var self = this;
+			this.$submitButton.click(function(e) {
+				e.preventDefault();
+				self.submitForm();
+			});
 		}
 
 		// For each form here activate ajax request
