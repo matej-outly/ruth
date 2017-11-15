@@ -10,16 +10,20 @@
 /*****************************************************************************/
 
 .breadcrumb {
-	padding: 0;
+	border-bottom: 1px solid $grid-color;
+	padding: 0 2px 10px 2px;
+	margin-bottom: 10px;
+	
 	background-color: transparent;
 	border-radius: 0;
 
 	> .active {
-		/*color: $text-color;*/
+		color: $text-color;
+		font-weight: $font-bold;
 	}
 
-	> li + li::before {
-		/*color: $link-color;*/
+	> li + li:before {
 		padding-left: 8px;
+		font-weight: $font-regular;
 	}
 }
