@@ -15,6 +15,7 @@
 /* - flashSelector (string)  ... Selector for inline flash container, if not provided, Alertify plugin auto detected and used if possible
 /* - successMessage (string) ... Message displayed at success
 /* - errorMessage (string)   ... Message displayed at error
+/* - uploadFile (boolean)    ... Whether the form should send file for upload
 /* - clearOnSubmit (boolean) ... Clear form values when successfuly submitted?
 /* - onSuccess (function)    ... What to do when form is successfuly submitted
 /* - onError (function)      ... What to do when form is NOT successfuly submitted
@@ -204,19 +205,34 @@
 
 		AjaxForm.prototype.submitForm = function()
 		{
+			var self = this;
+			var formParams = {};
+			
 			// URL
 			var url = this.url();
 
+			// State change
 			this.$form.addClass("af-sending-request");
 			this.$submitButton.prop("disabled", true);
 
-			// Request
-			var self = this;
-			$.ajax({
+			// Form data
+			if (!this.options.uploadFile) {
+				var formData = this.$form.serialize();
+			} else {
+				var formData = new FormData(this.$form[0]);
+				formParams = $.extend({
+					cache: false,
+					contentType: false,
+					processData: false,
+				}, formParams);
+			}
+
+			// Core form params
+			formParams = $.extend({
 				url: url,
 				dataType: "json",
 				type: "POST",
-				data: this.$form.serialize(),
+				data: formData,
 
 				// Success data fetch
 				success: function(callback) {
@@ -224,8 +240,11 @@
 						console.log(callback);
 					}
 
+					// State change
 					self.$form.removeClass("af-sending-request");
 					self.$submitButton.prop("disabled", false);
+
+					// Callback
 					self.ajaxSuccess(callback);
 				},
 
@@ -235,11 +254,17 @@
 						console.log(callback);
 					}
 
+					// State change
 					self.$form.removeClass("af-sending-request");
 					self.$submitButton.prop("disabled", false);
+
+					// Callback
 					self.ajaxError(callback);
 				},
-			});
+			}, formParams);
+
+			// Request
+			$.ajax(formParams);
 		}
 
 		AjaxForm.prototype.activateAjax = function()
