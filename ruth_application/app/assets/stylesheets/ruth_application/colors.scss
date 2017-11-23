@@ -34,6 +34,18 @@ $color-orange-pale: #fff3e2 !default;
 $color-orange-dark: #bd822d !default;
 
 /*****************************************************************************/
+/* Span                                                                      */
+/*****************************************************************************/
+
+span {
+	&.color-yellow { color: $color-yellow; }
+	&.color-red { color: $color-red; }
+	&.color-green { color: $color-green; }
+	&.color-blue { color: $color-blue; }
+	&.color-orange { color: $color-orange; }
+}
+
+/*****************************************************************************/
 /* Panels                                                                    */
 /*****************************************************************************/
 
