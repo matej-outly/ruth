@@ -1,0 +1,45 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Vertical divider                                                          */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 29. 9. 2016                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.vr-divider {
+	&.vr-lg-divider-left, &.vr-md-divider-left, &.vr-sm-divider-left, &.vr-xs-divider-left {
+		border-left: 1px solid $grid-color;
+	}
+
+	&.vr-lg-divider-right, &.vr-md-divider-right, &.vr-sm-divider-right, &.vr-xs-divider-right {
+		border-right: 1px solid $grid-color;
+	}
+
+	@media (max-width: $screen-lg) {
+		&.vr-lg-divider-left, &.vr-lg-divider-right {
+			border-left: none;
+			border-right: none;
+		}
+	}
+	@media (max-width: $screen-md) {
+		&.vr-md-divider-left, &.vr-md-divider-right {
+			border-left: none;
+			border-right: none;
+		}
+	}
+	@media (max-width: $screen-sm) {
+		&.vr-sm-divider-left, &.vr-sm-divider-right {
+			border-left: none;
+			border-right: none;
+		}
+	}
+	@media (max-width: $screen-xs) {
+		&.vr-xs-divider-left, &.vr-xs-divider-right {
+			border-left: none;
+			border-right: none;
+		}
+	}
+}
