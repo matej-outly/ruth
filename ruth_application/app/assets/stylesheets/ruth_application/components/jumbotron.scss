@@ -17,3 +17,34 @@
 		padding-bottom: 15px;
 	}
 }
+
+.jumbotron {
+
+	img.jumbotron-logo {
+		max-width: 200px;
+		width: 100%;
+	}
+
+	&.jumbotron-with-logo {
+		min-height: 270px;
+		padding-left: 260px;
+		position: relative;
+		.jumbotron-logo {
+			position: absolute;
+			top: 40px;
+			left: 40px;
+		}
+	}
+
+	@media (max-width: $screen-sm) {
+		&.jumbotron-with-logo {
+			padding-left: 20px;
+			position: relative;
+			.jumbotron-logo {
+				position: static;
+				margin: 0 auto;
+				display: block;
+			}
+		}
+	}
+}
