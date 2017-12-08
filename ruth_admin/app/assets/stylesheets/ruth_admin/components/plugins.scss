@@ -145,6 +145,7 @@ div.token-input-dropdown-facebook {
 	-webkit-border-radius: 4px; 
 	border-radius: 4px; 
 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+	z-index: 1050 !important; // Over modal dialog
 }
 
 /* "Start typing" / "No results" message */
