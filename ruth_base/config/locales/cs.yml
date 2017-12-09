@@ -10,7 +10,6 @@ cs:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
-    pagination_more:
       more: "Načíst další"
     calendar:
       previous_month: Předchozí měsíc
