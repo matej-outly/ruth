@@ -87,6 +87,14 @@
 .p-x { padding-right:  $spacer-x !important; padding-left:   $spacer-x !important; }
 .p-y { padding-top:    $spacer-y !important; padding-bottom: $spacer-y !important; }
 
+.p-a-sm { padding:        ($spacer-y * 0.3) !important; }
+.p-t-sm { padding-top:    ($spacer-y * 0.3) !important; }
+.p-r-sm { padding-right:  ($spacer-y * 0.3) !important; }
+.p-b-sm { padding-bottom: ($spacer-y * 0.3) !important; }
+.p-l-sm { padding-left:   ($spacer-y * 0.3) !important; }
+.p-x-sm { padding-right:  ($spacer-x * 0.3) !important; padding-left:   ($spacer-x * 0.3) !important; }
+.p-y-sm { padding-top:    ($spacer-y * 0.3) !important; padding-bottom: ($spacer-y * 0.3) !important; }
+
 .p-a-md { padding:        ($spacer-y * 1.5) !important; }
 .p-t-md { padding-top:    ($spacer-y * 1.5) !important; }
 .p-r-md { padding-right:  ($spacer-y * 1.5) !important; }
