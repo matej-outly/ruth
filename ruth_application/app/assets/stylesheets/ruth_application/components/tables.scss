@@ -121,10 +121,10 @@ div.table {
 
 	> tbody {
 		> tr {
-			> td:nth-child(1) {
+			> td.show-label {
 				width: 40%;
 			}
-			> td:nth-child(2) {
+			> td.show-value {
 				font-weight: bold;
 			}
 		}

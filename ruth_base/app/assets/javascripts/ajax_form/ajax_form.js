@@ -20,6 +20,7 @@
 /* - onSuccess (function)    ... What to do when form is successfuly submitted
 /* - onError (function)      ... What to do when form is NOT successfuly submitted
 /* - log (boolean)           ... Log success and error callbacks into console (for debugging purposes)
+/* - checkStatus (boolean)   ... Check response status instead of ID for success (default is false because of backward compatibility)
 /*
 /*****************************************************************************/
 
@@ -36,6 +37,7 @@
 			onSuccess: null,
 			onError: null,
 			log: false,
+			checkStatus: false,
 		}, setOptions);
 
 		// Constructor
@@ -101,6 +103,12 @@
 		{
 			window.location.reload();
 		}
+
+		// Call redirect to given URL
+		AjaxForm.prototype.redirect = function(url)
+		{
+			window.location.href = url;
+		}
 		
 		// ********************************************************************
 		// Flash
@@ -147,7 +155,7 @@
 		// Submit logic
 		// ********************************************************************
 
-		AjaxForm.prototype.requestSuccess = function(id)
+		AjaxForm.prototype.requestSuccess = function(id_or_data)
 		{
 			// Everything is OK
 			this.setFlashMessage(true);
@@ -155,7 +163,7 @@
 			
 			// Succes submit callback
 			if (this.options.onSuccess && typeof(this.options.onSuccess) === "function") {
-				this.options.onSuccess(this, id);
+				this.options.onSuccess(this, id_or_data);
 			}
 		}
 
@@ -184,23 +192,6 @@
 			if (this.options.onError && typeof(this.options.onError) === "function") {
 				this.options.onError(this, callback);
 			}
-		}
-
-		AjaxForm.prototype.ajaxSuccess = function(callback)
-		{
-			if ((callback ^ 0) === callback) { // == Number.isInteger(callback) does not work in IE...
-				this.requestSuccess(callback);
-			} else {
-				this.requestError(callback);
-			}
-		}
-
-		AjaxForm.prototype.ajaxError = function(callback)
-		{
-			// Something is bad, and we don't know what
-			// There should be third state of flash messge with parameter "null".
-			this.setFlashMessage(false);
-			this.clearErrors();
 		}
 
 		AjaxForm.prototype.submitForm = function()
@@ -235,31 +226,46 @@
 				data: formData,
 
 				// Success data fetch
-				success: function(callback) {
-					if (options.logCallback) {
+				success: function(callback, status) {
+					//if (options.logCallback) {
 						console.log(callback);
-					}
+						console.log(status);
+					//}
 
 					// State change
 					self.$form.removeClass("af-sending-request");
 					self.$submitButton.prop("disabled", false);
 
 					// Callback
-					self.ajaxSuccess(callback);
+					var success = true;
+					if (self.options.checkStatus != true) { // Check for ID
+						success = ((callback ^ 0) === callback); // == Number.isInteger(callback) does not work in IE...
+					}
+					if (success) { 
+						self.requestSuccess(callback);
+					} else {
+						self.requestError(callback);
+					}
 				},
 
 				// Error data fetch
-				error: function(callback) {
-					if (options.logCallback) {
+				error: function(callback, status) {
+					//if (options.logCallback) {
 						console.log(callback);
-					}
+						console.log(status);
+					//}
 
 					// State change
 					self.$form.removeClass("af-sending-request");
 					self.$submitButton.prop("disabled", false);
 
 					// Callback
-					self.ajaxError(callback);
+					if (callback.responseJSON) {
+						self.requestError(callback.responseJSON);
+					} else {
+						self.setFlashMessage(false);
+						self.clearErrors();
+					}
 				},
 			}, formParams);
 
