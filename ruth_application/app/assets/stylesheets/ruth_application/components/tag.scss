@@ -1,0 +1,67 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Tag                                                                       */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 28. 12. 2017                                                      */
+/*                                                                           */
+/*****************************************************************************/
+
+.tag-list {
+	padding: 0;
+	display: inline-block;
+	.btn.btn-concept {
+		padding: 5px 10px;
+		font-size: 13px;
+		margin-bottom: 5px;
+		line-height: 22px;
+	}
+}
+
+.tag-list-item {
+	display: inline-block;	
+}
+
+.tag {
+	display: inline-block;
+	padding: 5px 10px;
+	color: white;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 13px;
+	margin-bottom: 5px;
+	line-height: 22px;
+	font-weight: bold;
+
+	&.tag-sm {
+		padding: .2em .6em .3em;
+		font-size: 11px;
+		line-height: normal;
+		margin-bottom: 2px;
+	}
+
+	&.tag-yellow { background-color: #e5cf14; }
+	&.tag-blue { background-color: #0081D5; }
+	&.tag-turquoise { background-color: #47d990; }
+	&.tag-pink { background-color: #ff79a9; }
+	&.tag-purple { background-color: #A939B9; }
+	&.tag-orange { background-color: #FF9947; }
+	&.tag-red { background-color: #D1335B; }
+	&.tag-green { background-color: #03BD5B; }
+	&.tag-grey { background-color: #A6A5A0; }
+
+	.actions {
+		display: inline-block;
+		float: right;
+		margin-left: 7px;
+		margin-right: -4px;
+		.btn {
+			border: 1px solid white !important;
+			background-color: transparent !important;
+		}
+	}
+
+}
