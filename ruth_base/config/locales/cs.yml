@@ -121,9 +121,9 @@ cs:
         bool_no: close
       address:
         street: Ulice
-        number: Číslo
-        city: Město
-        postcode: PSČ
+        number: č.o./č.p.
+        city: Obec
+        zipcode: PSČ
       name:
         title: Titul
         firstname: Křestní jméno
