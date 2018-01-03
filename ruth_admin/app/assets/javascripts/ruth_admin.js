@@ -86,10 +86,12 @@
 //= require rug_builder/rug_form_array
 //= require rug_builder/rug_form_conditional_section
 //= require rug_builder/rug_form_crop
+//= require rug_builder/rug_form_date_range_picker
 //= require rug_builder/rug_form_dropzone
 //= require rug_builder/rug_form_dropzone_many
 //= require rug_builder/rug_form_map_location
 //= require rug_builder/rug_form_map_polygon
+//= require rug_builder/rug_form_month_picker
 //= require rug_builder/rug_form_parametrized_checkboxes
 //= require rug_builder/rug_form_rater
 //= require rug_builder/rug_form_store
