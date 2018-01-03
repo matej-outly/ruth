@@ -17,7 +17,11 @@ table.table {
 	> thead {
 		> tr {
 			> th {
-				//background-color: $content-color;
+				border-bottom: 1px solid $grid-color;
+			}
+		}
+		> tr:last-child {
+			> th {
 				border-bottom: 1px solid $dark-grid-color;
 			}
 		}
@@ -88,9 +92,9 @@ div.table {
 	}
 
 	.actions {
-		float: right;
 		width: 50%;
 		text-align: right;
+		float: right;
 		@media (max-width: $screen-sm) {
 			width: 100%;
 			float: none;
@@ -99,7 +103,7 @@ div.table {
 	}
 
 	&.full-actions {
-		.actions {
+		td.actions {
 			width: 100%;
 			float: none;
 			text-align: center;
@@ -139,7 +143,6 @@ div.table {
 			min-height: 40px;
 			&.actions {
 				white-space: nowrap;
-				text-align: right;
 				width: 1px; /* Minimal width */
 				@media (max-width: $screen-xs-max) {
 					width: auto;
@@ -151,10 +154,36 @@ div.table {
 					}
 				}
 			}
+			&.actions:last-child {
+				text-align: right;
+			}
 		}
 
-		&:hover td, &:hover div.td {
-			background-color: white;
+		&:hover {
+			td, div.td {
+				background-color: white;
+			}
+		}
+
+		&.index-table-even {
+			td, div.td {
+				background-color: white;
+			}
+			&:hover {
+				td, div.td {
+					background-color: white;
+				}
+			}
+		}
+		&.index-table-odd {
+			td, div.td {
+				background-color: transparent;
+			}
+			&:hover {
+				td, div.td {
+					background-color: transparent;
+				}
+			}
 		}
 	}
 
