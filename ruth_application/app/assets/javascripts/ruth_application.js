@@ -53,6 +53,12 @@
 // Multiselect
 //= require multiselect/multiselect
 
+// Tablesort
+//= require tablesort/tablesort
+//= require tablesort/tablesort.number
+//= require tablesort/tablesort.date
+//= require ruth_application/tablesort
+
 // ****************************************************************************
 // Custom jQuery libraries
 // ****************************************************************************

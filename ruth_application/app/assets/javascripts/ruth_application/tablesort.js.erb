@@ -1,0 +1,7 @@
+function tablesort_ready()
+{
+	$(".table-sort").each(function (index, element) {
+		new Tablesort(element);
+	});
+}
+$(document).on('<%= RuthApplication.use_turbolinks ? "turbolinks:load" : "ready" %>', tablesort_ready);
