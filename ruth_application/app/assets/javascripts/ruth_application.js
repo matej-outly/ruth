@@ -58,6 +58,9 @@
 //= require tablesort/tablesort.number
 //= require tablesort/tablesort.date
 
+// Cleave
+//= require cleave/cleave
+
 // ****************************************************************************
 // Custom jQuery libraries
 // ****************************************************************************
@@ -96,6 +99,7 @@
 //= require rug_builder/rug_form_map_polygon
 //= require rug_builder/rug_form_month_picker
 //= require rug_builder/rug_form_parametrized_checkboxes
+//= require rug_builder/rug_form_phone
 //= require rug_builder/rug_form_rater
 //= require rug_builder/rug_form_store
 //= require rug_builder/rug_index
