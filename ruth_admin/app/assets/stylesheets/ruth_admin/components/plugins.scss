@@ -90,6 +90,12 @@ ul.token-input-list-facebook {
 	}
 }
 
+.has-error {
+	ul.token-input-list-facebook {
+		border: 1px solid #a94442;
+	}
+}
+
 .input-group-addon + ul.token-input-list-facebook {
 	-webkit-border-top-left-radius: 0;
 	-webkit-border-bottom-left-radius: 0;
