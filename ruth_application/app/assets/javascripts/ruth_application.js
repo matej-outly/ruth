@@ -89,6 +89,7 @@
 // ****************************************************************************
 
 //= require rug_builder/rug_chart
+//= require rug_builder/rug_form_address
 //= require rug_builder/rug_form_array
 //= require rug_builder/rug_form_conditional_section
 //= require rug_builder/rug_form_crop
