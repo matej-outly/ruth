@@ -75,18 +75,18 @@
 			}
 		}
 
-		// Hide form (by setting .af-hidden CSS class). If timeout given, form is shown again after this time.
+		// Hide form (by setting .form-hidden CSS class). If timeout given, form is shown again after this time.
 		AjaxForm.prototype.hideForm = function(timeout)
 		{
 			var self = this;
-			$container = this.$form.find(".af-container");
+			$container = this.$form.find(".form-container");
 			if ($container.length == 0) {
 				$container = this.$form;
 			}
-			$container.addClass("af-hidden")
+			$container.addClass("form-hidden")
 			if (timeout) {
 				setTimeout(function() {
-					$container.removeClass("af-hidden");
+					$container.removeClass("form-hidden");
 				}, timeout * 1000);
 			}
 		}
@@ -203,7 +203,7 @@
 			var url = this.url();
 
 			// State change
-			this.$form.addClass("af-sending-request");
+			this.$form.addClass("form-sending-request");
 			this.$submitButton.prop("disabled", true);
 
 			// Form data
@@ -227,13 +227,13 @@
 
 				// Success data fetch
 				success: function(callback, status) {
-					//if (options.logCallback) {
+					if (self.options.log) {
 						console.log(callback);
 						console.log(status);
-					//}
+					}
 
 					// State change
-					self.$form.removeClass("af-sending-request");
+					self.$form.removeClass("form-sending-request");
 					self.$submitButton.prop("disabled", false);
 
 					// Callback
@@ -250,13 +250,13 @@
 
 				// Error data fetch
 				error: function(callback, status) {
-					//if (options.logCallback) {
+					if (self.options.log) {
 						console.log(callback);
 						console.log(status);
-					//}
+					}
 
 					// State change
-					self.$form.removeClass("af-sending-request");
+					self.$form.removeClass("form-sending-request");
 					self.$submitButton.prop("disabled", false);
 
 					// Callback

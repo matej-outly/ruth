@@ -77,6 +77,9 @@
 // Ajax Form
 //= require ajax_form/ajax_form
 
+// Step Form
+//= require step_form/step_form
+
 // Tile resizer
 //= require tile_resizer/tile_resizer
 //= require ruth_application/tile_resizer
