@@ -15,6 +15,28 @@
 	}
 }
 
+.form-title {
+	text-align: center;
+	color: darken($grid-color, 20%);
+}
+
+.form-pager {
+	text-align: center;
+	font-weight: bold;
+	color: darken($grid-color, 20%);
+}
+
+.form-navigation {
+	.form-pager {
+		line-height: 34px;
+	}
+	.form-title {
+		margin-top: 0;
+		margin-bottom: 0;
+		line-height: 34px;
+	}
+}
+
 /*****************************************************************************/
 /* Checkbox / Radiobutton                                                    */
 /*****************************************************************************/

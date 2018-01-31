@@ -38,8 +38,8 @@
 			self.options = (typeof options !== 'undefined' ? options : {});
 
 			// Buttons
-			self.$nextButton = self.$form.find(".form-navigation .next");
-			self.$prevButton = self.$form.find(".form-navigation .prev");
+			self.$nextButton = self.$form.find(".form-navigation .form-next");
+			self.$prevButton = self.$form.find(".form-navigation .form-prev");
 			self.$submitButton = self.$form.find(".form-navigation [type='submit']");
 
 			// Events
@@ -66,6 +66,10 @@
 			}
 			self.min = self.$form.find('.form-step').first().data('step');
 			self.max = self.$form.find('.form-step').last().data('step');
+			self.steps = []
+			self.$form.find('.form-step').each(function() {
+				self.steps.push($(this).data('step'));
+			});
 
 			// Render
 			self.renderSteps(false);
@@ -252,9 +256,11 @@
 
 			// Prev
 			if (self.current <= self.min) {
-				self.$prevButton.hide();
+				self.$prevButton.prop('disabled', true);
+				self.$prevButton.addClass('disabled');
 			} else {
-				self.$prevButton.show();
+				self.$prevButton.prop('disabled', false);
+				self.$prevButton.removeClass('disabled');
 			}
 
 			// Next / submit
@@ -265,6 +271,15 @@
 				self.$nextButton.show();
 				self.$submitButton.hide();
 			}
+
+			// Render title
+			var $step = self.$form.find('.form-step[data-step=' + self.current + ']');
+			if ($step.length > 0) {
+				self.$form.find('.form-title').html($step.data('title'));
+			}
+
+			// Render pager
+			self.$form.find('.form-pager').html((self.steps.indexOf(self.current) + 1) + '/' + (self.steps.length));
 		}
 
 		// ********************************************************************
@@ -277,12 +292,15 @@
 			self.validate(function() {
 
 				// Increment counter
-				if (self.current < self.max) {
-					self.current += 1;
-				} else {
+				var currentIndex = self.steps.indexOf(self.current);
+				if (currentIndex == -1) { // Not found
 					self.current = self.max;
+				} else if (currentIndex + 1 >= self.steps.length) {
+					self.current = self.max;
+				} else {
+					self.current = self.steps[currentIndex + 1];
 				}
-
+				
 				// Render
 				self.renderSteps(true);
 				self.renderNavigation(true);
@@ -295,10 +313,13 @@
 			var self = this;
 
 			// Decrement counter
-			if (self.current > self.min) {
-				self.current -= 1;
-			} else {
+			var currentIndex = self.steps.indexOf(self.current);
+			if (currentIndex == -1) { // Not found
 				self.current = self.min;
+			} else if (currentIndex - 1 <= 0) {
+				self.current = self.min;
+			} else {
+				self.current = self.steps[currentIndex - 1];
 			}
 
 			// Render
