@@ -18,6 +18,14 @@
 			box-shadow: none;
 		}
 	}
+
+	&.btn-with-inner {
+		padding: 0;
+		.btn-inner {
+			display: block;
+			padding: 6px 12px;
+		}
+	}
 }
 
 .btn-concept {

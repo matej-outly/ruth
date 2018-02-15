@@ -20,12 +20,12 @@ $font-regular: 400;
 /*****************************************************************************/
 
 // Colors used in buttons, alerts and other standard components
-$default-color: #333333 !default;
-$primary-color: #337ab7 !default;
-$success-color: #5cb85c !default;
-$info-color: #5bc0de !default;
-$warning-color: #f0ad4e !default;
-$danger-color: #d9534f !default;
+$brand-default: #333333 !default;
+$brand-primary: #337ab7 !default;
+$brand-success: #5cb85c !default;
+$brand-info:    #5bc0de !default;
+$brand-warning: #f0ad4e !default;
+$brand-danger:  #d9534f !default;
 
 $grid-color: #dddddd !default;
 $dark-grid-color: #101010 !default;
@@ -35,7 +35,8 @@ $text-color: #000000 !default;
 $inverse-text-color: #ffffff !default;
 $pale-text-color: #dddddd !default;
 
-$navbar-color: #ffffff !default;
+$navbar-color: #222222 !default;
+$topper-color: #ffffff !default;
 $footer-color: #eeeeee !default;
 
 /*****************************************************************************/

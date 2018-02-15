@@ -32,13 +32,13 @@
 		border-radius: 4px;
 		&.ajs-ok {
 			color: $inverse-text-color;
-			background-color: $primary-color;
-			border-color: $primary-color;
+			background-color: $brand-primary;
+			border-color: $brand-primary;
 		}
 		&.ajs-cancel {
 			color: $inverse-text-color;
-			background-color: $danger-color;
-			border-color: $danger-color;
+			background-color: $brand-danger;
+			border-color: $brand-danger;
 		}
 	}
 }

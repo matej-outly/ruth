@@ -11,7 +11,7 @@
 
 body { 
 	background-color: $content-color;
-	padding-top: 70px; 
+	padding-top: 50px; 
 }
 
 /*****************************************************************************/
@@ -64,6 +64,17 @@ body.layout-auth, body.layout-exception {
 }
 
 /*****************************************************************************/
+/* Top                                                                       */
+/*****************************************************************************/
+
+.topper {
+	background-color: $topper-color;
+	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+/*****************************************************************************/
 /* Content                                                                   */
 /*****************************************************************************/
 
@@ -75,7 +86,7 @@ body.layout-auth, body.layout-exception {
 /* Footer                                                                    */
 /*****************************************************************************/
 
-html{
+html {
 	position:relative; 
 	min-height: 100%;
 }
@@ -89,4 +100,10 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
+	padding: 20px 0 50px 0;
+	background: $footer-color;
+	-webkit-box-shadow: inset 0px 30px 80px -30px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0px 30px 80px -30px rgba(0,0,0,0.1);
+	box-shadow: inset 0px 30px 80px -30px rgba(0,0,0,0.1);
 }
+

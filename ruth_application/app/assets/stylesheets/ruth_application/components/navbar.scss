@@ -23,6 +23,37 @@
 					background-color: darken($navbar-color, 15%);
 				}
 			}
+			> li {
+				> a {
+					color: darken($navbar-color, 70%);
+					&:hover {
+						color: $text-color;
+					}
+				}
+			}
+		}
+	}
+
+	&.navbar-inverse {
+		background-color: $navbar-color;
+		border-color: darken($navbar-color, 15%);
+		.navbar-nav {
+			> .active, > .open {
+				> a, > a:hover, > a:focus {
+					background-color: darken($navbar-color, 15%);
+				}
+			}
+			> li {
+				> a {
+					color: lighten($navbar-color, 70%);
+					&:hover {
+						color: $inverse-text-color;
+					}
+				}
+			}
+		}
+		.navbar-text {
+			color: lighten($navbar-color, 70%);
 		}
 	}
 	
