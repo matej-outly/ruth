@@ -413,12 +413,15 @@ table.table {
 
 		th[role=columnheader]:not(.no-sort) {
 			cursor: pointer;
+			position: relative;
+			padding-right: 15px;
 		}
 
 		th[role=columnheader]:not(.no-sort):after {
 			content: '';
-			float: right;
-			margin-top: 7px;
+			position: absolute;
+			top: 16px;
+			right: 0;
 			border-width: 0 4px 4px;
 			border-style: solid;
 			border-color: #404040 transparent;

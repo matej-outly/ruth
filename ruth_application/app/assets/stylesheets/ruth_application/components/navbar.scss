@@ -45,7 +45,7 @@
 			}
 			> li {
 				> a {
-					color: lighten($navbar-color, 70%);
+					color: desaturate(lighten($navbar-color, 70%), 50%);
 					&:hover {
 						color: $inverse-text-color;
 					}
@@ -53,7 +53,10 @@
 			}
 		}
 		.navbar-text {
-			color: lighten($navbar-color, 70%);
+			color: desaturate(lighten($navbar-color, 40%), 50%);
+		}
+		.btn-link {
+			color: desaturate(lighten($navbar-color, 40%), 50%);
 		}
 	}
 	
