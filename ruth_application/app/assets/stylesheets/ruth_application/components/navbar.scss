@@ -83,5 +83,16 @@
 			width: 20px;
 		}
 	}
+
+	.divider-vertical {
+		height: 50px;
+		margin: 0 9px;
+		border-left: 1px solid darken($navbar-color, 15%);
+	}
+	&.navbar-inverse {
+		.divider-vertical {
+			border-left-color: darken($navbar-color, 15%);
+		}
+	}
 }
 

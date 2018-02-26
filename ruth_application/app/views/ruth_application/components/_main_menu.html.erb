@@ -1,5 +1,5 @@
 <%
-def render_item(t, item, dropdown = "")
+def render_item(t, item, level, dropdown = "")
 	result = ""
 	
 	# Show?
@@ -16,7 +16,11 @@ def render_item(t, item, dropdown = "")
 
 	if show
 		if item[:type] == "delimiter"
-			result += "<li role=\"separator\" class=\"divider\"></li>\n"
+			if level <= 1
+				result += "<li role=\"separator\" class=\"divider-vertical\"></li>\n"
+			else
+				result += "<li role=\"separator\" class=\"divider\"></li>\n"
+			end
 		else
 
 			# Get URL
@@ -73,10 +77,10 @@ end
 		<% if item[:dropdown] %>
 			<% dropdown += "<ul class=\"dropdown-menu\">\n" %>
 			<% item[:dropdown].each do |dropdown_item| %>
-				<% dropdown += render_item(self, dropdown_item) %>
+				<% dropdown += render_item(self, dropdown_item, 2) %>
 			<% end %>
 			<% dropdown += "</ul>\n" %>
 		<% end %>
-		<%= render_item(self, item, dropdown) %>
+		<%= render_item(self, item, 1, dropdown) %>
 	<% end %>
 </ul>
