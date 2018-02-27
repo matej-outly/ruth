@@ -121,7 +121,7 @@ cs:
         bool_no: close
       address:
         street: Ulice
-        number: č.o./č.p.
+        number: č.p./č.o.
         city: Obec
         zipcode: PSČ
       name:
