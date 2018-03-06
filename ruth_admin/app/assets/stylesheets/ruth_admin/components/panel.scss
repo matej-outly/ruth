@@ -1,0 +1,25 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Panels                                                                    */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 6. 3. 2018                                                        */
+/*                                                                           */
+/*****************************************************************************/
+
+.panel {
+	background-color: $panel-background-color;
+	border: 1px solid $panel-grid-color;
+
+	.panel-heading {
+		background-color: $panel-header-color;
+		border-bottom: 1px solid $panel-grid-color;
+
+		.panel-title {
+			font-weight: 700;
+			font-size: 14px;
+		}
+	}
+}
