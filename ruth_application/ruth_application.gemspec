@@ -18,7 +18,8 @@ Gem::Specification.new do |s|
 	s.test_files = Dir["test/**/*"]
 
 	s.add_dependency "bootstrap-sass", "~> 3.3"
-	s.add_dependency "font-awesome-sass", "~> 4.6"
+	s.add_dependency "font-awesome-sass", "~> 5.0"
 	s.add_dependency "momentjs-rails", "~> 2.15"
-
+	s.add_dependency "gretel", "~> 3.0"
+	
 end
