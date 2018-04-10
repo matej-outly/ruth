@@ -196,6 +196,15 @@ div.table {
 	}
 
 	tr, div.tr, form.tr {
+		&.obsolete {
+			color: darken($pale-text-color, 10%);
+			a:not([class*="btn"]) {
+				color: darken($pale-text-color, 10%);
+			}
+		}
+	}
+
+	tr, div.tr, form.tr {
 		&.index-table-row-top, &.index-table-row-middle, &.index-table-row-bottom {
 			td, div.td {
 				border-top: none;
@@ -239,6 +248,9 @@ div.table {
 			}
 			> td.show-value {
 				font-weight: bold;
+				.obsolete {
+					color: darken($pale-text-color, 10%);
+				}
 			}
 		}
 	}
@@ -273,6 +285,10 @@ ul.show-body {
 			font-weight: bold;
 			float: right;
 			padding-left: 5px;
+
+			.obsolete {
+				color: darken($pale-text-color, 10%);
+			}
 		}
 
 		> .show-label {
