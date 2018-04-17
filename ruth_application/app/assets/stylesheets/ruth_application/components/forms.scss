@@ -196,3 +196,26 @@ td, div.td {
 		color: $grid-color;
 	}
 }
+
+/*****************************************************************************/
+/* Placeholder / help text                                                   */
+/*****************************************************************************/
+
+.form-text {
+	color: darken($grid-color, 10%);
+}
+.form-control::placeholder {
+	color: $grid-color;
+}
+.form-control::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: $grid-color;
+}
+.form-control::-moz-placeholder { /* Firefox 19+ */
+	color: $grid-color;
+}
+.form-control:-ms-input-placeholder { /* IE 10+ */
+	color: $grid-color;
+}
+.form-control:-moz-placeholder { /* Firefox 18- */	
+	color: $grid-color;
+}
