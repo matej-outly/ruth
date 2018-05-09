@@ -54,9 +54,10 @@
 	border-radius: 4px;
 	position: relative;
 	&:after {
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+		font-size: 12px;
 		content: "\f093";
-		font: normal normal normal 14px/1 FontAwesome;
-		font-size: inherit;
 		text-rendering: auto;
 		-webkit-font-smoothing: antialiased;
 		position: absolute;
