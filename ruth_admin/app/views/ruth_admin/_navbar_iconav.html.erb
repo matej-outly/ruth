@@ -50,7 +50,7 @@ def render_first_level_item(t, item, dropdown = "")
 				) do
 					result = %{
 						<div class="iconav-nav-tooltip" data-toggle=\"tooltip\" data-placement=\"right\" data-container=\"body\" title=\"#{label}\">
-							#{item[:icon] && RugBuilder::IconBuilder.render(item[:icon])}
+							#{item[:icon] && RugBuilder::IconBuilder.new(t).render(item[:icon])}
 						</div>
 						<small class=\"iconav-nav-label\">#{label}</small>
 					}
@@ -60,7 +60,7 @@ def render_first_level_item(t, item, dropdown = "")
 				result += link_to(url) do
 					result = %{
 						<div class="iconav-nav-tooltip" data-toggle=\"tooltip\" data-placement=\"right\" data-container=\"body\" title=\"#{label}\">
-							#{item[:icon] && RugBuilder::IconBuilder.render(item[:icon])}
+							#{item[:icon] && RugBuilder::IconBuilder.new(t).render(item[:icon])}
 						</div>
 						<small class=\"iconav-nav-label\">#{label}</small>
 					}
@@ -87,7 +87,7 @@ def render_second_level_item(t, item)
 			result += "<li class=\"#{(active ? "active" : "")}\">"
 			result += link_to(url) do
 				result = ""
-				result += RugBuilder::IconBuilder.render(item[:icon]) if item[:icon]
+				result += RugBuilder::IconBuilder.new(t).render(item[:icon]) if item[:icon]
 				result += label
 				result.html_safe
 			end

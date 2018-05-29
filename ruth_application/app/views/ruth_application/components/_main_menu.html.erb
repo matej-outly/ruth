@@ -49,7 +49,7 @@ def render_item(t, item, level, dropdown = "")
 			if !dropdown.blank?
 				result += link_to(url, class: "dropdown-toggle", data: { toggle: "dropdown" }, aria: {haspopup: "true", expanded: "false" }, role: "button") do
 					result = ""
-					result += RugBuilder::IconBuilder.render(item[:icon]) if item[:icon]
+					result += RugBuilder::IconBuilder.new(t).render(item[:icon]) if item[:icon]
 					result += label if !label.blank?
 					result += " <span class=\"caret\"></span>"
 					result.html_safe
@@ -57,7 +57,7 @@ def render_item(t, item, level, dropdown = "")
 			else
 				result += link_to(url) do
 					result = ""
-					result += RugBuilder::IconBuilder.render(item[:icon]) if item[:icon]
+					result += RugBuilder::IconBuilder.new(t).render(item[:icon]) if item[:icon]
 					result += label if !label.blank?
 					result.html_safe
 				end
