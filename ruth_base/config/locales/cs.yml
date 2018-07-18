@@ -118,7 +118,7 @@ cs:
         bool_no: red
       boolean_icons:
         bool_yes: check
-        bool_no: close
+        bool_no: times
       address:
         street: Ulice
         number: č.p./č.o.

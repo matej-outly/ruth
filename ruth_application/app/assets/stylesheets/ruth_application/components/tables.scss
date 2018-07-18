@@ -103,7 +103,6 @@ div.table {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		width: 50%;
 		float: left;
 		margin-top: 0;
 		margin-bottom: 0;
@@ -116,7 +115,6 @@ div.table {
 	}
 
 	.actions {
-		width: 50%;
 		text-align: right;
 		float: right;
 		@media (max-width: $screen-sm) {
@@ -128,7 +126,6 @@ div.table {
 
 	&.full-actions {
 		td.actions {
-			width: 100%;
 			float: none;
 			text-align: center;
 		}
