@@ -37,6 +37,7 @@ cs:
       update: "Uložit"
       search: "Hledat"
       filter: "Filtrovat"
+      cancel_filter: "Zrušit filtraci"
       reset: "Obnovit"
       register: "Registrovat"
       order: "Dokončit objednávku"

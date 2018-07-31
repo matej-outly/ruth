@@ -11,6 +11,27 @@
 
 .accordion {
 	.panel-heading {
+		
+		.panel-title {
+			> a {
+				display: block;
+				position: relative;
+
+				&:after {
+					position: absolute;
+					right: 0;
+					top: 0;
+					font-family: 'Font Awesome 5 Free';
+					content: "\f078";
+				}
+				&.collapsed {
+					&:after {
+						content: "\f053";
+					}
+				}
+			}
+		}
+
 		position: relative;
 		.actions {
 			position: absolute;

@@ -1,14 +1,14 @@
 <% controller_path = controller.class.name.to_snake[0..-12] %>
-<% if lookup_context.find_all("#{controller_path}/_filters").any? %>
-	<% partial = render(partial: "#{controller_path}/filters") %>
+<% if lookup_context.find_all("#{controller_path}/_filters_panel").any? %>
+	<% partial = render(partial: "#{controller_path}/filters_panel") %>
 	<% if !partial.trim(" \t\n").blank? %>
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h5 class="m-a-0"><%= t("headers.ruth_application.filters") %></h5>
-			</div>
-			<div class="panel-body">
-				<%= partial %>
-			</div>
-		</div>
+		<%= rug_accordion(active: nil) do |a| %>
+			<%= a.tab "filters" do |t| %>
+				<%= t.header rug_icon("search") + "&nbsp;".html_safe + t("headers.ruth_application.filters"), title_class: "text-center" %>
+				<%= t.body(wrap: false) do |b| %>
+					<%= partial %>
+				<% end %>		
+			<% end %>
+		<% end %>
 	<% end %>
 <% end %>
