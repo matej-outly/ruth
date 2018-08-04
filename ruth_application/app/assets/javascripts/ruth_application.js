@@ -61,6 +61,10 @@
 // Cleave
 //= require cleave/cleave
 
+// Checkall
+//= require checkall/checkall
+//= require ruth_application/checkall
+
 // ****************************************************************************
 // Custom jQuery libraries
 // ****************************************************************************
