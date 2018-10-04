@@ -143,6 +143,7 @@ td {
 	&.color-green { background: $color-green-pale; color: inherit; }
 	&.color-blue { background: $color-blue-pale; color: inherit; }
 	&.color-orange { background: $color-orange-pale; color: inherit; }
+	&.color-white { background: white; color: inherit; }
 }
 
 tr {
@@ -151,11 +152,13 @@ tr {
 	&.color-green > td { background: $color-green-pale; color: inherit; }
 	&.color-blue > td { background: $color-blue-pale; color: inherit; }
 	&.color-orange > td { background: $color-orange-pale; color: inherit; }
+	&.color-white > td { background: white; color: inherit; }
 	&:hover {
 		&.color-yellow > td { background: $color-yellow-pale !important; color: inherit; }
 		&.color-red > td { background: $color-red-pale !important; color: inherit; }
 		&.color-green > td { background: $color-green-pale !important; color: inherit; }
 		&.color-blue > td { background: $color-blue-pale !important; color: inherit; }
-		&.color-orange > td { background: $color-orange-pale !important; color: inherit; }		
+		&.color-orange > td { background: $color-orange-pale !important; color: inherit; }
+		&.color-white > td { background: white !important; color: inherit; }
 	}
 }
