@@ -1,0 +1,113 @@
+/*****************************************************************************/
+/* Copyright (c) Clockstar s.r.o. All rights reserved.                       */
+/*****************************************************************************/
+/*                                                                           */
+/* Notify drop                                                               */
+/*                                                                           */
+/* Author: Matěj Outlý                                                       */
+/* Date  : 19. 4. 2017                                                       */
+/*                                                                           */
+/*****************************************************************************/
+
+.notify-drop-not-read {
+	color: $color-red !important;
+}
+
+.notify-drop {
+
+	min-width: 330px;
+	background-color: #fff;
+	min-height: 360px;
+	max-height: 360px;
+
+	.notify-drop-title {
+		border-bottom: 1px solid #e2e2e2;
+		padding: 5px 15px 10px 15px;
+	}
+
+	.drop-content {
+		min-height: 280px;
+		max-height: 280px;
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar-track {
+			background-color: #F5F5F5;
+		}
+		
+		&::-webkit-scrollbar {
+			width: 8px;
+			background-color: #F5F5F5;
+		}
+		
+		&::-webkit-scrollbar-thumb {
+			background-color: #ccc;
+		}
+		
+		> li {
+			border-bottom: 1px solid #e2e2e2;
+			padding: 10px 0px 5px 0px;
+			font-weight: bold;
+			font-size: 11px;
+
+			&:nth-child(2n+0) {
+				background-color: #fafafa;
+			}
+			
+			&:after {
+				content: "";
+				clear: both;
+				display: block;
+			}
+			
+			&:hover {
+				background-color: #fcfcfc;
+			}
+			
+			&:last-child {
+				border-bottom: none;
+			}
+
+			a {
+				font-weight: normal;
+			}
+			
+			hr {
+				margin: 5px 0;
+				border-color: #e2e2e2;
+			}
+			
+			p {
+				font-size: 11px;
+				color: #666;
+				font-weight: normal;
+				margin: 3px 0;
+				
+				&.time {
+					font-size: 10px;
+					font-weight: 600;
+					margin: 2px 0px;
+					padding: 2px 5px 0px 5px;
+					border: 1px solid #e2e2e2;
+					display: inline-block;
+					border-radius: 2px;
+				}
+			}
+		}
+	}
+	
+	.notify-drop-footer {
+		border-top: 1px solid #e2e2e2;
+		bottom: 0;
+		position: relative;
+		padding: 8px 15px;
+
+		a {
+			color: #777;
+			text-decoration: none;
+			&:hover {
+				color: #333;
+			}
+		}
+	}
+
+}
