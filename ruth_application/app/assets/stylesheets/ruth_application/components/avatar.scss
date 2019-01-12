@@ -19,10 +19,11 @@
 		-webkit-border-radius: 50%;
 		-moz-border-radius: 50%;
 		border-radius: 50%;
-		background-color: black;
+		background-color: darken($grid-color, 30%);
 		color: $grid-color;
 		text-align: center;
 		line-height: 38px;
+		font-size: 16px;
 	}
 
 	> img {
@@ -33,11 +34,25 @@
 		width: 38px;
 	}
 
+	&.avatar-sm {
+		> i {
+			height: 28px;
+			width: 28px !important;
+			line-height: 28px;
+			font-size: 14px;
+		}
+		> img {
+			height: 28px;
+			width: 28px;
+		}
+	}
+
 	&.avatar-lg {
 		> i {
 			height: 46px;
 			width: 46px !important;
 			line-height: 46px;
+			font-size: 18px;
 		}
 		> img {
 			height: 46px;
@@ -45,15 +60,17 @@
 		}
 	}
 
-	&.avatar-sm {
+	&.avatar-xl {
 		> i {
-			height: 28px;
-			width: 28px !important;
-			line-height: 28px;
+			height: 60px;
+			width: 60px !important;
+			line-height: 60px;
+			font-size: 20px;
 		}
 		> img {
-			height: 28px;
-			width: 28px;
+			height: 60px;
+			width: 60px;
 		}
 	}
+
 }

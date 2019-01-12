@@ -19,4 +19,8 @@
 		margin-bottom: 0;
 		padding-bottom: 0;
 	}
+
+	&.text-box-dashed {
+		border: 1px dashed $grid-color;
+	}
 }
