@@ -206,6 +206,11 @@
 			this.$form.addClass("form-sending-request");
 			this.$submitButton.prop("disabled", true);
 
+			// TinyMCE data if defined
+			if (typeof(tinymce) !== 'undefined') {
+				tinymce.triggerSave();
+			}
+
 			// Form data
 			if (!this.options.uploadFile) {
 				var formData = this.$form.serialize();
