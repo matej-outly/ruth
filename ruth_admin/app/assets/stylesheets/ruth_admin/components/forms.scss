@@ -38,6 +38,15 @@
 			float: none;
 		}
 	}
+
+	.checkbox-no-bootstrap, .checkbox {
+		display: inline-block;
+		margin-right: 10px;
+	}
+	.radio-no-bootstrap, .radio {
+		display: inline-block;
+		margin-right: 10px;
+	}
 }
 
 .form-group {
