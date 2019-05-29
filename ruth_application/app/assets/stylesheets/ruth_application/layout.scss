@@ -107,3 +107,11 @@ body {
 	box-shadow: inset 0px 30px 80px -30px rgba(0,0,0,0.1);
 }
 
+@media (max-width: $screen-sm) {
+	body {
+		padding-bottom: 0;
+	}
+	.footer {
+		position: static;
+	}
+}
