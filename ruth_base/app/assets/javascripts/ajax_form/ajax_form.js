@@ -155,7 +155,7 @@
 		// Submit logic
 		// ********************************************************************
 
-		AjaxForm.prototype.requestSuccess = function(id_or_data)
+		AjaxForm.prototype.requestSuccess = function(idOrData, context = null)
 		{
 			// Everything is OK
 			this.setFlashMessage(true);
@@ -163,11 +163,11 @@
 			
 			// Succes submit callback
 			if (this.options.onSuccess && typeof(this.options.onSuccess) === "function") {
-				this.options.onSuccess(this, id_or_data);
+				this.options.onSuccess(this, idOrData, context);
 			}
 		}
 
-		AjaxForm.prototype.requestError = function(callback)
+		AjaxForm.prototype.requestError = function(callback, context = null)
 		{
 			// Something is bad
 			this.setFlashMessage(false);
@@ -190,11 +190,11 @@
 
 			// Error callback
 			if (this.options.onError && typeof(this.options.onError) === "function") {
-				this.options.onError(this, callback);
+				this.options.onError(this, callback, context);
 			}
 		}
 
-		AjaxForm.prototype.submitForm = function()
+		AjaxForm.prototype.submitForm = function(context = null)
 		{
 			var self = this;
 			var formParams = {};
@@ -247,9 +247,9 @@
 						success = ((callback ^ 0) === callback); // == Number.isInteger(callback) does not work in IE...
 					}
 					if (success) { 
-						self.requestSuccess(callback);
+						self.requestSuccess(callback, context);
 					} else {
-						self.requestError(callback);
+						self.requestError(callback, context);
 					}
 				},
 
@@ -266,7 +266,7 @@
 
 					// Callback
 					if (callback.responseJSON) {
-						self.requestError(callback.responseJSON);
+						self.requestError(callback.responseJSON, context);
 					} else {
 						self.setFlashMessage(false);
 						self.clearErrors();
@@ -289,10 +289,13 @@
 		}
 
 		// For each form here activate ajax request
-		return this.each(function() {
+		result = [];
+		this.each(function() {
 			var ajaxForm = new AjaxForm(this, options);
 			ajaxForm.activateAjax();
+			result.push(ajaxForm);
 		});
+		return result;
 	};
 
 }( jQuery ));
