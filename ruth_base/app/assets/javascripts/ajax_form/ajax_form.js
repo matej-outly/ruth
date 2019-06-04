@@ -155,7 +155,7 @@
 		// Submit logic
 		// ********************************************************************
 
-		AjaxForm.prototype.requestSuccess = function(idOrData, context = null)
+		AjaxForm.prototype.requestSuccess = function(idOrData, context)
 		{
 			// Everything is OK
 			this.setFlashMessage(true);
@@ -167,7 +167,7 @@
 			}
 		}
 
-		AjaxForm.prototype.requestError = function(callback, context = null)
+		AjaxForm.prototype.requestError = function(callback, context)
 		{
 			// Something is bad
 			this.setFlashMessage(false);
@@ -194,7 +194,7 @@
 			}
 		}
 
-		AjaxForm.prototype.submitForm = function(context = null)
+		AjaxForm.prototype.submitForm = function(context)
 		{
 			var self = this;
 			var formParams = {};
