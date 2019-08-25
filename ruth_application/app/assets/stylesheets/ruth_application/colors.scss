@@ -18,20 +18,36 @@ $color-yellow-pale: #fcf8e3 !default;
 $color-yellow-dark: #fde300 !default;
 
 $color-red: #ca3838 !default;
-$color-red-pale: #f2dede !default;
+$color-red-pale: #ffd6d6 !default;
 $color-red-dark: #a94442 !default;
 
 $color-green: #58c026 !default;
-$color-green-pale: #dff0d8 !default;
+$color-green-pale: #cdfdb6 !default;
 $color-green-dark: #58c026 !default;
 
 $color-blue: #009ac1 !default;
-$color-blue-pale: #a2e1f1 !default;
+$color-blue-pale: #c7f4ff !default;
 $color-blue-dark: #009ac1 !default;
 
 $color-orange: #f0ad4e !default;
-$color-orange-pale: #fff3e2 !default;
+$color-orange-pale: #ffddad !default;
 $color-orange-dark: #bd822d !default;
+
+$color-turquoise: #47d990 !default;
+$color-turquoise-pale: #bcf7d9 !default;
+$color-turquoise-dark: #47d990 !default;
+
+$color-pink: #ff79a9 !default;
+$color-pink-pale: #ffd7e5 !default;
+$color-pink-dark: #ff79a9 !default;
+
+$color-purple: #A939B9 !default;
+$color-purple-pale: #ecc4f2 !default;
+$color-purple-dark: #A939B9 !default;
+
+$color-grey: #A6A5A0 !default;
+$color-grey-pale: #d8d7d3 !default;
+$color-grey-dark: #A6A5A0 !default;
 
 /*****************************************************************************/
 /* Span                                                                      */
@@ -43,6 +59,10 @@ span {
 	&.color-green { color: $color-green; }
 	&.color-blue { color: $color-blue; }
 	&.color-orange { color: $color-orange; }
+	&.color-turquoise { color: $color-turquoise; }
+	&.color-pink { color: $color-pink; }
+	&.color-purple { color: $color-purple; }
+	&.color-grey { color: $color-grey; }
 }
 
 /*****************************************************************************/
@@ -80,6 +100,30 @@ span {
 		.panel-footer { border-top-color: darken($color-orange-pale,6%); }
 		hr { border-top-color: $color-orange-dark; }
 	}
+	&.color-turquoise { 
+		border-color: darken($color-turquoise-pale,6%); 
+		background-color: $color-turquoise-pale;
+		.panel-footer { border-top-color: darken($color-turquoise-pale,6%); }
+		hr { border-top-color: $color-turquoise-dark; }
+	}
+	&.color-pink { 
+		border-color: darken($color-pink-pale,6%); 
+		background-color: $color-pink-pale;
+		.panel-footer { border-top-color: darken($color-pink-pale,6%); }
+		hr { border-top-color: $color-pink-dark; }
+	}
+	&.color-purple { 
+		border-color: darken($color-purple-pale,6%); 
+		background-color: $color-purple-pale;
+		.panel-footer { border-top-color: darken($color-purple-pale,6%); }
+		hr { border-top-color: $color-purple-dark; }
+	}
+	&.color-grey { 
+		border-color: darken($color-grey-pale,6%); 
+		background-color: $color-grey-pale;
+		.panel-footer { border-top-color: darken($color-grey-pale,6%); }
+		hr { border-top-color: $color-grey-dark; }
+	}
 }
 
 /*****************************************************************************/
@@ -93,6 +137,10 @@ span {
 		&.color-green { background: $color-green; border-color: $color-green-dark; color: white; }
 		&.color-blue { background: $color-blue; border-color: $color-blue-dark; color: white; }
 		&.color-orange { background: $color-orange; border-color: $color-orange-dark; color: white; }
+		&.color-turquoise { background: $color-turquoise; border-color: $color-turquoise-dark; color: white; }
+		&.color-pink { background: $color-pink; border-color: $color-pink-dark; color: white; }
+		&.color-purple { background: $color-purple; border-color: $color-purple-dark; color: white; }
+		&.color-grey { background: $color-grey; border-color: $color-grey-dark; color: white; }
 		&.color-transparent { background: none; border: none; color: inherit; }
 	}
 }
@@ -107,6 +155,10 @@ span {
 	&.color-green { background: $color-green; color: white; }
 	&.color-blue { background: $color-blue; color: white; }
 	&.color-orange { background: $color-orange; color: white; }
+	&.color-turquoise { background: $color-turquoise; color: white; }
+	&.color-pink { background: $color-pink; color: white; }
+	&.color-purple { background: $color-purple; color: white; }
+	&.color-grey { background: $color-grey; color: white; }
 }
 
 /*****************************************************************************/
@@ -119,6 +171,10 @@ span {
 	&.color-green { background: $color-green-pale; border-color: $color-green-dark; color: inherit; }
 	&.color-blue { background: $color-blue-pale; border-color: $color-blue-dark; color: inherit; }
 	&.color-orange { background: $color-orange-pale; border-color: $color-orange-dark; color: inherit; }
+	&.color-turquoise { background: $color-turquoise-pale; border-color: $color-turquoise-dark; color: inherit; }
+	&.color-pink { background: $color-pink-pale; border-color: $color-pink-dark; color: inherit; }
+	&.color-purple { background: $color-purple-pale; border-color: $color-purple-dark; color: inherit; }
+	&.color-grey { background: $color-grey-pale; border-color: $color-grey-dark; color: inherit; }
 }
 
 /*****************************************************************************/
@@ -131,6 +187,10 @@ span {
 	&.color-green { background: $color-green; }
 	&.color-blue { background: $color-blue; }
 	&.color-orange { background: $color-orange; }
+	&.color-turquoise { background: $color-turquoise; }
+	&.color-pink { background: $color-pink; }
+	&.color-purple { background: $color-purple; }
+	&.color-grey { background: $color-grey; }
 }
 
 /*****************************************************************************/
@@ -143,6 +203,10 @@ span {
 	&.color-green { background: $color-green-pale; border-color: $color-green-dark; color: inherit; }
 	&.color-blue { background: $color-blue-pale; border-color: $color-blue-dark; color: inherit; }
 	&.color-orange { background: $color-orange-pale; border-color: $color-orange-dark; color: inherit; }
+	&.color-turquoise { background: $color-turquoise-pale; border-color: $color-turquoise-dark; color: inherit; }
+	&.color-pink { background: $color-pink-pale; border-color: $color-pink-dark; color: inherit; }
+	&.color-purple { background: $color-purple-pale; border-color: $color-purple-dark; color: inherit; }
+	&.color-grey { background: $color-grey-pale; border-color: $color-grey-dark; color: inherit; }
 }
 
 /*****************************************************************************/
@@ -155,6 +219,10 @@ td {
 	&.color-green { background: $color-green-pale; color: inherit; }
 	&.color-blue { background: $color-blue-pale; color: inherit; }
 	&.color-orange { background: $color-orange-pale; color: inherit; }
+	&.color-turquoise { background: $color-turquoise-pale; color: inherit; }
+	&.color-pink { background: $color-pink-pale; color: inherit; }
+	&.color-purple { background: $color-purple-pale; color: inherit; }
+	&.color-grey { background: $color-grey-pale; color: inherit; }
 	&.color-white { background: white; color: inherit; }
 }
 
@@ -164,6 +232,10 @@ tr {
 	&.color-green > td { background: $color-green-pale; color: inherit; }
 	&.color-blue > td { background: $color-blue-pale; color: inherit; }
 	&.color-orange > td { background: $color-orange-pale; color: inherit; }
+	&.color-turquoise > td { background: $color-turquoise-pale; color: inherit; }
+	&.color-pink > td { background: $color-pink-pale; color: inherit; }
+	&.color-purple > td { background: $color-purple-pale; color: inherit; }
+	&.color-grey > td { background: $color-grey-pale; color: inherit; }
 	&.color-white > td { background: white; color: inherit; }
 	&:hover {
 		&.color-yellow > td { background: $color-yellow-pale !important; color: inherit; }
@@ -171,6 +243,10 @@ tr {
 		&.color-green > td { background: $color-green-pale !important; color: inherit; }
 		&.color-blue > td { background: $color-blue-pale !important; color: inherit; }
 		&.color-orange > td { background: $color-orange-pale !important; color: inherit; }
+		&.color-turquoise > td { background: $color-turquoise-pale !important; color: inherit; }
+		&.color-pink > td { background: $color-pink-pale !important; color: inherit; }
+		&.color-purple > td { background: $color-purple-pale !important; color: inherit; }
+		&.color-grey > td { background: $color-grey-pale !important; color: inherit; }
 		&.color-white > td { background: white !important; color: inherit; }
 	}
 }
