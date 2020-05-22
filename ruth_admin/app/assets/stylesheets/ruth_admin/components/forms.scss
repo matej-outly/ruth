@@ -79,81 +79,78 @@
 /*****************************************************************************/
 
 .checkbox-no-bootstrap, .checkbox {
-
-	label {
-		font-weight: normal;
-	}
-
-	label input[type=checkbox] {
-		display: none;
-		& + span {
-			height: 18px;
-			width: 18px;
-			border: 1px solid $form-grid-color;
-			color: $form-icon-color;
-			background: $form-background-color;
-			-moz-border-radius: 2px;
-			-webkit-border-radius: 2px;
-			border-radius: 2px;
-			display: inline-block;
-			vertical-align: top;
-			position: relative;
-			top: 1px;
-			margin-right: 10px;
-		}
-		&:checked + span:before {
-			display: block;
-			text-align: center;
-			line-height: 16px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			font-family: 'Glyphicons Halflings';
-			content: "\e013";
-			font-size: 70%;
-		}
-	}
+  label {
+    font-weight: normal;
+  }
+  label input[type=checkbox] {
+    display: none;
+    & + span {
+      height: 18px;
+      width: 18px;
+      border: 1px solid $form-grid-color;
+      color: $form-icon-color;
+      background: $form-background-color;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      top: 1px;
+      margin-right: 10px;
+    }
+    &:checked + span:before {
+      display: block;
+      text-align: center;
+      line-height: 16px;
+      position: absolute;
+      top: 0;
+      left: 1px;
+      right: 0;
+      bottom: 0;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      content: "\f00c";
+      font-size: 70%;
+    }
+  }
 }
 
 .radio-no-bootstrap, .radio {
-
-	label {
-		font-weight: normal;
-	}
-
-	label input[type=radio] {
-		display: none;
-		& + span {
-			height: 18px;
-			width: 18px;
-			border: 1px solid $form-grid-color;
-			color: $form-icon-color;
-			background: $form-background-color;
-			-moz-border-radius: 50%;
-			-webkit-border-radius: 50%;
-			border-radius: 50%;
-			display: inline-block;
-			vertical-align: top;
-			position: relative;
-			top: 1px;
-			margin-right: 10px;
-		}
-		&:checked + span:before {
-			display: block;
-			text-align: center;
-			line-height: 18px;
-			position: absolute;
-			top: -3px;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			font-family: 'Glyphicons Halflings';
-			content: "\25cf";
-			font-size: 110%;
-		}
-	}
+  label {
+    font-weight: normal;
+  }
+  label input[type=radio] {
+    display: none;
+    & + span {
+      height: 18px;
+      width: 18px;
+      border: 1px solid $form-grid-color;
+      color: $form-icon-color;
+      background: $form-background-color;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      top: 1px;
+      margin-right: 10px;
+    }
+    &:checked + span:before {
+      display: block;
+      text-align: center;
+      line-height: 18px;
+      position: absolute;
+      top: -1px;
+      left: 1px;
+      right: 0;
+      bottom: 0;
+      font-family: 'Font Awesome 5 Free';
+      content: "\25cf";
+      font-size: 110%;
+    }
+  }
 }
 
 /*****************************************************************************/
