@@ -23,3 +23,20 @@
 		}
 	}
 }
+
+.panel-concept {
+	border: 1px dashed darken($panel-grid-color, 10%);
+	> a.btn {
+		padding: 15px;
+		border: none;
+		display: block;
+		background: transparent;
+		&:hover, &:focus {
+			color: white;
+			background-color: lighten($panel-background-color, 5%);
+		}
+		&:active, &.active {
+			box-shadow: none;
+		}
+	}
+}
