@@ -61,6 +61,8 @@ cs:
     shown: zobrazeno
     nesting: zanoření
     drop_file_here: "Sem přetáhněte soubor nebo klikněte pro vložení souboru přes dialogové okno."
+    remove_file: "smazat soubor"
+    cancel_upload: "zrušit nahrávání"
     page: stránka
     file: soubor
     more: více
